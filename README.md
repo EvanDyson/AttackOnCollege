@@ -10,4 +10,6 @@ Our goal is to create software to improve the experience and motivation of colle
 
 The website will track achievements that users decide they want to work towards in their education.
 
-education based lvluplife site https://lvluplife.com/
+Our ambition is to feature some form of local leaderboard showing off recent achievements earned by users, inspiring competition among peers. 
+
+Inspiration: https://lvluplife.com/
