@@ -8,4 +8,6 @@
 
 Our goal is to create software to improve the experience and motivation of college students. Our website will allow students to create a profile, and input specifics about their college. 
 
+The website will track achievements that users decide they want to work towards in their education.
+
 education based lvluplife site https://lvluplife.com/
