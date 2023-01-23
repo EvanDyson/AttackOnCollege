@@ -8,7 +8,7 @@
 
 Our goal is to create software to improve the experience and motivation of college students. Our website will allow students to create a profile, and input specifics about their college. 
 
-The website will track achievements that users decide they want to work towards in their education.
+The website will track achievements that users decide they want to work towards in their education. Each achievement will earn the users a certain amount experience (XP) points which will go toward their levels. The levels and experience points will be used to track positions in leaderboards. 
 
 Our ambition is to feature some form of local leaderboard showing off recent achievements earned by users, inspiring competition among peers. 
 
