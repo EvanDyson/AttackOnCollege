@@ -1,15 +1,11 @@
-# CEN3031-Project
-## Welcome to ... insert name here....
-### Developed by Pierce Casey, Evan Dyson, Michael Hoctor, Sara Osmanovic
+# Welcome to Attack on College, our CEN3031 project
 
-Working on the front end will be Evan Dyson and Michael Hoctor. 
+## Developed by Pierce Casey, Evan Dyson, Michael Hoctor, Sara Osmanovic
 
-Working on the back end will be Pierce Casey and Sara Osmanovic. 
+*Working on the front end will be Evan Dyson and Michael Hoctor.*
 
-Our goal is to ....
+*Working on the back end will be Pierce Casey and Sara Osmanovic.*
 
-Ideas
-1. Game? probably not due to TA recommendation
-2. Education chat service / quiz service
-3. Spoiler blocker plug in
-4. Slack bot
+Our goal is to create software to improve the experience and motivation of college students. Our website will allow students to create a profile, and input specifics about their college. 
+
+education based lvluplife site https://lvluplife.com/
