@@ -30,6 +30,7 @@ func GetUser(context *gin.Context) {
 
 	// Clear password stored in user not to reveal hashes of users passwords in the case of a potential attack
 	user.Password = "Hidden"
+	user.Token = ""
 	// Send a response containing all the information about the user
 	context.JSON(http.StatusOK, user)
 }
@@ -61,6 +62,7 @@ func EditUser(context *gin.Context) {
 
 	database.UserDB.Save(&user)
 	user.Password = "Hidden"
+	user.Token = ""
 	context.JSON(http.StatusAccepted, user)
 }
 

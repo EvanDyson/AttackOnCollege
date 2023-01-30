@@ -62,6 +62,7 @@ func GetUsers(context *gin.Context) {
 	// No password hashes are actually sent
 	for _, user := range users {
 		user.Password = "Hidden"
+		user.Token = ""
 	}
 	context.IndentedJSON(http.StatusAccepted, users)
 }
