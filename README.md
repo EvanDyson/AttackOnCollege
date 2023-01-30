@@ -12,4 +12,10 @@ The website will track achievements that users decide they want to work towards 
 
 Our ambition is to feature some form of local leaderboard showing off recent achievements earned by users, inspiring competition among peers. 
 
+First User Stories
+
+as a user, I want to be able to save my achievement progress, so that I can track my achievements effectively
+
+as a user, I want to be able to earn achievements for each course, to track my progress throughout the semester
+
 Inspiration: https://lvluplife.com/
