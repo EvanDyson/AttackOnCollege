@@ -74,7 +74,7 @@ func CompleteAssignment(c *gin.Context) {
 	}
 
 	var request = struct {
-		AssignmentID int `json:"assignment"`
+		AssignmentID int     `json:"assignment"`
 		PointsEarned float32 `json:"ptsEarned"`
 	}{}
 	if err := c.ShouldBindJSON(&request); err != nil {
@@ -96,9 +96,14 @@ func CompleteAssignment(c *gin.Context) {
 	}
 	assignment.IsDone = true
 	assignment.CalculateXP()
-	database.AchievementDB.Save(&assignment)
+	database.AssignmentDB.Save(&assignment)
 	user.ExperiencePoints += assignment.ExperiencePoints
+	user.CompletedAssignments++
+	if user.CompletedAssignments == 1 {
+		GetAchievement(&user, "First Blood")
+	}
 	database.UserDB.Save(&user)
 	c.JSON(http.StatusAccepted, "Assignment completed! Congratulations!")
 	// Add function that checks if this is first completed assignment and send an achievement for it
+
 }
