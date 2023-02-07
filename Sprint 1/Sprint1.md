@@ -20,6 +20,18 @@ Currently, gin-gonic/gin package is used instead of gorilla/mux, rs/cors, net/ht
 
 # Back-end progress
 
+## 02/06
+
+The following changes have been made to the AttackOnCollege_v0.0.1/src code: 
+
+Created an achievement controller that will manage the delegation of achievements to users who earn them. When the conditions of the achievement are met, the controller finds the achievement in the given database with the string passed into the function, along with a reference to the user who earned it. The GetAchievement function appends the achievement ID code to the achievement slice that each user struct contains. 
+
+The first achievement implemented will be given when the user fully completes their first course, and it is titled “First Blood.” This can be changed to fit the flavor or style of the project that we eventually solidify.  
+
+### Future Functionality 
+
+The achievements earned by each user will have to be placed in the database before the users earn them, either through SQL directly or through REST. In addition, it must be determined whether the conditions for each achievement will be hard coded into the different controllers, such as assignment and course, or whether the conditions will be periodically checked by the user itself. 
+
 ## 01/30
 
 The AttackOnCollege_v0.0.1/src directory contains several parts of back-end functionality. So far, the following properties are implemented:
