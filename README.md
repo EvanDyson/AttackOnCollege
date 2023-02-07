@@ -1,21 +1,27 @@
-# Welcome to Attack on College, our CEN3031 project
+# AttackOnCollege
 
-## Developed by Pierce Casey, Evan Dyson, Michael Hoctor, Sara Osmanovic
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
-*Working on the front end will be Evan Dyson and Michael Hoctor.*
+## Development server
 
-*Working on the back end will be Pierce Casey and Sara Osmanovic.*
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Our goal is to create software to improve the experience and motivation of college students. Our website will allow students to create a profile, and input specifics about their college. 
+## Code scaffolding
 
-The website will track achievements that users decide they want to work towards in their education. Each achievement will earn the users a certain amount experience (XP) points which will go toward their levels. The levels and experience points will be used to track positions in leaderboards. 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-Our ambition is to feature some form of local leaderboard showing off recent achievements earned by users, inspiring competition among peers. 
+## Build
 
-First User Stories
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-as a user, I want to be able to save my achievement progress, so that I can track my achievements effectively
+## Running unit tests
 
-as a user, I want to be able to earn achievements for each course, to track my progress throughout the semester
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Inspiration: https://lvluplife.com/
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
