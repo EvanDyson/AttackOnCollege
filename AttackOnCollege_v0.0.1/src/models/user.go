@@ -19,10 +19,11 @@ type User struct {
 	Email     string `json:"email" gorm:"unique"`
 
 	// Profile fields
-	Level            int `json:"level"`
-	ExperiencePoints int `json:"expPts"`
-	Achievements pq.Int64Array `json:"achievements" gorm:"type:integer[]"`
-	CurrentCourse string `json:"currCourse"`
+	Level                int           `json:"level"`
+	ExperiencePoints     int           `json:"expPts"`
+	Achievements         pq.Int64Array `json:"achievements" gorm:"type:integer[]"`
+	CurrentCourse        string        `json:"currCourse"`
+	CompletedAssignments int
 }
 
 func (user *User) HashPassword(password string) error {
