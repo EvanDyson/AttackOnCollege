@@ -1,0 +1,11 @@
+@host = localhost:1337
+// Complete Assignment Test
+POST https://{{host}}/users/secured/completeAssignment HTTP/1.1
+content-type: application/json
+Authorization: 
+
+{
+    "assignment": 1,
+    "ptsEarned": 9
+}
+###

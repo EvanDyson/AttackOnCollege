@@ -1,0 +1,6 @@
+@host = localhost:8080
+
+GET http://{{host}}/users
+content-type: application/json
+
+###
