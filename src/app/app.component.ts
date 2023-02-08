@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AttackOnCollege';
+  ImagePath: string;
+  BImagePath: string;
+  constructor() {
+    //image location
+    this.ImagePath = '/assets/Images/aoc.jpeg'
+    this.BImagePath = '/assets/Images/aoc.jpeg'
+  }
 }
