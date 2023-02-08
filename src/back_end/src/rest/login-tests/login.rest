@@ -1,0 +1,10 @@
+@host = localhost:3001
+// Register User
+POST https://{{host}}/users/token HTTP/1.1
+content-type: application/json
+    
+{
+    "email": "b.gator@ufl.edu",
+    "password": "IDon'tKnowHonestly"
+}
+###
