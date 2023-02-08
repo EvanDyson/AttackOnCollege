@@ -8,21 +8,45 @@ Index landing page, user profile page, registration and login pages to be built
 
 ### Back-end
 
-Structs for User, Course, Assignment
+Structs for User, Course, Assignment - created with little to no issues. The biggest issue was figuring out how to link the lists of achievements and assignments with the user because SQL does not allow custom objects as fields in the database. Solved it using lists of IDs instead.
 
-REST api functions for user registration, login, profile
+REST api functions for user registration, login, profile - created and used for testing. These are used for showcasing the functionality in the video.
 
-Gorm Databases need to be set up for Users, Assignments, etc. 
+Gorm Databases need to be set up for Users, Assignments, etc. - All databases are set up and have at least one element in them.
 
-Currently, gin-gonic/gin package is used instead of gorilla/mux, rs/cors, net/http packages.
+Currently, gin-gonic/gin package is used instead of gorilla/mux and net/http packages.
+
+Connecting the website URL (https://EvanDyson.github.io) to the server - not yet achieved. We haven't been able to find good resources to help with this, so the goal will be pushed to the next Sprint
 
 ### User stories:
 
 # Back-end progress
 
+## 02/07
+
+Changed AttackOnCollege_v0.0.1 directory to back_end. This was easier to keep track of with Angular documentation. Several more controllers added to the functionality:
+
+### Achievement constructor and accessor functions
+
+Functions used for creating and accessing achievements were created. These will potentially be used later as controllers employed by an Administrator user instead of only being accessible from the back end. These will NOT be accessible to regular users and visitors of the website, but for now, no authentication and restriction is implemented. 
+
+Two more functions (modifier and destructor) need to be implemented for full control over achievements.
+
+## 02/06
+
+The following changes have been made to the back_end/src code: 
+
+Created an achievement controller that will manage the delegation of achievements to users who earn them. When the conditions of the achievement are met, the controller finds the achievement in the given database with the string passed into the function, along with a reference to the user who earned it. The GetAchievement function appends the achievement ID code to the achievement slice that each user struct contains. 
+
+The first achievement implemented will be given when the user fully completes their first course, and it is titled “First Blood.” This can be changed to fit the flavor or style of the project that we eventually solidify.  
+
+### Future Functionality 
+
+The achievements earned by each user will have to be placed in the database before the users earn them, either through SQL directly or through REST. In addition, it must be determined whether the conditions for each achievement will be hard coded into the different controllers, such as assignment and course, or whether the conditions will be periodically checked by the user itself. 
+
 ## 01/30
 
-The AttackOnCollege_v0.0.1/src directory contains several parts of back-end functionality. So far, the following properties are implemented:
+The back_end/src directory contains several parts of back-end functionality. So far, the following properties are implemented:
 
 ### User Struct and Database
 

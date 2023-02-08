@@ -1,0 +1,13 @@
+@host = localhost:1337
+// Register User
+POST https://{{host}}/users/secured/addAssignment HTTP/1.1
+content-type: application/json
+Authorization: 
+
+{
+    "title": "Test",
+    "description": "This is a test assignment",
+    "numPts": 10,
+    "gradeWeight": 0.1
+}
+###

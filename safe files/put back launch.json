@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "AttackOnCollege_v0.0.1/src"
+            "program": "back_end/src"
         }
     ]
 }

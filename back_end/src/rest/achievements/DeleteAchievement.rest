@@ -1,0 +1,10 @@
+@host = localhost:1337
+
+DELETE https://{{host}}/achievements/deleteAchievement
+Content-Type: "application/json"
+
+{
+    "title":""
+}
+
+###

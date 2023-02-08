@@ -1,0 +1,12 @@
+@host = localhost:1337
+
+POST https://{{host}}/achievements/editAchievment
+Content-Type: "application/json"
+
+{
+    "title":"",
+    "description":"",
+    "expPts":0
+}
+
+###
