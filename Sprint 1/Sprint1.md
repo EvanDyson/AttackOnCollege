@@ -3,20 +3,30 @@
 ## Plan for Sprint 1
 
 ### Front-end 
+###### [Front-end Video](https://youtu.be/sWyRXjkYW38)
 
-Index landing page, user profile page, registration and login pages to be built
+* Index landing page, user admin page, registration and login pages all created with some issues figuring out angular version compatability, as well as pathing since most tutorials are outdated.
+
+* Linking between the landing page and the log in / registration page went very badly as many errors were created once the two projects were together. This issue will have to be dealt with very early in sprint 2.
+
+* There are plans to remake the login / registration page to be more user friendly as the current page has all the fields displayed at once and the frontend team does not like this.
+
+* We anticipate to link to the backend sometime within sprint 2 to start implementing data storage with the users.
+
+* After linking the landing page and login page with the backend, we will start progress on creating all other website components and other additional pages.
 
 ### Back-end
+###### [Back-end Video](https://youtu.be/0JOI_tsP8OI)
 
-Structs for User, Course, Assignment - created with little to no issues. The biggest issue was figuring out how to link the lists of achievements and assignments with the user because SQL does not allow custom objects as fields in the database. Solved it using lists of IDs instead.
+* Structs for User, Course, Assignment - created with little to no issues. The biggest issue was figuring out how to link the lists of achievements and assignments with the user because SQL does not allow custom objects as fields in the database. Solved it using lists of IDs instead.
 
-REST api functions for user registration, login, profile - created and used for testing. These are used for showcasing the functionality in the video.
+* REST api functions for user registration, login, profile - created and used for testing. These are used for showcasing the functionality in the video.
 
-Gorm Databases need to be set up for Users, Assignments, etc. - All databases are set up and have at least one element in them.
+* Gorm Databases need to be set up for Users, Assignments, etc. - All databases are set up and have at least one element in them.
 
-Currently, gin-gonic/gin package is used instead of gorilla/mux and net/http packages.
+* Currently, gin-gonic/gin package is used instead of gorilla/mux and net/http packages.
 
-Connecting the website URL (https://EvanDyson.github.io) to the server - not yet achieved. We haven't been able to find good resources to help with this, so the goal will be pushed to the next Sprint
+* Connecting the website [URL](https://EvanDyson.github.io) to the server - not yet achieved. We haven't been able to find good resources to help with this, so the goal will be pushed to the next Sprint
 
 ### User stories:
  
@@ -39,8 +49,17 @@ Connecting the website URL (https://EvanDyson.github.io) to the server - not yet
     
     As a back-end developer, I want to operate my project with an administrative account so that I can manipulate aspects of my project directly
     
-    
-    
+### Issues    
+The team decided to issue our "issues" as user stories in the issues tab on github.
+Of the issues we have completed **5 out of 9** of the issues we came up with.
+The issues we were unable to complete were not being able to link the front end sites, this was due to compatability errors and to solve this we will be redesigning the log in page.
+The other issues that were not completed were all related to the project not being far enough along to have it developed. These include the leaderboard and achievements.
+
+Following includes a list of the incomplete issues:
+1. As a Front-End developer I want to link the web pages, So that users can navigate between them
+2. As a page visitor, I want to see the leaderboard, to see what kind of competition the website offers.
+3. As a user, I want to be able to earn achievements for each course, to track my progress throughout the semester
+4. As a user, I want to be able to save my achievement progress, so that I can track my achievements effectively
 
 # Back-end progress
 
@@ -113,11 +132,11 @@ So far, only the basic fields of the achievement struct are made such as title, 
 
 ### Server setup
 
-The server is set up with the gin-gonic/gin (https://github.com/gin-gonic/gin) package that acts as a router. I have been experimenting with the TLS encryption of servers, so the server.go file also routes all http requests to port 8080 to the https server on port 1337. In that spirit, all the getter functions do not return the password hash of the user profiles. All passwords are replaced with "Hidden" before being sent in the reply.
+The server is set up with the [gin-gonic/gin package](https://github.com/gin-gonic/gin) that acts as a router. I have been experimenting with the TLS encryption of servers, so the server.go file also routes all http requests to port 8080 to the https server on port 1337. In that spirit, all the getter functions do not return the password hash of the user profiles. All passwords are replaced with "Hidden" before being sent in the reply.
 
 ### Databases
 
-Databases are set up using GORM (https://gorm.io/gorm) package for GoLang, and there are 4 so far. They are all local, and I'm still looking for ways to decentralize that, although it might be pointless for the low scale project such as this one.
+Databases are set up using [GORM package](https://gorm.io/gorm) for GoLang, and there are 4 so far. They are all local, and I'm still looking for ways to decentralize that, although it might be pointless for the low scale project such as this one.
 
 ### Controllers
 
