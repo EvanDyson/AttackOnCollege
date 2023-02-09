@@ -20,7 +20,7 @@ Connecting the website URL (https://EvanDyson.github.io) to the server - not yet
 
 ### User stories:
  
- As a Front-End developer I want to link the web pages, So that users can navigate between them
+    As a Front-End developer I want to link the web pages, So that users can navigate between them
     
     As the front end developer, I want to create easily manipulate 
     componenets so that later on in deveopment when creating other pages I can then use and modify previous components easily
