@@ -19,6 +19,28 @@ Currently, gin-gonic/gin package is used instead of gorilla/mux and net/http pac
 Connecting the website URL (https://EvanDyson.github.io) to the server - not yet achieved. We haven't been able to find good resources to help with this, so the goal will be pushed to the next Sprint
 
 ### User stories:
+ 
+ As a Front-End developer I want to link the web pages, So that users can navigate between them
+    
+    As the front end developer, I want to create easily manipulate 
+    componenets so that later on in deveopment when creating other pages I can then use and modify previous components easily
+    
+    As a user, I want a very clear and well mapped front page, so that I can clearly see everything available and have a good user experience instead of being overwhelmed with a messy website
+    
+    As a user, I want to be able to fill in my name, courses, school and other personal information, So that I can have a detailed profile to better interact on the website.
+    
+    As a page visitor, I want to see the leaderboard, to see what kind of competition the website offers.
+    
+    As a page visitor, I want to be able to create profile, to start tracking my progress in courses. 
+    
+    As a user, I want to be able to earn achievements for each course, to track my progress throughout the semester
+    
+    As a user, I want to be able to save my achievement progress, so that I can track my achievements effectively
+    
+    As a back-end developer, I want to operate my project with an administrative account so that I can manipulate aspects of my project directly
+    
+    
+    
 
 # Back-end progress
 
@@ -116,10 +138,10 @@ The REST plugin for VS Code is used for testing and sending requests to the serv
     go get -u golang.org/x/crypto
 
     go get -u github.com/golang-jwt/jwt
-   Front End User Stories
-    As a Front-End developer I want to link the web pages, So that users can navigate between them
-    As the front end developer, I want to create easily manipulate 
-    componenets so that later on in deveopment when creating other pages I can then use and modify previous components easily
-    As a user, I want a very clear and well mapped front page, so that I can clearly see everything available and have a good user experience instead of being overwhelmed with a messy website
+    
+  
+   
+   
+    
     
     
