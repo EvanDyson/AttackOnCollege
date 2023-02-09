@@ -51,8 +51,11 @@
     
 ### Issues    
 The team decided to issue our "issues" as user stories in the issues tab on github.
+
 Of the issues we have completed **5 out of 9** of the issues we came up with.
+
 The issues we were unable to complete were not being able to link the front end sites, this was due to compatability errors and to solve this we will be redesigning the log in page.
+
 The other issues that were not completed were all related to the project not being far enough along to have it developed. These include the leaderboard and achievements.
 
 Following includes a list of the incomplete issues:
