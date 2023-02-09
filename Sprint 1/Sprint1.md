@@ -116,3 +116,10 @@ The REST plugin for VS Code is used for testing and sending requests to the serv
     go get -u golang.org/x/crypto
 
     go get -u github.com/golang-jwt/jwt
+   Front End User Stories
+    As a Front-End developer I want to link the web pages, So that users can navigate between them
+    As the front end developer, I want to create easily manipulate 
+    componenets so that later on in deveopment when creating other pages I can then use and modify previous components easily
+    As a user, I want a very clear and well mapped front page, so that I can clearly see everything available and have a good user experience instead of being overwhelmed with a messy website
+    
+    
