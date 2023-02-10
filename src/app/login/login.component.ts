@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -6,5 +7,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  isLinear = true;
+  firstFormGroup: FormGroup;
 
+  secondFormGroup: FormGroup;
+
+  
+
+  constructor(private _formBuilder: FormBuilder) {}
+
+  
+
+  ngOnInit() {
+
+    this.firstFormGroup = this._formBuilder.group({
+
+      username: ['', Validators.required],
+
+      password: ['', Validators.required]
+
+    });
+
+
+  }
+
+  
+
+  submit(){
+
+      console.log(this.firstFormGroup.value);
+
+      console.log(this.secondFormGroup.value);
+
+  }
 }
