@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-register',
@@ -9,42 +10,52 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent {
   isLinear = true;
   firstFormGroup: FormGroup;
-
+  
   secondFormGroup: FormGroup;
-
   
-
   constructor(private _formBuilder: FormBuilder) {}
-
   
-
   ngOnInit() {
-
+  
     this.firstFormGroup = this._formBuilder.group({
+  
+      firstName: ['', Validators.required],
 
-      name: ['', Validators.required],
-
-      description: ['', Validators.required]
-
+      lastName: ['', Validators.required],
+  
+      college: ['', Validators.required]
+  
     });
-
+  
     this.secondFormGroup = this._formBuilder.group({
-
-      amount: ['', Validators.required],
-
-      stock: ['', Validators.required]
-
+      
+      datepicker: ['', Validators.required],
+  
+      major: ['', Validators.required],
+  
+      email: ['', [Validators.required, Validators.email]]
+  
     });
-
+  
   }
 
-  
+  /* NEED TO ADD ERROR MESSAGES TO THE FIELDS
+  getErrorMessage() {
+    if (this.firstFormGroup.hasError('required')) {
+      return 'You must enter a value';
+    }
+    if (this.secondFormGroup.hasError('required')) {
+      return 'You must enter a value';
+    }
+    return this.secondFormGroup.hasError('email') ? 'Not a valid email' : '';
+    //return this.secondFormGroup.hasError('email') ? 'Not a valid email' : '';
+  }
+  */
 
   submit(){
-
-      console.log(this.firstFormGroup.value);
-
-      console.log(this.secondFormGroup.value);
-
+  
+    console.log(this.firstFormGroup.value);
+  
+    console.log(this.secondFormGroup.value);
   }
 }
