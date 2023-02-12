@@ -10,14 +10,14 @@
 
     <form [formGroup]="firstFormGroup">
 
-      <ng-template matStepLabel>Basic Details</ng-template>
+      <ng-template matStepLabel>General information</ng-template>
 
-      <div class="Name">
+      <div class="name">
       <mat-form-field>
 
         <mat-label>First name</mat-label>
 
-        <input matInput placeholder="First name" formControlName="firstName" required>
+        <input matInput placeholder="First name" formControlName="firstName" required >
 
       </mat-form-field>
 
@@ -30,20 +30,56 @@
         <input matInput placeholder="Last name" formControlName="lastName" required>
 
       </mat-form-field>
+
       </div>
-      
+
       <br/>
 
+      <div class="email">
       <mat-form-field>
 
-        <mat-label>College</mat-label>
+        <mat-label>email@example.com</mat-label>
 
-        <textarea matInput placeholder="College" formControlName="college" required>
-
-        </textarea>
+        <input matInput placeholder="email@example.com" formControlName="email" required>
 
       </mat-form-field>
 
+      </div>
+
+      <br/>
+
+      <div class="username">
+      <mat-form-field>
+
+        <mat-label>Username</mat-label>
+
+        <input matInput placeholder="Username" formControlName="username" required>
+
+      </mat-form-field>
+      </div>
+      <br/>
+
+      <div class="password">
+      <mat-form-field>
+
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <mat-label>Confirm password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+
+      </mat-form-field>
+    </div>
       <div>
 
         <button mat-button matStepperNext>Next</button>
@@ -59,7 +95,8 @@
     <form [formGroup]="secondFormGroup">
 
       <ng-template matStepLabel>Personal information</ng-template>
-
+        
+      <div class="secondForm">
       <mat-form-field>
 
         <mat-label>Date of Birth</mat-label>
@@ -70,9 +107,22 @@
         <mat-datepicker #picker></mat-datepicker>
         
       </mat-form-field>
-      
+    </div>
       <br/>
-      
+
+      <div class="secondForm">
+      <mat-form-field>
+
+        <mat-label>College</mat-label>
+
+        <input matInput placeholder="College" formControlName="college" required>
+        
+      </mat-form-field>
+    </div>
+
+      <br/>
+
+      <div class="secondForm">
       <mat-form-field>
 
         <mat-label>Major</mat-label>
@@ -80,16 +130,7 @@
         <input matInput placeholder="Major" formControlName="major" required>
 
       </mat-form-field>
-
-      <br/>
-
-      <mat-form-field>
-
-        <mat-label>Email</mat-label>
-
-        <input matInput placeholder="email@example.com" formControlName="email" required>
-      </mat-form-field>
-
+    </div>
       <br/>
 
       <div>
@@ -106,26 +147,20 @@
 
   <mat-step>
 
-    <ng-template matStepLabel>Done</ng-template>
+    <ng-template matStepLabel>Confirm</ng-template>
 
-    <p>You are now done.</p>
+    <p>Please confirm all of your information.</p>
 
   
 
     <mat-list>
-
-	 <mat-list-item> <strong>First name:</strong> {{ this.firstFormGroup.value.firstName }}</mat-list-item>
-   
-   <mat-list-item> <strong>Last name:</strong> {{ this.firstFormGroup.value.lastName }}</mat-list-item>
-
-	 <mat-list-item> <strong>College:</strong> {{ this.firstFormGroup.value.college }}</mat-list-item>
-   
-   <mat-list-item> <strong>Date of Birth:</strong> {{ this.secondFormGroup.value.datepicker }}</mat-list-item>
-
-	 <mat-list-item> <strong>Major:</strong> {{ this.secondFormGroup.value.major }}</mat-list-item>
-
-	 <mat-list-item> <strong>Email:</strong> {{ this.secondFormGroup.value.email }}</mat-list-item>
-
+	<mat-list-item> <strong>First name:</strong> {{ this.firstFormGroup.value.firstName }}</mat-list-item>
+    <mat-list-item> <strong>Last name:</strong> {{ this.firstFormGroup.value.lastName }}</mat-list-item>
+	<mat-list-item> <strong>Email:</strong> {{ this.firstFormGroup.value.email }}</mat-list-item>
+	<mat-list-item> <strong>Username:</strong> {{ this.firstFormGroup.value.username }}</mat-list-item>
+    <mat-list-item> <strong>Date of Birth:</strong> {{ this.secondFormGroup.value.datepicker }}</mat-list-item>
+	<mat-list-item> <strong>College:</strong> {{ this.secondFormGroup.value.college }}</mat-list-item>
+	<mat-list-item> <strong>Major:</strong> {{ this.secondFormGroup.value.major }}</mat-list-item>
 	</mat-list>
 
   

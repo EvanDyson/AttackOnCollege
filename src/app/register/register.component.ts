@@ -8,7 +8,8 @@ import { MatDatepicker } from '@angular/material/datepicker';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  isLinear = true;
+    isLinear = true;
+    hide = true;
   firstFormGroup: FormGroup;
   
   secondFormGroup: FormGroup;
@@ -17,13 +18,23 @@ export class RegisterComponent {
   
   ngOnInit() {
   
+      // add pop ups for all error fields that says what the errors is
     this.firstFormGroup = this._formBuilder.group({
   
       firstName: ['', Validators.required],
 
       lastName: ['', Validators.required],
   
-      college: ['', Validators.required]
+      username: ['', Validators.required],
+      
+      // add make proper validator message pop up
+      email: ['', [Validators.required, Validators.email]],
+      
+      // add password validation must be at least 6 chars long
+      password: ['', [Validators.required, Validators.minLength]],
+    
+      // add function to make confirm must match password
+      confirmPassword: ['']
   
     });
   
@@ -31,9 +42,11 @@ export class RegisterComponent {
       
       datepicker: ['', Validators.required],
   
+        //add drop down menu to major and college for easy selection
+        //also add 2 files for a bunch of majors and bunch of colleges for easy insertion to the drop down
       major: ['', Validators.required],
   
-      email: ['', [Validators.required, Validators.email]]
+      college: ['', Validators.required]
   
     });
   
