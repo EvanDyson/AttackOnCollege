@@ -8,7 +8,7 @@ import (
 func main() {
 	// Initialize database
 	// Change paths once we start running the server with npm
-	database.Connect("./database/")
+	database.Connect("./back_end/src/database/")
 	database.Migrate()
 
 	// Initialize router
