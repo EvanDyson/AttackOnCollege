@@ -27,7 +27,7 @@ func StartServer() {
 	})
 
 	// Change paths once we start running the server with npm
-	go r.RunTLS( /*":"+os.Getenv("PORT")*/ ":1337", "./server/auth/cert/cacert.crt", "./server/auth/cert/ca.key")
+	go r.RunTLS( /*":"+os.Getenv("PORT")*/ ":1337", "./back_end/src/server/auth/cert/cacert.crt", "./back_end/src/server/auth/cert/ca.key")
 	httpRouter.Run(":8080")
 
 }
@@ -57,7 +57,7 @@ func initRouter() *gin.Engine {
 		}
 		users.GET("/", controllers.GetUsers)
 	}
-	//Achievment group 
+	//Achievment group
 	achievements := r.Group("/achievements")
 	{
 		achievements.POST("/createAchievement", controllers.AddAchievement)
