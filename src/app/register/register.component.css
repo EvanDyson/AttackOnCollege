@@ -4,13 +4,19 @@
   }
 
 .password mat-form-field + mat-form-field {
-  margin-left: 10px;
+    margin-left: 10px;
+    margin-bottom: 60px;
+}
+
+.email mat-form-field + mat-form-field {
+    margin-left: 10px;
+    margin-bottom: 60px;
 }
 
 .username mat-form-field + mat-form-field {
     margin-left: 10px;
-  }
+}
 
-  .secondForm mat-form-field + mat-form-field {
+.secondForm mat-form-field + mat-form-field {
     margin-left: 10px;
-  }
+}

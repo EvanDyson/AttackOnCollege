@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, FormBuilder, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 
 @Component({
@@ -30,11 +30,10 @@ export class RegisterComponent {
       // add make proper validator message pop up
       email: ['', [Validators.required, Validators.email]],
       
-      // add password validation must be at least 6 chars long
-      password: ['', [Validators.required, Validators.minLength]],
+      password: ['', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]],
     
       // add function to make confirm must match password
-      confirmPassword: ['']
+      confirmPassword: ['', Validators.required]
   
     });
   
@@ -61,7 +60,6 @@ export class RegisterComponent {
       return 'You must enter a value';
     }
     return this.secondFormGroup.hasError('email') ? 'Not a valid email' : '';
-    //return this.secondFormGroup.hasError('email') ? 'Not a valid email' : '';
   }
   */
 
