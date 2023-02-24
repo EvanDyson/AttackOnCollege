@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -15,7 +16,8 @@ import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatIconModule} from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -26,8 +28,10 @@ import { MatIconModule} from '@angular/material/icon'
     AdminPageComponent
   ],
   imports: [
+      RouterModule,
+      AppRoutingModule,
+      CommonModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MatStepperModule,
     FormsModule,
