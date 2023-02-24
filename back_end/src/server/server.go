@@ -3,6 +3,7 @@ package server
 import (
 	"CEN3031-Project/back_end/src/controllers"
 	"CEN3031-Project/back_end/src/middlewares"
+	"os"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -27,7 +28,7 @@ func StartServer() {
 	})
 
 	// Change paths once we start running the server with npm
-	go r.RunTLS( /*":"+os.Getenv("PORT")*/ ":1337", "./back_end/src/server/auth/cert/cacert.crt", "./back_end/src/server/auth/cert/ca.key")
+	go r.RunTLS(":"+os.Getenv("PORT"), "./back_end/src/server/auth/cert/cacert.crt", "./back_end/src/server/auth/cert/ca.key")
 	httpRouter.Run(":8080")
 
 }
