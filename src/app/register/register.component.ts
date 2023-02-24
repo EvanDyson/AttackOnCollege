@@ -46,7 +46,6 @@ export class RegisterComponent {
       major: ['', Validators.required],
   
       college: ['', Validators.required]
-  
     });
   
   }
@@ -66,7 +65,17 @@ export class RegisterComponent {
   submit(){
   
     console.log(this.firstFormGroup.value);
-  
-    console.log(this.secondFormGroup.value);
+      
+      console.log(this.secondFormGroup.value);
+      
+      //this.http.post<any>();
+      /*
+        POST https://{{host}}/users/token HTTP/1.1
+        content-type: application/json
+        {
+            "email": "b.gator@ufl.edu",
+            "password": "IDon'tKnowHonestly"
+        }
+      */
   }
 }
