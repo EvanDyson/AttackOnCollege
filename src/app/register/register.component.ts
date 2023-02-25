@@ -18,28 +18,28 @@ export class RegisterComponent {
   
   ngOnInit() {
   
-      // add pop ups for all error fields that says what the errors is
     this.firstFormGroup = this._formBuilder.group({
   
-      firstName: ['', Validators.required],
+      firstName: new FormControl('', Validators.required),
 
-      lastName: ['', Validators.required],
+      lastName: new FormControl('', Validators.required),
   
-      username: ['', Validators.required],
+      // will need to add in a unique username checking function
+      username: new FormControl('', Validators.required),
       
-      // add make proper validator message pop up
-      email: ['', [Validators.required, Validators.email]],
+      email: new FormControl('', [Validators.required, Validators.email]),
       
-      password: ['', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]],
+      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]),
     
-      // add function to make confirm must match password
-      confirmPassword: ['', Validators.required]
+      confirmPassword: new FormControl('', Validators.required)
   
-    });
+    }
+    //, { validators: confirmPasswordValidator }
+    );
   
     this.secondFormGroup = this._formBuilder.group({
       
-      datepicker: ['', Validators.required],
+      dob: ['', Validators.required],
   
         //add drop down menu to major and college for easy selection
         //also add 2 files for a bunch of majors and bunch of colleges for easy insertion to the drop down
@@ -49,18 +49,6 @@ export class RegisterComponent {
     });
   
   }
-
-  /* NEED TO ADD ERROR MESSAGES TO THE FIELDS
-  getErrorMessage() {
-    if (this.firstFormGroup.hasError('required')) {
-      return 'You must enter a value';
-    }
-    if (this.secondFormGroup.hasError('required')) {
-      return 'You must enter a value';
-    }
-    return this.secondFormGroup.hasError('email') ? 'Not a valid email' : '';
-  }
-  */
 
   submit(){
   
@@ -79,3 +67,12 @@ export class RegisterComponent {
       */
   }
 }
+
+
+    // export const confirmPasswordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null =>
+    // {
+    //   const password = control.get('password');
+    //   const confirmPassword = control.get('confirmPassword');
+
+    //   return password && confirmPassword && password.value === confirmPassword.value ? { confirmPassword: true } : {confirmPassword: false};
+    // };
