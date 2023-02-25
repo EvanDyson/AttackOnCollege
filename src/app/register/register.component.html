@@ -1,5 +1,6 @@
 
 <body>
+  
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -131,7 +132,7 @@
     </div>
       <div>
 
-        <button mat-button matStepperNext>Next 1/3</button>
+        <button mat-button matStepperNext> <a class="btn btn-outline-primary my-2 my-sm-0">Next1/3</a></button>
 
       </div>
 
@@ -187,9 +188,9 @@
 
       <div>
 
-        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperPrevious><a class="btn btn-outline-primary my-2 my-sm-0">Back</a></button>
 
-        <button mat-button matStepperNext>Next 2/3</button>
+        <button mat-button matStepperNext><a class="btn btn-outline-primary my-2 my-sm-0">Next2/3</a></button>
 
       </div>
 
@@ -219,11 +220,11 @@
 
     <div>
 
-      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperPrevious><a class="btn btn-outline-primary my-2 my-sm-0">Back</a></button>
 
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="stepper.reset()"><a class="btn btn-outline-primary my-2 my-sm-0">Reset</a></button>
 
-      <button mat-button (click)="submit()">Submit</button>
+      <button mat-button (click)="submit()"><a class="btn btn-outline-primary my-2 my-sm-0">Submit</a></button>
 
     </div>
 
