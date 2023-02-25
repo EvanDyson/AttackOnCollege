@@ -1,5 +1,5 @@
 .first-section ul {
-    background-color: #F7F9FC;
+    background-color: white;
     border-radius: 8px;
     margin-top: 25px;
     padding: 30px 55px;
@@ -12,7 +12,7 @@
       margin-bottom: 8px;
     }
     ul {
-      background-color: #F7F9FC;
+      background-color: white;
       margin-top: 25px;
       padding: 30px 55px;
       border-radius: 8px;
