@@ -34,6 +34,7 @@ export class RegisterComponent {
       confirmPassword: new FormControl('', Validators.required)
   
     }
+    //, { validators: confirmPasswordValidator }
     );
   
     this.secondFormGroup = this._formBuilder.group({

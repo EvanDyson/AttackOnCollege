@@ -15,33 +15,7 @@ li {
     margin-right: 8px;
     width: 46px;
   }
-
-  form{
-    max-width: 400px;
-    margin: auto;
-  }
-  .user{
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-  .pass{
-    display: block;
-    margin-bottom: 15px;
-  }
-  button{
-    width: 100%;
-    border-radius: 20px;
-  }
-  .logo{
-    max-width: 250px;
-    margin: auto;
-    display: block;
-  } 
-  .page-wrap{
-    display: flex;
-    flex-direction: column;
-    min-height: 50vh;
-    align-items: center;
-    justify-content: center;
+  .loginField
+  {
+    margin-top: 20px;
   }

@@ -4,7 +4,7 @@
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="/assets/Images/aocblank.png" alt="aoc logo" />
+        <img src="/assets/Images/aoc.jpeg" alt="aoc logo" />
         AOC
       </a>
       <button
@@ -132,7 +132,7 @@
     </div>
       <div>
 
-        <button mat-button matStepperNext> <a class="btn btn-outline-primary my-2 my-sm-0">Next 1/3</a></button>
+        <button mat-button matStepperNext> <a class="btn btn-outline-primary my-2 my-sm-0">Next1/3</a></button>
 
       </div>
 
@@ -190,7 +190,7 @@
 
         <button mat-button matStepperPrevious><a class="btn btn-outline-primary my-2 my-sm-0">Back</a></button>
 
-        <button mat-button matStepperNext><a class="btn btn-outline-primary my-2 my-sm-0">Next 2/3</a></button>
+        <button mat-button matStepperNext><a class="btn btn-outline-primary my-2 my-sm-0">Next2/3</a></button>
 
       </div>
 
@@ -211,7 +211,7 @@
     <mat-list-item> <strong>Last name:</strong> {{ this.firstFormGroup.value.lastName }}</mat-list-item>
 	<mat-list-item> <strong>Email:</strong> {{ this.firstFormGroup.value.email }}</mat-list-item>
 	<mat-list-item> <strong>Username:</strong> {{ this.firstFormGroup.value.username }}</mat-list-item>
-    <mat-list-item> <strong>Date of Birth:</strong> {{ this.secondFormGroup.value.dob }}</mat-list-item>
+    <mat-list-item> <strong>Date of Birth:</strong> {{ this.secondFormGroup.value.datepicker }}</mat-list-item>
 	<mat-list-item> <strong>College:</strong> {{ this.secondFormGroup.value.college }}</mat-list-item>
 	<mat-list-item> <strong>Major:</strong> {{ this.secondFormGroup.value.major }}</mat-list-item>
 	</mat-list>
@@ -224,7 +224,7 @@
 
       <button mat-button (click)="stepper.reset()"><a class="btn btn-outline-primary my-2 my-sm-0">Reset</a></button>
 
-      <button mat-button (click)="submit()"><a class="btn btn-outline-primary my-2 my-sm-0">Submit 3/3</a></button>
+      <button mat-button (click)="submit()"><a class="btn btn-outline-primary my-2 my-sm-0">Submit</a></button>
 
     </div>
 

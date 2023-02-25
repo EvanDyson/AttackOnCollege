@@ -11,7 +11,7 @@ export class LandingPageComponent {
   BImagePath: string;
   constructor() {
     //image location
-    this.ImagePath = '../assets/Images/aocblank.png'
-    this.BImagePath = '../assets/Images/aocblank.png'
+    this.ImagePath = '../assets/Images/aoc.jpeg'
+    this.BImagePath = '../assets/Images/aoc.jpeg'
   }
 }
