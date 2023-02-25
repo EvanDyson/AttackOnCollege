@@ -2,7 +2,7 @@
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="/assets/Images/aoc.jpeg" alt="aoc logo" />
+        <img src="/assets/Images/aocblank.png" alt="aoc logo" />
         AOC
       </a>
       <button
@@ -44,20 +44,24 @@
     </div>
   </nav>
 </body>
-<body class="loginField">
-  <mat-form-field>
-    <mat-label>Username</mat-label>
 
-    <input matInput placeholder="Username" formControlName="username" required />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Password</mat-label>
 
-    <input
-      matInput
-      placeholder="Password"
-      formControlName="password"
-      required
-    />
-  </mat-form-field>
-</body>
+<div class="page-wrap">
+	<div class="conntainer">
+		<img src="/assets/Images/aocblank.png" alt="aoc logo" class="logo" />
+		<form [formGroup]="loginForm">
+
+			<mat-form-field class="user">
+				<input matInput placeholder="Username" formControlName="username" required>
+                <mat-error *ngIf="loginForm.get('username')?.hasError('required')">This field is required</mat-error>
+			</mat-form-field>
+
+			<mat-form-field class="pass">
+				<input matInput placeholder="Password" formControlName="password" required>
+                <mat-error *ngIf="loginForm.get('password')?.hasError('required')">This field is required</mat-error>
+			</mat-form-field>
+
+			<button [disabled]="!loginForm.valid" mat-raised-button color="primary" (click)="login()">Login</button>   
+        </form>
+	</div>
+</div>
