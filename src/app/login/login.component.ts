@@ -1,43 +1,31 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder,FormGroup, FormControl, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  isLinear = true;
-  firstFormGroup: FormGroup;
-
-  secondFormGroup: FormGroup;
-
-  
-
-  constructor(private _formBuilder: FormBuilder) {}
-
-  
-
+export class LoginComponent implements OnInit {
+  loginForm:FormGroup;
+ 
+    constructor(private _formBuilder: FormBuilder) { }
+    
   ngOnInit() {
-
-    this.firstFormGroup = this._formBuilder.group({
-
-      username: ['', Validators.required],
-
-      password: ['', Validators.required]
-
-    });
-
-
+    this.loginForm = this._formBuilder.group({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
+    })
   }
 
+login(){
+  
+}
   
 
-  submit(){
-
-      console.log(this.firstFormGroup.value);
-
-      console.log(this.secondFormGroup.value);
-
-  }
 }
