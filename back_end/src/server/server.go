@@ -10,35 +10,16 @@ import (
 
 func StartServer() {
 	r := initRouter()
-
-	httpRouter := gin.Default()
-
-	httpRouter.GET("/:path", func(c *gin.Context) {
-		c.Redirect(302, "https://localhost:1337/"+c.Param("path"))
-	})
-	httpRouter.POST("/*path", func(c *gin.Context) {
-		c.Redirect(302, "https://localhost:1337/"+c.Param("path"))
-	})
-	httpRouter.PUT("/:path", func(c *gin.Context) {
-		c.Redirect(302, "https://localhost:1337/"+c.Param("path"))
-	})
-	httpRouter.DELETE("/:path", func(c *gin.Context) {
-		c.Redirect(302, "https://localhost:1337/"+c.Param("path"))
-	})
-
-	// Change paths once we start running the server with npm
-	go r.RunTLS( /*":"+os.Getenv("PORT")*/ ":1337", "./back_end/src/server/auth/cert/cacert.crt", "./back_end/src/server/auth/cert/ca.key")
-	httpRouter.Run(":8080")
+	r.Run(":1337")
 
 }
 
 func initRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"https://EvanDyson.github.io"},
-
-		AllowHeaders:     []string{"Origin"},
-		ExposeHeaders:    []string{"Content-Length"},
+		AllowOrigins: []string{"http://localhost:4200", "http://localhost:1337"},
+		// AllowHeaders:     []string{"Origin"},
+		// ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
 	users := r.Group("/users")
