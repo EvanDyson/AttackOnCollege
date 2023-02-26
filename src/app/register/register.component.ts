@@ -38,13 +38,13 @@ export class RegisterComponent {
   
     this.secondFormGroup = this._formBuilder.group({
       
-      dob: ['', Validators.required],
+      dob : new FormControl('', Validators.required),
   
         //add drop down menu to major and college for easy selection
         //also add 2 files for a bunch of majors and bunch of colleges for easy insertion to the drop down
-      major: ['', Validators.required],
+      major: new FormControl('', Validators.required),
   
-      college: ['', Validators.required]
+      college: new FormControl('', Validators.required)
     });
   
   }

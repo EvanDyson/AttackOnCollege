@@ -147,14 +147,15 @@
       <ng-template matStepLabel>Personal information</ng-template>
         
       <div class="secondForm">
+
       <mat-form-field appearance="fill">
 
         <mat-label>Date of Birth</mat-label>
 
-        <input matInput [matDatepicker]="picker" formControlName="dob">
+        <input matInput [matDatepicker]="dob" formControlName="dob">
         <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
+        <mat-datepicker #dob></mat-datepicker>
         <mat-error *ngIf="secondFormGroup.get('dob')?.hasError('required')">This field is required</mat-error>
 
       </mat-form-field>
@@ -212,8 +213,8 @@
 	<mat-list-item> <strong>Email:</strong> {{ this.firstFormGroup.value.email }}</mat-list-item>
 	<mat-list-item> <strong>Username:</strong> {{ this.firstFormGroup.value.username }}</mat-list-item>
     <mat-list-item> <strong>Date of Birth:</strong> {{ this.secondFormGroup.value.dob }}</mat-list-item>
-	<mat-list-item> <strong>College:</strong> {{ this.secondFormGroup.value.college }}</mat-list-item>
-	<mat-list-item> <strong>Major:</strong> {{ this.secondFormGroup.value.major }}</mat-list-item>
+    <mat-list-item> <strong>College:</strong> {{ this.secondFormGroup.value.college }}</mat-list-item>
+    <mat-list-item> <strong>Major:</strong> {{ this.secondFormGroup.value.major }}</mat-list-item>
 	</mat-list>
 
   
