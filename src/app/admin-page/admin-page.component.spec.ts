@@ -17,7 +17,7 @@ describe('AdminPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create "Admin Page"', () => {
     expect(component).toBeTruthy();
   });
 });

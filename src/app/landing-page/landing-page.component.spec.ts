@@ -20,7 +20,11 @@ describe('LandingPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create "Landing Page"', async() => {
     expect(component).toBeTruthy();
+  });
+  it('should have title: "AttackOnCollege"', async() => {
+   
+    expect(component.title).toEqual('AttackOnCollege');
   });
 });

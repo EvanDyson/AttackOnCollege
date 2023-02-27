@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { AbstractControl, FormControl, FormGroup, FormBuilder, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 
@@ -34,17 +35,18 @@ export class RegisterComponent {
       confirmPassword: new FormControl('', Validators.required)
   
     }
+    //, { validators: confirmPasswordValidator }
     );
   
     this.secondFormGroup = this._formBuilder.group({
       
-      dob : new FormControl('', Validators.required),
+      dob: ['', Validators.required],
   
         //add drop down menu to major and college for easy selection
         //also add 2 files for a bunch of majors and bunch of colleges for easy insertion to the drop down
-      major: new FormControl('', Validators.required),
+      major: ['', Validators.required],
   
-      college: new FormControl('', Validators.required)
+      college: ['', Validators.required]
     });
   
   }
