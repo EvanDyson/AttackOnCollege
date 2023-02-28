@@ -26,12 +26,12 @@ func CreateAssignment(c *gin.Context) {
 	}
 
 	var request = struct {
-		Title          string  `json:"title"`
-		Description    string  `json:"description"`
-		NumberOfPoints int     `json:"numPts"`
-		Weight         float32 `json:"gradeWeight"`
+		Title          string  `form:"title"`
+		Description    string  `form:"description"`
+		NumberOfPoints int     `form:"numPts"`
+		Weight         float32 `form:"gradeWeight"`
 	}{}
-	if err := c.ShouldBindJSON(&request); err != nil {
+	if err := c.Bind(&request); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		c.Abort()
 		return
@@ -74,10 +74,10 @@ func CompleteAssignment(c *gin.Context) {
 	}
 
 	var request = struct {
-		AssignmentID int     `json:"assignment"`
-		PointsEarned float32 `json:"ptsEarned"`
+		AssignmentID int     `form:"assignment"`
+		PointsEarned float32 `form:"ptsEarned"`
 	}{}
-	if err := c.ShouldBindJSON(&request); err != nil {
+	if err := c.Bind(&request); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		c.Abort()
 		return
@@ -108,4 +108,4 @@ func CompleteAssignment(c *gin.Context) {
 
 }
 
-//Add edit assignment function 
+//Add edit assignment function

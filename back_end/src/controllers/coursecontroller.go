@@ -19,10 +19,10 @@ func CreateCourse(context *gin.Context) {
 		return
 	}
 	var request = struct {
-		Title string `json:"title"`
-		Code  string `json:"code"`
+		Title string `form:"title"`
+		Code  string `form:"code"`
 	}{}
-	if err := context.ShouldBindJSON(&request); err != nil {
+	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
@@ -44,4 +44,4 @@ func CreateCourse(context *gin.Context) {
 	context.JSON(http.StatusCreated, gin.H{"courseTitle": course.Title, "courseCode": course.CourseCode})
 }
 
-//Create edit course function 
+//Create edit course function

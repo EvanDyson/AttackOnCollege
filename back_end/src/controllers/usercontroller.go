@@ -12,21 +12,21 @@ import (
 
 // Temporary struct that contains all information that is passed in upon user registration
 type RegisterRequest struct {
-	Email     string `json:"email" binding:"required"`
-	Username  string `json:"username" binding:"required"`
-	Password  string `json:"password" binding:"required"`
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Major     string `json:"major" binding:"required"`
-	College   string `json:"college" binding:"required"`
-	DOB       string `json:"dob"`
+	Email     string `form:"email" binding:"required"`
+	Username  string `form:"username" binding:"required"`
+	Password  string `form:"password" binding:"required"`
+	FirstName string `form:"firstName"`
+	LastName  string `form:"lastName"`
+	Major     string `form:"major" binding:"required"`
+	College   string `form:"college" binding:"required"`
+	DOB       string `form:"dob"`
 }
 
 func RegisterUser(context *gin.Context) {
 	var user models.User
 	var request RegisterRequest
 	// Insert info into object user and check if the information provided in the request matches fields to those of object User
-	if err := context.ShouldBindJSON(&request); err != nil {
+	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
