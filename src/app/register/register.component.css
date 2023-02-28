@@ -1,0 +1,45 @@
+li {
+    margin-bottom: 8px;
+  }
+  ul {
+    background-color: #F7F9FC;
+    margin-top: 25px;
+    padding: 30px 55px;
+    border-radius: 8px;
+  }
+  .nav-item {
+    margin: 10px 16px;
+  }
+  .navbar-brand img {
+    height: 46px;
+    margin-right: 8px;
+    width: 46px;
+  }
+  .loginField
+  {
+    margin-top: 20px;
+  }
+
+
+.name mat-form-field + mat-form-field {
+    margin-left: 10px;
+    margin-bottom: 0px;
+  }
+
+.password mat-form-field + mat-form-field {
+    margin-left: 10px;
+    margin-bottom: 75px;
+}
+
+.email mat-form-field + mat-form-field {
+    margin-left: 10px;
+    margin-bottom: 60px;
+}
+
+.username mat-form-field + mat-form-field {
+    margin-left: 10px;
+}
+
+.secondForm mat-form-field + mat-form-field {
+    margin-left: 10px;
+}
