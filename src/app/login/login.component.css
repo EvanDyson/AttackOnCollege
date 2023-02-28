@@ -1,0 +1,47 @@
+li {
+    margin-bottom: 8px;
+  }
+  ul {
+    background-color: #F7F9FC;
+    margin-top: 25px;
+    padding: 30px 55px;
+    border-radius: 8px;
+  }
+  .nav-item {
+    margin: 10px 16px;
+  }
+  .navbar-brand img {
+    height: 46px;
+    margin-right: 8px;
+    width: 46px;
+  }
+
+  form{
+    max-width: 400px;
+    margin: auto;
+  }
+  .user{
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .pass{
+    display: block;
+    margin-bottom: 15px;
+  }
+  button{
+    width: 100%;
+    border-radius: 20px;
+  }
+  .logo{
+    max-width: 250px;
+    margin: auto;
+    display: block;
+  } 
+  .page-wrap{
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+    align-items: center;
+    justify-content: center;
+  }
