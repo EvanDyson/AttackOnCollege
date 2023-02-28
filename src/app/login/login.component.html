@@ -1,0 +1,71 @@
+<body>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/Images/aocblank.png" alt="aoc logo" />
+        AOC
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item active">
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="#"
+              >BLANK<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="/admin"
+              >BLANK Admin</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="/register"
+              >Register</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="/login"
+              >Login</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</body>
+
+
+<div class="page-wrap">
+	<div class="conntainer">
+		<img src="/assets/Images/aocblank.png" alt="aoc logo" class="logo" />
+		<form [formGroup]="loginForm">
+
+			<mat-form-field class="user">
+				<input matInput placeholder="Username" formControlName="username" required>
+                <mat-error *ngIf="loginForm.get('username')?.hasError('required')">This field is required</mat-error>
+			</mat-form-field>
+
+			<mat-form-field class="pass">
+				<input placeholder="Password" matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">This field is required</mat-error>
+
+			</mat-form-field>
+
+			<button [disabled]="!loginForm.valid" mat-raised-button color="primary" (click)="login()">Login</button>   
+        </form>
+	</div>
+</div>
