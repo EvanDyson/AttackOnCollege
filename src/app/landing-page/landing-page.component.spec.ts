@@ -27,4 +27,16 @@ describe('LandingPageComponent', () => {
    
     expect(component.title).toEqual('AttackOnCollege');
   });
+  it('button should contain: "Login"', async() => {
+  
+   
+    const btn = fixture.debugElement.nativeElement.querySelector('#login');
+    expect(btn.innerHTML).toBe('Login');
+  });
+  it('button should contain: "Login"', async() => {
+  
+   
+    const btn = fixture.debugElement.nativeElement.querySelector('#loginwhite');
+    expect(btn.innerHTML).toBe('Login');
+  });
 });

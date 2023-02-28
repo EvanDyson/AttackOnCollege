@@ -62,7 +62,7 @@
 
         <mat-label>First name</mat-label>
 
-        <input matInput placeholder="First name" formControlName="firstName" required >
+        <input id="firstname" matInput placeholder="First name" formControlName="firstName" required >
         <mat-error *ngIf="firstFormGroup.get('firstName')?.hasError('required')">This field is required</mat-error>
       </mat-form-field>
 
@@ -72,7 +72,7 @@
 
         <mat-label>Last name</mat-label>
 
-        <input matInput placeholder="Last name" formControlName="lastName" required>
+        <input id="lastname" matInput placeholder="Last name" formControlName="lastName" required>
         <mat-error *ngIf="firstFormGroup.get('lastName')?.hasError('required')">This field is required</mat-error>
       </mat-form-field>
 
@@ -85,7 +85,7 @@
 
         <mat-label>email@example.com</mat-label>
 
-        <input matInput placeholder="email@example.com" formControlName="email" required>
+        <input id="email" matInput placeholder="email@example.com" formControlName="email" required>
         <mat-error *ngIf="firstFormGroup.get('email')?.hasError('required')">This field is required</mat-error>
         <mat-error *ngIf="firstFormGroup.get('email')?.hasError('email')">Enter a valid email</mat-error>
       </mat-form-field>
@@ -99,7 +99,7 @@
 
         <mat-label>Username</mat-label>
 
-        <input matInput placeholder="Username" formControlName="username" required>
+        <input id="username" matInput placeholder="Username" formControlName="username" required>
         <mat-error *ngIf="firstFormGroup.get('username')?.hasError('required')">This field is required</mat-error>
 
       </mat-form-field>
@@ -110,7 +110,7 @@
       <mat-form-field appearance="fill">
 
         <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <input id="password" matInput [type]="hide ? 'password' : 'text'" formControlName="password">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -122,7 +122,7 @@
       <mat-form-field appearance="fill">
 
         <mat-label>Confirm your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required pattern="{{firstFormGroup.value.password}}">
+        <input id="confirmpassword" matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required pattern="{{firstFormGroup.value.password}}">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
