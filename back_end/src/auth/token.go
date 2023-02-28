@@ -10,8 +10,8 @@ import (
 var jwtKey = []byte("supersecretkey")
 
 type JWTClaim struct {
-	Username string `json:"username"`
-	Email    string `json:"email"`
+	Username string `form:"username"`
+	Email    string `form:"email"`
 	jwt.StandardClaims
 }
 

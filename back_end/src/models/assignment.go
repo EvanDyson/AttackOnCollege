@@ -6,21 +6,21 @@ import (
 	"gorm.io/gorm"
 )
 
-const XP_PTS = 100 
+const XP_PTS = 100
 
 type Assignment struct {
 	gorm.Model
-	Title string `json:"title"`
-	Description string `json:"description"`
+	Title string `form:"title"`
+	Description string `form:"description"`
 
-	NumberOfPoints int `json:"numPts"`
-	Weight float32 `json:"gradeWeight"`
+	NumberOfPoints int `form:"numPts"`
+	Weight float32 `form:"gradeWeight"`
 
-	PointsEarned float32 `json:"ptsEarned"`
+	PointsEarned float32 `form:"ptsEarned"`
 
 	// expPts = ptsEarned / NumberOfPoints * Weight * (Set number of points for each assignment - TO BE DETERMINED)
-	ExperiencePoints int `json:"expPts"`
-	IsDone bool `json:"isDone"`
+	ExperiencePoints int `form:"expPts"`
+	IsDone bool `form:"isDone"`
 }
 
 func (assignment *Assignment) CalculateXP() {

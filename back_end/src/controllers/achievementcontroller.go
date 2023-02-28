@@ -5,14 +5,14 @@ import (
 
 	"CEN3031-Project/back_end/src/database"
 	"CEN3031-Project/back_end/src/models"
-	
+
 	"github.com/gin-gonic/gin"
 )
 
 type AchievementRequest struct {
-	Title 				string `json:"title"`
-	Description 		string `json:"description"`
-	ExperiencePoints 	int `json:"expPts"`
+	Title 				string `form:"title"`
+	Description 		string `form:"description"`
+	ExperiencePoints 	int `form:"expPts"`
 }
 
 func GetAchievement(user *models.User, title string) {
@@ -31,7 +31,7 @@ func AddAchievement(context *gin.Context) {
 	var achievement models.Achievement
 	var request AchievementRequest
 
-	if err := context.ShouldBindJSON(&request); err != nil {
+	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
@@ -53,12 +53,12 @@ func AddAchievement(context *gin.Context) {
 func createAchievement(achievement *models.Achievement, request *AchievementRequest) {
 	achievement.Title = request.Title
 	achievement.Description = request.Description
-	achievement.ExperiencePoints = request.ExperiencePoints 
+	achievement.ExperiencePoints = request.ExperiencePoints
 }
 
 func GetAllAchievements(context *gin.Context) {
 	var achievements []models.Achievement
-	database.AchievementDB.Find(&achievements) 
+	database.AchievementDB.Find(&achievements)
 	context.IndentedJSON(http.StatusAccepted, achievements)
 }
 

@@ -14,14 +14,14 @@ import (
 // It takes in an email and a password, and generates a JWT that is used to access pages only available to page users
 func GenerateToken(context *gin.Context) {
 	var request = struct {
-		Email    string `json:"email" binding:"required"`
-		Password string `json:"password" binding:"required"`
+		Email    string `form:"email" binding:"required"`
+		Password string `form:"password" binding:"required"`
 	}{}
 
 	var user models.User
 
 	// Enter information given in the request into var request and check if any errors are raised in the process
-	if err := context.ShouldBindJSON(&request); err != nil {
+	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
