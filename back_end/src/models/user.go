@@ -17,6 +17,9 @@ type User struct {
 	FirstName string `json:"firstName"`
 	LastName  string `json:"lastName"`
 	Email     string `json:"email" gorm:"unique"`
+	Major     string `json:"major" binding:"required"`
+	College   string `json:"college" binding:"required"`
+	DOB       string `json:"dob"`
 
 	// Profile fields
 	Level                int           `json:"level"`
