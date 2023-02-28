@@ -152,7 +152,7 @@
 
         <mat-label>Date of Birth</mat-label>
 
-        <input matInput [matDatepicker]="dob" formControlName="dob">
+        <input id="dob" matInput [matDatepicker]="dob" formControlName="dob">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
         <mat-datepicker #dob></mat-datepicker>
@@ -167,7 +167,7 @@
 
         <mat-label>College</mat-label>
 
-        <input matInput placeholder="College" formControlName="college" required>
+        <input id="college" matInput placeholder="College" formControlName="college" required>
         <mat-error *ngIf="secondFormGroup.get('college')?.hasError('required')">This field is required</mat-error>
 
       </mat-form-field>
@@ -180,7 +180,7 @@
 
         <mat-label>Major</mat-label>
 
-        <input matInput placeholder="Major" formControlName="major" required>
+        <input id="major" matInput placeholder="Major" formControlName="major" required>
         <mat-error *ngIf="secondFormGroup.get('major')?.hasError('required')">This field is required</mat-error>
 
       </mat-form-field>

@@ -28,7 +28,7 @@ li {
 
 .password mat-form-field + mat-form-field {
     margin-left: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 75px;
 }
 
 .email mat-form-field + mat-form-field {
