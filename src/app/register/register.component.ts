@@ -56,24 +56,25 @@ export class RegisterComponent {
 
   submit(){
   
-      this.http.post<any>('https://{{host}}/users/token', this.firstFormGroup).subscribe(data => {
-        this.postId = data.id;
-    });
-      this.http.post<any>('https://{{host}}/users/token', this.secondFormGroup).subscribe(data => {
-        this.postId = data.id;
-    });
+      var formData: any=new FormData();
+      this.addData(formData);
+      this.http.post('http//localhost:1337/users/register', formData)
+      .subscribe(data =>{
+        this.postId=JSON.stringify(data);
+        console.log(this.postId);
+
+      });
       
-    //console.log(this.firstFormGroup.value);
-    //console.log(this.secondFormGroup.value);
-      
-      
-      /*
-        POST https://{{host}}/users/token HTTP/1.1
-        content-type: application/json
-        {
-            "email": "b.gator@ufl.edu",
-            "password": "IDon'tKnowHonestly"
-        }
-      */
+   
+  }
+  addData(formData: FormData){
+    formData.append('firstName',this.firstFormGroup.get('firstName')?.value)
+    formData.append('lastName',this.firstFormGroup.get('lastName')?.value)
+    formData.append('username',this.firstFormGroup.get('username')?.value)
+    formData.append('email',this.firstFormGroup.get('email')?.value)
+    formData.append('password',this.firstFormGroup.get('pasword')?.value)
+    formData.append('dob',this.secondFormGroup.get('dob')?.value)
+    formData.append('college',this.secondFormGroup.get('college')?.value)
+    formData.append('major',this.secondFormGroup.get('major')?.value)
   }
 }
