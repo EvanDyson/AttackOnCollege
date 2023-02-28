@@ -19,7 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormField } from '@angular/material/form-field';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -34,6 +34,7 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   ],
   imports: [
       RouterModule,
+      HttpClientModule,
       AppRoutingModule,
       CommonModule,
     BrowserModule,

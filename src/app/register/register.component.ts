@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AbstractControl, FormControl, FormGroup, FormBuilder, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,11 +12,13 @@ import { MatDatepicker } from '@angular/material/datepicker';
 export class RegisterComponent {
     isLinear = true;
     hide = true;
-  firstFormGroup: FormGroup;
+
+    firstFormGroup: FormGroup;
+    secondFormGroup: FormGroup;
+    
+    postId: string;
   
-  secondFormGroup: FormGroup;
-  
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private http: HttpClient, private _formBuilder: FormBuilder) {}
   
   ngOnInit() {
   
@@ -53,11 +56,17 @@ export class RegisterComponent {
 
   submit(){
   
-    console.log(this.firstFormGroup.value);
+      this.http.post<any>('https://{{host}}/users/token', this.firstFormGroup).subscribe(data => {
+        this.postId = data.id;
+    });
+      this.http.post<any>('https://{{host}}/users/token', this.secondFormGroup).subscribe(data => {
+        this.postId = data.id;
+    });
       
-      console.log(this.secondFormGroup.value);
+    //console.log(this.firstFormGroup.value);
+    //console.log(this.secondFormGroup.value);
       
-      //this.http.post<any>();
+      
       /*
         POST https://{{host}}/users/token HTTP/1.1
         content-type: application/json
@@ -68,12 +77,3 @@ export class RegisterComponent {
       */
   }
 }
-
-
-    // export const confirmPasswordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null =>
-    // {
-    //   const password = control.get('password');
-    //   const confirmPassword = control.get('confirmPassword');
-
-    //   return password && confirmPassword && password.value === confirmPassword.value ? { confirmPassword: true } : {confirmPassword: false};
-    // };
