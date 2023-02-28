@@ -11,6 +11,7 @@ import (
 
 func StartServer() {
 	r := initRouter()
+<<<<<<< HEAD
 
 	httpRouter := gin.Default()
 
@@ -30,22 +31,24 @@ func StartServer() {
 	// Change paths once we start running the server with npm
 	go r.RunTLS(":"+os.Getenv("PORT"), "./back_end/src/server/auth/cert/cacert.crt", "./back_end/src/server/auth/cert/ca.key")
 	httpRouter.Run(":8080")
+=======
+	r.Run(":1337")
+>>>>>>> ce53c2e2a020a8a5009001757e0c168bbe19f4e0
 
 }
 
 func initRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"https://EvanDyson.github.io"},
-
-		AllowHeaders:     []string{"Origin"},
-		ExposeHeaders:    []string{"Content-Length"},
+		AllowOrigins: []string{"http://localhost:4200", "http://localhost:1337"},
+		// AllowHeaders:     []string{"Origin"},
+		// ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
 	users := r.Group("/users")
 	{
 		users.POST("/token", controllers.GenerateToken)
-		users.POST("/user/register", controllers.RegisterUser)
+		users.POST("/register", controllers.RegisterUser)
 		secured := users.Group("/secured").Use(middlewares.Auth())
 		{
 			secured.GET("/ping", controllers.Ping)

@@ -17,6 +17,9 @@ type RegisterRequest struct {
 	Password  string `json:"password" binding:"required"`
 	FirstName string `json:"firstName"`
 	LastName  string `json:"lastName"`
+	Major     string `json:"major" binding:"required"`
+	College   string `json:"college" binding:"required"`
+	DOB       string `json:"dob"`
 }
 
 func RegisterUser(context *gin.Context) {
@@ -57,4 +60,7 @@ func createUser(user *models.User, request *RegisterRequest) {
 	user.FirstName = request.FirstName
 	user.LastName = request.LastName
 	user.Email = request.Email
+	user.DOB = request.DOB
+	user.Major = request.Major
+	user.College = request.College
 }
