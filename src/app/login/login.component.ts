@@ -11,7 +11,9 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   
 })
 export class LoginComponent implements OnInit {
-  loginForm:FormGroup;
+  
+    hide = true;
+    loginForm: FormGroup;
  
     constructor(private _formBuilder: FormBuilder) { }
     
