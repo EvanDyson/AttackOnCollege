@@ -44,8 +44,8 @@ func initRouter() *gin.Engine {
 	{
 		achievements.POST("/createAchievement", controllers.AddAchievement)
 		achievements.GET("/getAllAchievements", controllers.GetAllAchievements)
-		//achievements.DELETE("/deleteAchievement", controllers.DeleteAchievement)
-		//achievements.PUT("/editAchievement", controllers.EditAchievement)
+		achievements.DELETE("/deleteAchievement", controllers.DeleteAchievement)
+		achievements.PUT("/editAchievement", controllers.EditAchievement)
 	}
 	return r
 }

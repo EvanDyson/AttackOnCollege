@@ -4,7 +4,7 @@ DELETE http://{{host}}/achievements/deleteAchievement
 Content-Type: "application/json"
 
 {
-    "title":""
+    "title":"First Blood!"
 }
 
 ###

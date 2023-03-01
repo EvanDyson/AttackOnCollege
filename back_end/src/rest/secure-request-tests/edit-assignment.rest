@@ -1,6 +1,6 @@
 @host = localhost:1337
 // Edit Assignment Test
-POST http://{{host}}/users/secured/editAssignment HTTP/1.1
+PUT http://{{host}}/users/secured/editAssignment HTTP/1.1
 content-type: application/json
 Authorization:
 

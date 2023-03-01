@@ -62,19 +62,41 @@ func GetAllAchievements(context *gin.Context) {
 	context.IndentedJSON(http.StatusAccepted, achievements)
 }
 
-/*
+func EditAchievement(context *gin.Context) {
+  var achievement models.Achievement
+  var request AchievementRequest
+
+  if err := context.Bind(&request); err != nil {
+    context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		context.Abort()
+		return
+  }
+
+  achievement.Title = request.Title
+  achievement.Description = request.Description
+  achievement.ExperiencePoints = request.ExperiencePoints
+
+  database.AchievementDB.Save(&achievement)
+  context.JSON(http.StatusAccepted, achievement)
+}
+
 func DeleteAchievement(context *gin.Context) {
 	var title = struct {
-		Title string `json:"title"`
+		Title string `form:"title"`
 	}{}
-
-	if err := context.ShouldBindJSON(&title); err != nil {
+	if err := context.Bind(&title); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
 	}
 
-	context.
+	record := database.AchievementDB.Where("title = ?", title).Delete(&models.Achievement{})
+  if record.Error != nil {
+    context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
+		context.Abort()
+		return
+  }
 
+  context.JSON(http.StatusOK, "Successfully deleted achievement!")
 }
-*/
+
