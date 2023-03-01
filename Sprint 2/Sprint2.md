@@ -8,19 +8,19 @@ Unit tests for sprint 2 were simple as the front end in our case is still mostly
 
 Test Types
 
-    1. Testing component creation for landing page
-    2. Testing component creation for registration page
-    3. Testing component creation for admin page (not used yet)
-    4. Testing component creation for login page
-    5. Testing a couple buttons on landing page
-    6. Testing correct title for landing page
-    7. Two unfinished end to end type tests for back end request, will be completed in sprint 3
+1. Testing component creation for landing page
+2. Testing component creation for registration page
+3. Testing component creation for admin page (not used yet)
+4. Testing component creation for login page
+5. Testing a couple buttons on landing page
+6. Testing correct title for landing page
+7. Two unfinished end to end type tests for back end request, will be completed in sprint 3
 
 ### Cypress test
 
 A cypress test was created to type simulate a user clicking thorugh and typing information into the first two parts of our registration process. 
 
-    Note: Overall, cypress seems to be easier to use and understand, plus the testing is more interactive. If it can be used over Angular's testing framework for unit and end to end tests, it will be.
+Note: Overall, cypress seems to be easier to use and understand, plus the testing is more interactive. If it can be used over Angular's testing framework for unit and end to end tests, it will be.
 
 ## Updates
 ### Routing
