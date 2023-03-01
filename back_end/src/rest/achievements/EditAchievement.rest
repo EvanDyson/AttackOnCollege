@@ -1,6 +1,6 @@
 @host = localhost:1337
 
-POST https://{{host}}/achievements/editAchievment
+POST http://{{host}}/achievements/editAchievment
 Content-Type: "application/json"
 
 {
