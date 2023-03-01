@@ -1,10 +1,14 @@
 # Sprint 2 Documentation
 
 # Front-End
+## Testing
+### Unit test
+
+### Cypress test
 
 ## Updates
 
-
+Since Sprint 1 we finished up the page linking so that we can have properly functioning link buttons to bring the user to all of our created pages (components). 
 
 # Back-end
 
