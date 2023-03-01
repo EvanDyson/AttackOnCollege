@@ -51,7 +51,7 @@ func RegisterUser(context *gin.Context) {
 	}
 
 	// Toss back a response with the ID of the user created, along with the email and username used for the profile
-	context.JSON(http.StatusCreated, gin.H{"userId": user.ID, "email": user.Email, "username": user.Username})
+	context.JSON(http.StatusCreated, gin.H{"email": user.Email, "username": user.Username})
 }
 
 func createUser(user *models.User, request *RegisterRequest) {

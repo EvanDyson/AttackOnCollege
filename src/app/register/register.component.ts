@@ -65,6 +65,7 @@ export class RegisterComponent {
 
       });
       
+      
    
   }
   addData(formData: FormData){
