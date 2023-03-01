@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
                 this.postId = JSON.stringify(data);
                 console.log(this.postId);
             });
+        
+        window.location.pathname = '';
     }   
   
     addData(formData: FormData) {
