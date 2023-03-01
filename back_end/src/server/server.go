@@ -17,9 +17,9 @@ func StartServer() {
 func initRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"http://localhost:4200", "http://localhost:1337"},
-		// AllowHeaders:     []string{"Origin"},
-		// ExposeHeaders:    []string{"Content-Length"},
+		AllowOrigins:     []string{"http://localhost:4200", "http://localhost:1337", "http://localhost:9876/?id=68744261"},
+		AllowHeaders:     []string{"Origin"},
+		ExposeHeaders:    []string{"Content-Length", "Content-Type"},
 		AllowCredentials: true,
 	}))
 	users := r.Group("/users")
