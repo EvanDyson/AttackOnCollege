@@ -4,19 +4,20 @@ import (
 	"CEN3031-Project/back_end/src/models"
 	"log"
 
-	"gorm.io/driver/postgres"
-  "gorm.io/gorm"
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
 )
 
 var UserDB, CourseDB, AchievementDB, AssignmentDB *gorm.DB
 var dbError error
 
 func Connect(databasePath string) {
-  dsn := "host=localhost user=postgres password=CENMoment123 dbname=postgres port=1337 sslmode=disable TimeZone=EST"
-	UserDB, dbError = gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	AchievementDB, dbError = gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	AssignmentDB, dbError = gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	CourseDB, dbError = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+  //Below is a local Data Source Name that can be used to access a potential remote PostgreSQL Database in future implementation 
+  //dsn := "host=localhost user=postgres password=CENMoment123 dbname=postgres port=1337 sslmode=disable TimeZone=EST"
+	UserDB, dbError = gorm.Open(sqlite.Open(databasePath+"/users.db"), &gorm.Config{})
+	AchievementDB, dbError = gorm.Open(sqlite.Open(databasePath+"/achievements.db"), &gorm.Config{})
+	AssignmentDB, dbError = gorm.Open(sqlite.Open(databasePath+"/assignments.db"), &gorm.Config{})
+	CourseDB, dbError = gorm.Open(sqlite.Open(databasePath+"/courses.db"), &gorm.Config{})
 
 	if dbError != nil {
 		log.Fatal("Error!")
