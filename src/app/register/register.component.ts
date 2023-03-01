@@ -22,24 +22,24 @@ export class RegisterComponent {
   
   ngOnInit() {
   
-    this.firstFormGroup = this._formBuilder.group({
+      this.firstFormGroup = this._formBuilder.group({
   
-      firstName: new FormControl('', Validators.required),
+          firstName: new FormControl('', Validators.required),
 
-      lastName: new FormControl('', Validators.required),
+          lastName: new FormControl('', Validators.required),
   
-      // will need to add in a unique username checking function
-      username: new FormControl('', Validators.required),
+          // will need to add in a unique username checking function
+          username: new FormControl('', Validators.required),
       
-      email: new FormControl('', [Validators.required, Validators.email]),
+          email: new FormControl('', [Validators.required, Validators.email]),
       
-      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]),
+          password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]),
     
-      confirmPassword: new FormControl('', Validators.required)
+          confirmPassword: new FormControl('', Validators.required)
   
-    }
-    //, { validators: confirmPasswordValidator }
-    );
+      }
+          //, { validators: confirmPasswordValidator }
+      );
   
     this.secondFormGroup = this._formBuilder.group({
       
@@ -62,20 +62,17 @@ export class RegisterComponent {
       .subscribe(data =>{
         this.postId=JSON.stringify(data);
         console.log(this.postId);
-
       });
-      
-      
-   
-  }
+    }
+    
   addData(formData: FormData){
-    formData.append('firstName',this.firstFormGroup.get('firstName')?.value)
-    formData.append('lastName',this.firstFormGroup.get('lastName')?.value)
-    formData.append('username',this.firstFormGroup.get('username')?.value)
-    formData.append('email',this.firstFormGroup.get('email')?.value)
-    formData.append('password',this.firstFormGroup.get('pasword')?.value)
-    formData.append('dob',this.secondFormGroup.get('dob')?.value)
-    formData.append('college',this.secondFormGroup.get('college')?.value)
-    formData.append('major',this.secondFormGroup.get('major')?.value)
+      formData.append('firstName', this.firstFormGroup.get('firstName')?.value);
+      formData.append('lastName', this.firstFormGroup.get('lastName')?.value);
+      formData.append('username', this.firstFormGroup.get('username')?.value);
+      formData.append('email', this.firstFormGroup.get('email')?.value);
+      formData.append('password', this.firstFormGroup.get('pasword')?.value);
+      formData.append('dob', this.secondFormGroup.get('dob')?.value);
+      formData.append('college', this.secondFormGroup.get('college')?.value);
+      formData.append('major', this.secondFormGroup.get('major')?.value);
   }
 }
