@@ -1,29 +1,39 @@
 # Sprint 2 Documentation
 
 # Front-End
-## Testing
+## Tests
 ### Unit test
 
 Unit tests for sprint 2 were simple as the front end in our case is still mostly html. 
+
 Test Types
--Testing component creation for landing page
--Testing component creation for registration page
--Testing component creation for admin page (not used yet)
--Testing component creation for login page
--Testing a couple buttons on landing page
--Testing correct title for landing page
--Two unfinished end to end type tests for back end request, will be completed in sprint 3
+
+    1. Testing component creation for landing page
+    2. Testing component creation for registration page
+    3. Testing component creation for admin page (not used yet)
+    4. Testing component creation for login page
+    5. Testing a couple buttons on landing page
+    6. Testing correct title for landing page
+    7. Two unfinished end to end type tests for back end request, will be completed in sprint 3
 
 ### Cypress test
 
 A cypress test was created to type simulate a user clicking thorugh and typing information into the first two parts of our registration process. 
 
-Note:Overall, cypress seems to be easier to use and understand, plus the testing is more interactive. If it can be used over Angular's testing framework for unit and end to end tests, it will be.
+    Note: Overall, cypress seems to be easier to use and understand, plus the testing is more interactive. If it can be used over Angular's testing framework for unit and end to end tests, it will be.
 
 ## Updates
+### Routing
+Since Sprint 1 we finished up the page routing so that we can have properly functioning link buttons to bring the user to all of our created pages (components). The routing is now properly set up and understood for easier future implementation.
 
-Since Sprint 1 we finished up the page linking so that we can have properly functioning link buttons to bring the user to all of our created pages (components). 
+### Header
+We have added our header to all of our pages to add a more uniform page look.
 
+### Login page
+We "prettied" up the login page to have uniform looking fields for the username and password, and added our logo to that page. The login function attached to the login button is also prepared and ready to send a post request to the backend however we have not yet implemented the backend to the login yet. We have also properly implemented the errors to show up when the fields are not properly filled in.
+
+### Registration page
+For the registration page, we have finished the implementation of all the fields and properly linked errors to the corresponding fields that required them. All of the fields are required fields that are not allowed to be left empty, if left empty the error message "This field is required" will pop up. The email field must have a proper email format of "example@email.com", if it is improper an error message "Enter a valid email" will pop up. The password field has been updated to use a specific format of requiring lowercase, uppercase, a number, and must be 8 characters long. In addition we added a feature to allow the user to hide or show the password while typing. The confirm password field requires that the confirmPassword string and password string must be identical. We have properly implemented the date of birth field, and the college and major fields are the same. The final addition to the registration page is the addition of the post request to our backend upon clicking the submit button on the final page, this will post the registation fields to the backend and in return receive a "postID" that contains all the fields in a string format. After this the webpage will automatically reroute the user to the login page to login.
 
 # Back-end
 
