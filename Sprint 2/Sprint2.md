@@ -37,6 +37,30 @@ For the registration page, we have finished the implementation of all the fields
 
 # Back-end
 
+## Testing 
+
+For our back-end tests, we are using REST API to circumvent having to launch the full Angular build on a localhost port every time we want to test functionality. To do this, we have created multiple test cases for our current working functions in the rest folder in back_end/src. 
+
+### Achievements 
+There is a test for each of our four types of requests having to do with the storing, accessing, and modification of achievements in our database: GET, POST, PUT, and DELETE. 
+
+The only user that will have access to these functions will be the admin user we have created, but have yet to implement fully. This is because we do not want users of the website to directly modify what achievements they will be earning; this is the job of the developer, which is that these tests are able to verify. 
+
+### Register User 
+As shown in the Sprint 2 video, the functionality of the register user tests directly correlates to information that the front-end framework is able to send to the back-end at this moment in time. All fields that are appended to from the FormData in the front-end are shown in the REST test, and the user will be shown in the database if creation is successful. 
+
+Note: registerFail.rest is used to confirm that a unique email must be used in the database; if the email of the user attempting to register is already found in the database, the test will return an error that the front-end will process. 
+
+### Login User 
+The login tests are used to determine a few things, the most important being if the given user is located in the database. If the given email and password are not found in the user database, an internal server error is given back. Next, if the user is found, the password is checked to see if it matches the registered user. If not, the status unauthorized error is returned. 
+
+If both of these requirements are met, a unique token is returned, and is stored in that user instance for as long as they are logged into the website. We currently have the token expiring after one hour, where the user will be prompted to log in again to confirm their identity. This value can be easily changed at a later date. 
+
+### Secure Requests 
+Finally, these last tests are unique, due to the idea that they must verify if a logged-in user is making them. These are functions such as completing an assignment, editing an assignment, deleting a user, and more. Due to these functions being highly sensitive, they all require a token to be placed in the Authorization field, the token belonging to that of the logged-in user making the request. All secure requests are directly editing the given user’s account ONLY, and will not interfere with other users or website functionality as a whole. 
+
+Note: more in-depth test functionality was shown in the Sprint 1 Back End video; we were not aware of the Sprint 2 requirements, and were over-prepared on our past demonstration. If demonstration of tests other than Register User are desired, refer to said video. 
+
 ## Functionality
 
 The implemented functionality:
