@@ -154,7 +154,7 @@ Controllers is a package we split up from the models package, and it includes fi
 
 Functions used for creating and accessing achievements were created. These will potentially be used later as controllers employed by an Administrator user instead of only being accessible from the back end. These will NOT be accessible to regular users and visitors of the website, but for now, no authentication and restriction is implemented. 
 
-Two more functions (modifier and destructor) need to be implemented for full control over achievements.
+The modifier and destructor have now been added for achievements in Sprint 2, giving a potential admin user full control over achievements contained in the database. For Sprint 3, we will aim to populate said database using these functions with achievements that our users will be interested in earning, and implementing how to grant these achievements to users the moment they are earned. 
 
 Created an achievement controller that will manage the delegation of achievements to users who earn them. When the conditions of the achievement are met, the controller finds the achievement in the given database with the string passed into the function, along with a reference to the user who earned it. The GetAchievement function appends the achievement ID code to the achievement slice that each user struct contains. 
 
