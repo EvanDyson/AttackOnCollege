@@ -47,9 +47,9 @@ export class RegisterComponent {
   
         //add drop down menu to major and college for easy selection
         //also add 2 files for a bunch of majors and bunch of colleges for easy insertion to the drop down
-      major: ['', Validators.required],
-  
-      college: ['', Validators.required]
+      college: ['', Validators.required],
+      
+      major: ['', Validators.required]
     });
   
   }
