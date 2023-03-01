@@ -24,14 +24,6 @@ Note:Overall, cypress seems to be easier to use and understand, plus the testing
 
 Since Sprint 1 we finished up the page linking so that we can have properly functioning link buttons to bring the user to all of our created pages (components). 
 
-Pages: Landing Page
-Landing page was shown off a bit in sprint one but now the links actually function correctly where they need to and the formatting was updated a bit.
-
-Login
-The login page was implemented using angular materials and will allow a user to type in username and password, a function has yet to be created to allow a user to login through the backend.
-
-Registration
-Currently, the registration page has the most functionality of any of the pages in the front end. A user can go in and enter all of the required information into the fields, and that information will be type checked and validated based on predetermined pararmeters. A post function will then send that information to the backend once the user has finished entering information and the user has clicked submit. This page also uses angular materials. The page uses forms in typescript and html store the information the user types in to allow for the backend to recieve it via the post request.
 
 # Back-end
 
