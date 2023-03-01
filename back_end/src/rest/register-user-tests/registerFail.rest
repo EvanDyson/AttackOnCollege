@@ -1,6 +1,6 @@
 @host = localhost:1337
 // Register User
-POST http://{{host}}/users/user/register HTTP/1.1
+POST http://{{host}}/users/register HTTP/1.1
 content-type: application/json
     
 {

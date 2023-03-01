@@ -58,7 +58,7 @@ export class RegisterComponent {
   
       var formData: any=new FormData();
       this.addData(formData);
-      this.http.post('http//localhost:1337/users/register', formData)
+      this.http.post('http://localhost:1337/users/register', formData)
       .subscribe(data =>{
         this.postId=JSON.stringify(data);
         console.log(this.postId);
