@@ -31,6 +31,7 @@ func initRouter() *gin.Engine {
 			secured.GET("/ping", controllers.Ping)
 			secured.GET("/token", controllers.GetUser)
 			secured.PUT("/token", controllers.EditUser)
+      secured.PUT("/editAssignment", controllers.EditAssignment)
 			secured.DELETE("/token", controllers.DeleteUser)
 			secured.POST("/createCourse", controllers.CreateCourse)
 			secured.POST("/addAssignment", controllers.CreateAssignment)

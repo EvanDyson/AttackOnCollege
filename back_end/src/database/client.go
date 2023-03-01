@@ -12,8 +12,13 @@ var UserDB, CourseDB, AchievementDB, AssignmentDB *gorm.DB
 var dbError error
 
 func Connect(databasePath string) {
+<<<<<<< HEAD
 	//Below is a local Data Source Name that can be used to access a potential remote PostgreSQL Database in future implementation
 	//dsn := "host=localhost user=postgres password=CENMoment123 dbname=postgres port=1337 sslmode=disable TimeZone=EST"
+=======
+  //Below is a local Data Source Name that can be used to access a potential remote PostgreSQL Database in future implementation
+  //dsn := "host=localhost user=postgres password=CENMoment123 dbname=postgres port=1337 sslmode=disable TimeZone=EST"
+>>>>>>> 44000bab314a142f94f756b53e37111296342160
 	UserDB, dbError = gorm.Open(sqlite.Open(databasePath+"/users.db"), &gorm.Config{})
 	AchievementDB, dbError = gorm.Open(sqlite.Open(databasePath+"/achievements.db"), &gorm.Config{})
 	AssignmentDB, dbError = gorm.Open(sqlite.Open(databasePath+"/assignments.db"), &gorm.Config{})
