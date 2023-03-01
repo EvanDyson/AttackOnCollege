@@ -4,18 +4,34 @@
 ## Testing
 ### Unit test
 
-text goes here...
+Unit tests for sprint 2 were simple as the front end in our case is still mostly html. 
+Test Types
+-Testing component creation for landing page
+-Testing component creation for registration page
+-Testing component creation for admin page (not used yet)
+-Testing component creation for login page
+-Testing a couple buttons on landing page
+-Testing correct title for landing page
+-Two unfinished end to end type tests for back end request, will be completed in sprint 3
 
 ### Cypress test
 
-1. test 1
-2. test 2
-3. test 3
-4. test 4
+A cypress test was created to type simulate a user clicking thorugh and typing information into the first two parts of our registration process. 
+
+Note:Overall, cypress seems to be easier to use and understand, plus the testing is more interactive. If it can be used over Angular's testing framework for unit and end to end tests, it will be.
 
 ## Updates
 
 Since Sprint 1 we finished up the page linking so that we can have properly functioning link buttons to bring the user to all of our created pages (components). 
+
+Pages: Landing Page
+Landing page was shown off a bit in sprint one but now the links actually function correctly where they need to and the formatting was updated a bit.
+
+Login
+The login page was implemented using angular materials and will allow a user to type in username and password, a function has yet to be created to allow a user to login through the backend.
+
+Registration
+Currently, the registration page has the most functionality of any of the pages in the front end. A user can go in and enter all of the required information into the fields, and that information will be type checked and validated based on predetermined pararmeters. A post function will then send that information to the backend once the user has finished entering information and the user has clicked submit. This page also uses angular materials. The page uses forms in typescript and html store the information the user types in to allow for the backend to recieve it via the post request.
 
 # Back-end
 
