@@ -1,5 +1,9 @@
 # Sprint 2 Documentation
 
+# Front-End
+
+## Updates
+
 
 
 # Back-end
