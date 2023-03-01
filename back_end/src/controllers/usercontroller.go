@@ -4,8 +4,8 @@ package controllers
 import (
 	"net/http"
 
-	"CEN3031-Project/back_end/src/database"
-	"CEN3031-Project/back_end/src/models"
+	"AttackOnCollege/back_end/src/database"
+	"AttackOnCollege/back_end/src/models"
 
 	"github.com/gin-gonic/gin"
 )

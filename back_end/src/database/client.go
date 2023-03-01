@@ -1,7 +1,7 @@
 package database
 
 import (
-	"CEN3031-Project/back_end/src/models"
+	"AttackOnCollege/back_end/src/models"
 	"log"
 
 	"gorm.io/driver/sqlite"

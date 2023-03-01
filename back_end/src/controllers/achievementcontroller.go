@@ -3,16 +3,16 @@ package controllers
 import (
 	"net/http"
 
-	"CEN3031-Project/back_end/src/database"
-	"CEN3031-Project/back_end/src/models"
+	"AttackOnCollege/back_end/src/database"
+	"AttackOnCollege/back_end/src/models"
 
 	"github.com/gin-gonic/gin"
 )
 
 type AchievementRequest struct {
-	Title 				string `form:"title"`
-	Description 		string `form:"description"`
-	ExperiencePoints 	int `form:"expPts"`
+	Title            string `form:"title"`
+	Description      string `form:"description"`
+	ExperiencePoints int    `form:"expPts"`
 }
 
 func GetAchievement(user *models.User, title string) {

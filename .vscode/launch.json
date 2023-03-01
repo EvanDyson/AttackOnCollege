@@ -15,6 +15,14 @@
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
+    },
+    {
+      "name": "Go Debugger",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}\\back_end\\src",
+      "env": {"GITHUB_TOKEN": "xxxxx"}
     }
   ]
 }

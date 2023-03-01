@@ -2,9 +2,9 @@
 package controllers
 
 import (
-	"CEN3031-Project/back_end/src/auth"
-	"CEN3031-Project/back_end/src/database"
-	"CEN3031-Project/back_end/src/models"
+	"AttackOnCollege/back_end/src/auth"
+	"AttackOnCollege/back_end/src/database"
+	"AttackOnCollege/back_end/src/models"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
