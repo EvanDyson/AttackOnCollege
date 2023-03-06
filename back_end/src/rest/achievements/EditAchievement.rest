@@ -1,12 +1,12 @@
 @host = localhost:1337
 
-POST https://{{host}}/achievements/editAchievment
+PUT http://{{host}}/achievements/editAchievment
 Content-Type: "application/json"
 
 {
-    "title":"",
-    "description":"",
-    "expPts":0
+    "title":"First Blood!",
+    "description":"Just changing the description...",
+    "expPts":5
 }
 
 ###

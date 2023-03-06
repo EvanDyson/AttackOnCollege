@@ -1,12 +1,71 @@
-# Attack On College v0.0.1
+# Sprint 2 Documentation
 
-This is a general documentation for the back-end of Attack on College version 0.0.1
+# Front-End
+## Tests
+### Unit test
 
-# Functionality
+Unit tests for sprint 2 were simple as the front end in our case is still mostly html. 
+
+Test Types
+
+1. Testing component creation for landing page
+2. Testing component creation for registration page
+3. Testing component creation for admin page (not used yet)
+4. Testing component creation for login page
+5. Testing a couple buttons on landing page
+6. Testing correct title for landing page
+7. Two unfinished end to end type tests for back end request, will be completed in sprint 3
+
+### Cypress test
+
+A cypress test was created to type simulate a user clicking thorugh and typing information into the first two parts of our registration process. 
+
+Note: Overall, cypress seems to be easier to use and understand, plus the testing is more interactive. If it can be used over Angular's testing framework for unit and end to end tests, it will be.
+
+## Updates
+### Routing
+Since Sprint 1 we finished up the page routing so that we can have properly functioning link buttons to bring the user to all of our created pages (components). The routing is now properly set up and understood for easier future implementation.
+
+### Header
+We have added our header to all of our pages to add a more uniform page look.
+
+### Login page
+We "prettied" up the login page to have uniform looking fields for the username and password, and added our logo to that page. The login function attached to the login button is also prepared and ready to send a post request to the backend however we have not yet implemented the backend to the login yet. We have also properly implemented the errors to show up when the fields are not properly filled in.
+
+### Registration page
+For the registration page, we have finished the implementation of all the fields and properly linked errors to the corresponding fields that required them. All of the fields are required fields that are not allowed to be left empty, if left empty the error message "This field is required" will pop up. The email field must have a proper email format of "example@email.com", if it is improper an error message "Enter a valid email" will pop up. The password field has been updated to use a specific format of requiring lowercase, uppercase, a number, and must be 8 characters long. In addition we added a feature to allow the user to hide or show the password while typing. The confirm password field requires that the confirmPassword string and password string must be identical. We have properly implemented the date of birth field, and the college and major fields are the same. The final addition to the registration page is the addition of the post request to our backend upon clicking the submit button on the final page, this will post the registation fields to the backend and in return receive a "postID" that contains all the fields in a string format. After this the webpage will automatically reroute the user to the login page to login.
+
+# Back-end
+
+## Testing 
+
+For our back-end tests, we are using REST API to circumvent having to launch the full Angular build on a localhost port every time we want to test functionality. To do this, we have created multiple test cases for our current working functions in the rest folder in back_end/src. 
+
+### Achievements 
+There is a test for each of our four types of requests having to do with the storing, accessing, and modification of achievements in our database: GET, POST, PUT, and DELETE. 
+
+The only user that will have access to these functions will be the admin user we have created, but have yet to implement fully. This is because we do not want users of the website to directly modify what achievements they will be earning; this is the job of the developer, which is that these tests are able to verify. 
+
+### Register User 
+As shown in the Sprint 2 video, the functionality of the register user tests directly correlates to information that the front-end framework is able to send to the back-end at this moment in time. All fields that are appended to from the FormData in the front-end are shown in the REST test, and the user will be shown in the database if creation is successful. 
+
+Note: registerFail.rest is used to confirm that a unique email must be used in the database; if the email of the user attempting to register is already found in the database, the test will return an error that the front-end will process. 
+
+### Login User 
+The login tests are used to determine a few things, the most important being if the given user is located in the database. If the given email and password are not found in the user database, an internal server error is given back. Next, if the user is found, the password is checked to see if it matches the registered user. If not, the status unauthorized error is returned. 
+
+If both of these requirements are met, a unique token is returned, and is stored in that user instance for as long as they are logged into the website. We currently have the token expiring after one hour, where the user will be prompted to log in again to confirm their identity. This value can be easily changed at a later date. 
+
+### Secure Requests 
+Finally, these last tests are unique, due to the idea that they must verify if a logged-in user is making them. These are functions such as completing an assignment, editing an assignment, deleting a user, and more. Due to these functions being highly sensitive, they all require a token to be placed in the Authorization field, the token belonging to that of the logged-in user making the request. All secure requests are directly editing the given user’s account ONLY, and will not interfere with other users or website functionality as a whole. 
+
+Note: more in-depth test functionality was shown in the Sprint 1 Back End video; we were not aware of the Sprint 2 requirements, and were over-prepared on our past demonstration. If demonstration of tests other than Register User are desired, refer to said video. 
+
+## Functionality
 
 The implemented functionality:
 
-## Linking front-end and back-end
+### Linking front-end and back-end
 
 As of now, the front-end and back-end are linked up. Starting the server and Angular allows the two to communicate. GoLang needs to be installed and set up for execution on the machine to properly start the server. If both Angular and Go are installed, running 
     
@@ -16,9 +75,9 @@ in the console of the AttackOnCollege directory will start both up. For testing 
 
     go run ./back_end/src/*.go 
 
-will start up just the server. Although Codegangsta Gin is NOT used to start the server, it does give testing feedback in the console. The reason for not running with Gin is that Gin is very verbose and it is hard to read through all the ouput. For debugging purposes, Delve can be used which is very easy to install and set up. For instructions on setting up Delve with VS Code, check the Delve setup section at the bottom of the document.
+will start up just the server. Although Codegansta Gin is NOT used to start the server, it does give testing feedback in the console. The reason for not running with Gin is that Gin is very verbose and it is hard to read through all the ouput.
 
-## Register user
+### Register user
 
 Along with the respective front-end functionality, the router and handler functions for registering a user into the database are fully implemented and functional. In Sprint 1, registering the user required JSON input from the POST requests, but that has been updated to take in any object with the matching fields (firstName, lastName, email, username, password, dob, major, college). As long as the object passed can be bound to the request object in the backend, and it passes GORM requirements, the new user will be created. 
 
@@ -30,19 +89,19 @@ Once the user is added to the database with no errors, a JSON object containing 
 
 For now, the entire string passed from the front-end is used as the DOB. A new function needs to be developed to extract only the day, month, and year from the input. 
 
-## Login user
+### Login user
 
 Although the back-end function for logging a user in (generateToken()) is implemented, some changes will probably be introduced once the front-end implements the login functionality. For now, a JWT is generated and stored in the database for retrieval, and the token is sent back to the front-end. 
 
-## Create course and assignment
+### Create course and assignment
 
 These functions work in a similar fashion as the register user function. The only difference is that the request will have to contain an "Authorization" header with the current token. If this token is expired, an error message will be sent back. If the passed token cannot be found in the database, an error message will be sent back. If the token is not passed, an error message will be sent back.
 
 The assignments can be completed, too, and the achievement for completing the first assignment is created, so it can be given once the user completes their first assignment.
 
-# Structs and packages
+## Structs and packages
 
-## User Struct and Database
+### User Struct and Database
 
 The models package contains a struct called User which represents the profile that the website user will have. The struct has the following fields:
 1. Username: website handle that will be displayed on the profile, and will be used for looking up other users and displaying the global status on the ranked list of users. Gorm will require all emails in the database to be unique
@@ -56,7 +115,7 @@ The models package contains a struct called User which represents the profile th
 9. Level: this is the current level that the user has in our app. It is incremented based on a scale we are yet to determine, and it will be primarily used for additonal achievements and bonus experience points. It is supposed to present small step-by-step goals for users that would keep their interest and give them instant gratification that is neccessary when playing any game, and completing a class
 10. Experience points: the total number of experience points will be used to build a leaderboard of users used for competition
 
-## Course Struct and Database
+### Course Struct and Database
 
 The course struct has the following fields:
 1. Title: course title that is just there for an easier access by the user
@@ -65,7 +124,7 @@ The course struct has the following fields:
 4. Final grade: the final grade earned in the course. It is used to calculate the experience points that will be earned after completing the course. 
 5. Experience points: the number of experience points that will be added to user once they complete the course
 
-## Assignment Struct and Database
+### Assignment Struct and Database
 
 The assignment struct has the following fields:
 1. Title: the title of the assignment that is to be completed
@@ -75,33 +134,33 @@ The assignment struct has the following fields:
 5. Experience points: Total experience points earned upon completion of the assignment
 6. Points earned: the number of points that the user achieved upon completion
 
-## Achievement Struct and Database
+### Achievement Struct and Database
 
 So far, only the basic fields of the achievement struct are made such as title, description and experience points. 
 
-## Server setup
+### Server setup
 
 The server is set up with the [gin-gonic/gin package](https://github.com/gin-gonic/gin) that acts as a router. The TLS encryption was providing difficulty in linking with the front-end, so that has been taken out and replaced with just HTTP communication. Nevertheless, all the getter functions do not return the password hash of the user profiles. All passwords are replaced with "Hidden" before being sent in the reply.
 
-## Databases
+### Databases
 
 Databases are set up using [GORM package](https://gorm.io/gorm) for GoLang, and there are 4 so far. They are all local, and we are still looking for ways to decentralize that, although it might be pointless for the low scale project such as this one. PostgreSQL didn't work the way we expected it, and mySQL doesn't allow non-primitive datatypes which we need for the arrays of achievements, assignments, courses, etc.
 
-## Controllers
+### Controllers
 
 Controllers is a package we split up from the models package, and it includes files with just functions that describe behaviors and are mostly handlers for routing. 
 
-## Achievement constructor and accessor functions
+### Achievement constructor and accessor functions
 
 Functions used for creating and accessing achievements were created. These will potentially be used later as controllers employed by an Administrator user instead of only being accessible from the back end. These will NOT be accessible to regular users and visitors of the website, but for now, no authentication and restriction is implemented. 
 
-Two more functions (modifier and destructor) need to be implemented for full control over achievements.
+The modifier and destructor have now been added for achievements in Sprint 2, giving a potential admin user full control over achievements contained in the database. For Sprint 3, we will aim to populate said database using these functions with achievements that our users will be interested in earning, and implementing how to grant these achievements to users the moment they are earned. 
 
 Created an achievement controller that will manage the delegation of achievements to users who earn them. When the conditions of the achievement are met, the controller finds the achievement in the given database with the string passed into the function, along with a reference to the user who earned it. The GetAchievement function appends the achievement ID code to the achievement slice that each user struct contains. 
 
 The first achievement implemented will be given when the user fully completes their first course, and it is titled “First Blood.” This can be changed to fit the flavor or style of the project that we eventually solidify.  
 
-## Packages
+### Packages
 
 go get -u gorm.io/gorm
 
@@ -117,33 +176,4 @@ go get -u gorm.io/gorm
 
     go get -u github.com/lib/pq
 
-    go get -u github.com/codegangsta/gin
-
-## Delve setup
-
-### Installing Delve
-
-Run
-
-    go get -u github.com/go-delve/delve/cmd/dlv 
-
-from the console in the directory that contains go.mod file. Once the command has executed, check if it was installed properly by running 
-
-    dlv
-
-in the console. If the message is dlv command not found, you need to set up the Go-related ENV. Ensure that GOROOT, GOPATH and PATH environment variables are set up properly in the Environment variables. 
-
-### Configuration
-
-The .vscode/launch.json file updated with this document already has the configuration necessary for running the VS Code debugger. To ensure that your version of the launch.json file is correct, check if it has the following configuration:
-
-    {
-      "name": "Go Debugger",
-      "type": "go",
-      "request": "launch",
-      "mode": "auto",
-      "program": "${workspaceFolder}\\back_end\\src",
-      "env": {"GITHUB_TOKEN": "xxxxx"}
-    }
-
-Once the file is updated, running the debugger from VS Code works as regular. The only thing that needs to be done after this is comment line 10 out in back_end/src/main.go, and uncomment line 13.
+    go install github.com/codegangsta/gin@latest

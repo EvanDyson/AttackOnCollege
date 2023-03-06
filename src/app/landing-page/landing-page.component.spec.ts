@@ -38,5 +38,6 @@ describe('LandingPageComponent', () => {
    
     const btn = fixture.debugElement.nativeElement.querySelector('#loginwhite');
     expect(btn.innerHTML).toBe('Login');
+    
   });
 });

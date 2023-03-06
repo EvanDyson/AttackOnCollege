@@ -4,8 +4,8 @@ package controllers
 import (
 	"net/http"
 
-	"CEN3031-Project/back_end/src/database"
-	"CEN3031-Project/back_end/src/models"
+	"AttackOnCollege/back_end/src/database"
+	"AttackOnCollege/back_end/src/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -47,11 +47,11 @@ func EditUser(context *gin.Context) {
 		return
 	}
 	var request = struct {
-		Username  string `json:"username" gorm:"unique"`
-		FirstName string `json:"firstName"`
-		LastName  string `json:"lastName"`
+		Username  string `form:"username" gorm:"unique"`
+		FirstName string `form:"firstName"`
+		LastName  string `form:"lastName"`
 	}{}
-	if err := context.ShouldBindJSON(&request); err != nil {
+	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
@@ -77,9 +77,9 @@ func ChangePassword(context *gin.Context) {
 		return
 	}
 	var request = struct {
-		Password string `json:"password"`
+		Password string `form:"password"`
 	}{}
-	if err := context.ShouldBindJSON(&request); err != nil {
+	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return

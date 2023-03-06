@@ -1,7 +1,7 @@
 package middlewares
 
 import (
-	"CEN3031-Project/back_end/src/auth"
+	"AttackOnCollege/back_end/src/auth"
 
 	"github.com/gin-gonic/gin"
 )

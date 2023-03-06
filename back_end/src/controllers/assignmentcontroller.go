@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"CEN3031-Project/back_end/src/database"
-	"CEN3031-Project/back_end/src/models"
+	"AttackOnCollege/back_end/src/database"
+	"AttackOnCollege/back_end/src/models"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -26,12 +26,12 @@ func CreateAssignment(c *gin.Context) {
 	}
 
 	var request = struct {
-		Title          string  `json:"title"`
-		Description    string  `json:"description"`
-		NumberOfPoints int     `json:"numPts"`
-		Weight         float32 `json:"gradeWeight"`
+		Title          string  `form:"title"`
+		Description    string  `form:"description"`
+		NumberOfPoints int     `form:"numPts"`
+		Weight         float32 `form:"gradeWeight"`
 	}{}
-	if err := c.ShouldBindJSON(&request); err != nil {
+	if err := c.Bind(&request); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		c.Abort()
 		return
@@ -74,10 +74,10 @@ func CompleteAssignment(c *gin.Context) {
 	}
 
 	var request = struct {
-		AssignmentID int     `json:"assignment"`
-		PointsEarned float32 `json:"ptsEarned"`
+		AssignmentID int     `form:"assignment"`
+		PointsEarned float32 `form:"ptsEarned"`
 	}{}
-	if err := c.ShouldBindJSON(&request); err != nil {
+	if err := c.Bind(&request); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		c.Abort()
 		return
@@ -108,4 +108,54 @@ func CompleteAssignment(c *gin.Context) {
 
 }
 
-//Add edit assignment function 
+func EditAssignment(c *gin.Context) {
+	var user models.User
+	var assignment models.Assignment
+	var course models.Course
+	tokenString := c.GetHeader("Authorization")
+
+	recordUser := database.UserDB.Where("token = ?", tokenString).First(&user)
+	if recordUser.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": recordUser.Error.Error()})
+		c.Abort()
+		return
+	}
+	recordCourse := database.CourseDB.Where("course_code = ?", user.CurrentCourse).First(&course)
+	if recordCourse.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": recordCourse.Error.Error()})
+		c.Abort()
+		return
+	}
+
+	var request = struct {
+		Title            string `form:"title"`
+		Description      string `form:"description"`
+		ExperiencePoints int    `form:"expPts"`
+	}{}
+	if err := c.Bind(&request); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		c.Abort()
+		return
+	}
+
+	recordAssignment := database.AssignmentDB.Where("title = ?", assignment.Title).First(&assignment)
+	if recordAssignment.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": recordAssignment.Error.Error()})
+		c.Abort()
+		return
+	}
+
+	//Users should only be able to edit an assignment title / description / exp, not if it is completed or not
+	assignment.Title = request.Title
+	assignment.Description = request.Description
+	assignment.ExperiencePoints = request.ExperiencePoints
+
+	changeAssignment := database.AssignmentDB.Save(&assignment)
+	if changeAssignment.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": changeAssignment.Error.Error()})
+		c.Abort()
+		return
+	}
+
+	c.JSON(http.StatusAccepted, "Assignment Edited Successfully!")
+}

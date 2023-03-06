@@ -22,24 +22,24 @@ export class RegisterComponent {
   
   ngOnInit() {
   
-    this.firstFormGroup = this._formBuilder.group({
+      this.firstFormGroup = this._formBuilder.group({
   
-      firstName: new FormControl('', Validators.required),
+          firstName: new FormControl('', Validators.required),
 
-      lastName: new FormControl('', Validators.required),
+          lastName: new FormControl('', Validators.required),
   
-      // will need to add in a unique username checking function
-      username: new FormControl('', Validators.required),
+          // will need to add in a unique username checking function
+          username: new FormControl('', Validators.required),
       
-      email: new FormControl('', [Validators.required, Validators.email]),
+          email: new FormControl('', [Validators.required, Validators.email]),
       
-      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]),
+          password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')]),
     
-      confirmPassword: new FormControl('', Validators.required)
+          confirmPassword: new FormControl('', Validators.required)
   
-    }
-    //, { validators: confirmPasswordValidator }
-    );
+      }
+          //, { validators: confirmPasswordValidator }
+      );
   
     this.secondFormGroup = this._formBuilder.group({
       
@@ -47,33 +47,34 @@ export class RegisterComponent {
   
         //add drop down menu to major and college for easy selection
         //also add 2 files for a bunch of majors and bunch of colleges for easy insertion to the drop down
-      major: ['', Validators.required],
-  
-      college: ['', Validators.required]
+      college: ['', Validators.required],
+      
+      major: ['', Validators.required]
     });
   
   }
 
   submit(){
   
-      this.http.post<any>('https://{{host}}/users/token', this.firstFormGroup).subscribe(data => {
-        this.postId = data.id;
-    });
-      this.http.post<any>('https://{{host}}/users/token', this.secondFormGroup).subscribe(data => {
-        this.postId = data.id;
-    });
-      
-    //console.log(this.firstFormGroup.value);
-    //console.log(this.secondFormGroup.value);
-      
-      
-      /*
-        POST https://{{host}}/users/token HTTP/1.1
-        content-type: application/json
-        {
-            "email": "b.gator@ufl.edu",
-            "password": "IDon'tKnowHonestly"
-        }
-      */
+      var formData: any=new FormData();
+      this.addData(formData);
+      this.http.post('http://localhost:1337/users/register', formData)
+      .subscribe(data =>{
+        this.postId=JSON.stringify(data);
+        console.log(this.postId);
+      });
+
+      window.location.pathname = './login';
+    }
+    
+  addData(formData: FormData){
+      formData.append('firstName', this.firstFormGroup.get('firstName')?.value);
+      formData.append('lastName', this.firstFormGroup.get('lastName')?.value);
+      formData.append('username', this.firstFormGroup.get('username')?.value);
+      formData.append('email', this.firstFormGroup.get('email')?.value);
+      formData.append('password', this.firstFormGroup.get('pasword')?.value);
+      formData.append('dob', this.secondFormGroup.get('dob')?.value);
+      formData.append('college', this.secondFormGroup.get('college')?.value);
+      formData.append('major', this.secondFormGroup.get('major')?.value);
   }
 }

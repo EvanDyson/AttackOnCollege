@@ -1,13 +1,16 @@
 @host = localhost:1337
 // Register User
-POST https://{{host}}/users/user/register HTTP/1.1
+POST http://{{host}}/users/register HTTP/1.1
 content-type: application/json
     
 {
-    "firstName": "First",
-    "lastName": "Last",
-    "username": "f.last",
-    "email": "f.last@ufl.edu",
-    "password": "TestingPass"
+    "firstName": "Testing",
+    "lastName": "Testing",
+    "username": "t.testing",
+    "email": "t.testing@ufl.edu",
+    "password": "TestPass",
+    "major": "Comp Sci",
+    "college": "UF",
+    "dob": "Feb 02 2023"
 }
 ###

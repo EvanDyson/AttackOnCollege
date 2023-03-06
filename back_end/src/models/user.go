@@ -9,23 +9,23 @@ import (
 type User struct {
 	gorm.Model
 	// Login fields
-	Username string `json:"username" gorm:"unique"`
-	Password string `json:"password"`
-	Token    string `json:"token"`
+	Username string `form:"username" gorm:"unique"`
+	Password string `form:"password"`
+	Token    string `form:"token"`
 
 	// Registration fields
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Email     string `json:"email" gorm:"unique"`
-	Major     string `json:"major" binding:"required"`
-	College   string `json:"college" binding:"required"`
-	DOB       string `json:"dob"`
+	FirstName string `form:"firstName"`
+	LastName  string `form:"lastName"`
+	Email     string `form:"email" gorm:"unique"`
+	Major     string `form:"major" binding:"required"`
+	College   string `form:"college" binding:"required"`
+	DOB       string `form:"dob"`
 
 	// Profile fields
-	Level                int           `json:"level"`
-	ExperiencePoints     int           `json:"expPts"`
-	Achievements         pq.Int64Array `json:"achievements" gorm:"type:integer[]"`
-	CurrentCourse        string        `json:"currCourse"`
+	Level                int           `form:"level"`
+	ExperiencePoints     int           `form:"expPts"`
+	Achievements         pq.Int64Array `form:"achievements" gorm:"type:integer[]"`
+	CurrentCourse        string        `form:"currCourse"`
 	CompletedAssignments int
 }
 

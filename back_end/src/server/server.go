@@ -1,9 +1,14 @@
 package server
 
 import (
+<<<<<<< HEAD
 	"CEN3031-Project/back_end/src/controllers"
 	"CEN3031-Project/back_end/src/middlewares"
 	"os"
+=======
+	"AttackOnCollege/back_end/src/controllers"
+	"AttackOnCollege/back_end/src/middlewares"
+>>>>>>> cb9a4465067009ba0ee2e0bc97ff78efc64885e7
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -40,9 +45,9 @@ func StartServer() {
 func initRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"http://localhost:4200", "http://localhost:1337"},
-		// AllowHeaders:     []string{"Origin"},
-		// ExposeHeaders:    []string{"Content-Length"},
+		AllowOrigins:     []string{"http://localhost:4200", "http://localhost:1337", "http://localhost:9876/"},
+		AllowHeaders:     []string{"Origin"},
+		ExposeHeaders:    []string{"Content-Length", "Content-Type"},
 		AllowCredentials: true,
 	}))
 	users := r.Group("/users")
@@ -54,6 +59,7 @@ func initRouter() *gin.Engine {
 			secured.GET("/ping", controllers.Ping)
 			secured.GET("/token", controllers.GetUser)
 			secured.PUT("/token", controllers.EditUser)
+			secured.PUT("/editAssignment", controllers.EditAssignment)
 			secured.DELETE("/token", controllers.DeleteUser)
 			secured.POST("/createCourse", controllers.CreateCourse)
 			secured.POST("/addAssignment", controllers.CreateAssignment)
@@ -66,8 +72,8 @@ func initRouter() *gin.Engine {
 	{
 		achievements.POST("/createAchievement", controllers.AddAchievement)
 		achievements.GET("/getAllAchievements", controllers.GetAllAchievements)
-		//achievements.DELETE("/deleteAchievement", controllers.DeleteAchievement)
-		//achievements.PUT("/editAchievement", controllers.EditAchievement)
+		achievements.DELETE("/deleteAchievement", controllers.DeleteAchievement)
+		achievements.PUT("/editAchievement", controllers.EditAchievement)
 	}
 	return r
 }
