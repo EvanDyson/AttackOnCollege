@@ -11,10 +11,10 @@ import (
 )
 
 // GenerateToken is a function that deals with users logging in
-// It takes in an email and a password, and generates a JWT that is used to access pages only available to page users
+// It takes in an username and a password, and generates a JWT that is used to access pages only available to page users
 func GenerateToken(context *gin.Context) {
 	var request = struct {
-		Email    string `form:"email" binding:"required"`
+		Username string `form:"username" binding:"required"`
 		Password string `form:"password" binding:"required"`
 	}{}
 
@@ -28,7 +28,7 @@ func GenerateToken(context *gin.Context) {
 	}
 
 	// Search through database to find an entry with the requested email and save the information within the var user
-	record := database.UserDB.Where("email = ?", request.Email).First(&user)
+	record := database.UserDB.Where("username = ?", request.Username).First(&user)
 	if record.Error != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
 		context.Abort()

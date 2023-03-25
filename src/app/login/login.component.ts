@@ -21,20 +21,21 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this._formBuilder.group({
       username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')])
     })
   }
 
     login() {
         var formData: any = new FormData();
         this.addData(formData);
-        this.http.post('http//localhost:1337/users/register', formData)
+        this.http.post('http://localhost:1337/users/token', formData)
             .subscribe(data => {
                 this.postId = JSON.stringify(data);
                 console.log(this.postId);
             });
         
-        window.location.pathname = '';
+        
+        //window.location.pathname = '';
     }   
   
     addData(formData: FormData) {
