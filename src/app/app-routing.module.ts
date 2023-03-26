@@ -6,15 +6,20 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
-
+import { AddCourseComponent } from './add-course/add-course.component';
+import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
+import { AchievementComponent } from './achievement/achievement.component';
 
 const routes: Routes = [
-  {path: '', component: LandingPageComponent},
-  {path: 'login', component: LoginComponent},
+  { path: '', component: LandingPageComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: UserProfileComponent },
-  {path: 'edit', component: EditUserComponent},
-  {path: 'admin', component: AdminPageComponent}
+  { path: 'edit', component: EditUserComponent },
+  { path: 'add-course', component: AddCourseComponent },
+  { path: 'add-assignment', component: AddAssignmentComponent },
+  { path: 'achievement', component: AchievementComponent },
+  { path: 'admin', component: AdminPageComponent }
 ];
 
 @NgModule({

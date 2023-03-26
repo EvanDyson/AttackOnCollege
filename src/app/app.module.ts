@@ -13,16 +13,20 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
-import { MatFormField } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MatCardModule } from '@angular/material/card';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { AddCourseComponent } from './add-course/add-course.component';
+import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
+import { AchievementComponent } from './achievement/achievement.component';
 
 
 @NgModule({
@@ -34,7 +38,10 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     RegisterComponent,
     AdminPageComponent,
     UserProfileComponent,
-    EditUserComponent
+    EditUserComponent,
+    AddCourseComponent,
+    AddAssignmentComponent,
+    AchievementComponent
     ],
   imports: [
       RouterModule,
@@ -52,7 +59,9 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     MatNativeDateModule,
       MatDatepickerModule,
       MatIconModule,
-      MatCardModule
+      MatCardModule,
+      MatFormFieldModule,
+      MatSelectModule
   ],
   schemas:[NO_ERRORS_SCHEMA],
   

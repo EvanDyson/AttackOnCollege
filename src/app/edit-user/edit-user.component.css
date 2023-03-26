@@ -15,7 +15,31 @@ ul {
   margin-right: 8px;
   width: 46px;
 }
-.loginField
-{
-  margin-top: 20px;
+.card {
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.button {
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.button1 {
+margin-right: 20px;
+}
+.name mat-form-field + mat-form-field {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.pers mat-form-field + mat-form-field {
+  margin-left: 10px;
+}
+.dob {
+  margin-bottom: 20px;
+}
+.age {
+  margin-left: 30px;
 }

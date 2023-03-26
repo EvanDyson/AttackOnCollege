@@ -19,9 +19,14 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="btn btn-outline-primary my-2 my-sm-0" href="/profile"
               >My Profile</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="/add-assignment"
+              >New Assignment</a
             >
           </li>
           <li class="nav-item">
@@ -45,9 +50,8 @@
   </nav>
 </body>
 
-<p>user-profile works!</p>
 
-<mat-card>
+<mat-card class="card">
     <mat-card-header>
       <div mat-card-avatar>
         <mat-icon>person</mat-icon>
@@ -56,14 +60,17 @@
     </mat-card-header>
     <mat-card-content>
       <p>Name: John Doe</p>
-      <p>Email: john.doe@email.com</p>
-      <p>Phone: 352-555-1234</p>
+      <p>Username: Username</p>
+      <p>Age: 24</p>
+      <p>DOB: 01/01/1999</p>
+      <p>Email: JohnDoe@email.com</p>
+      <p>College: University of Florida</p>
+      <p>Major: Computer Science</p>
     </mat-card-content>
-    <mat-card-actions class="button1">
-        <a mat-raised-button color="primary" href="/course">Add a course</a>
-        <mat-card-actions class="button2">
-            <a mat-raised-button color="primary" href="/edit">Edit Profile</a>
-        </mat-card-actions>
+    <mat-card-actions class="button">
+      <a class="button1" mat-raised-button color="primary" href="/edit">Edit Profile</a>
+      <a class="button1" mat-raised-button color="primary" href="/add-course">Add a course</a>
+      <a class="button1" mat-raised-button color="primary" href="/add-assignment">Add an assignment</a>
     </mat-card-actions>
   </mat-card>
   

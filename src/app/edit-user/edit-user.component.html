@@ -19,9 +19,14 @@
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a class="btn btn-outline-primary my-2 my-sm-0" href="/profile"
                 >My Profile</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-primary my-2 my-sm-0" href="/add-assignment"
+                >New Assignment</a
               >
             </li>
             <li class="nav-item">
@@ -45,29 +50,68 @@
     </nav>
   </body>
 
-<p>edit-user works!</p>
 
-<mat-card>
+<mat-card class="card">
     <mat-card-header>
       <mat-card-title>Edit Profile</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form>
+      <form [formGroup]="editUser">
+        <div class="name">
         <mat-form-field>
-          <input matInput placeholder="Name" value="John Doe">
+          <!--between matinput and formcontrolname you can put placeholder=... to have text in the background-->
+          <!--testing current using preset value to have the field already filled in to able to be edited-->
+          <mat-label>First name</mat-label>
+          <input id="firstname" matInput formControlName="firstName">
         </mat-form-field>
-        <br>
+        
         <mat-form-field>
-          <input matInput placeholder="Email" value="john.doe@example.com">
+          <mat-label>Last name</mat-label>
+          <input id="lastname" matInput formControlName="lastName">
         </mat-form-field>
-        <br>
+      </div>
+        
+      <div class="pers">
         <mat-form-field>
-          <input matInput placeholder="Phone" value="555-1234">
+          <mat-label>Email</mat-label>
+          <input id="email" matInput formControlName="email">
         </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+        <input id="username" matInput formControlName="username">
+        </mat-form-field>
+      </div>
+
+      <div class="dob">
+      <mat-form-field>  
+        <mat-label>Date of Birth</mat-label>
+        <input id="dob" placeholder="01/01/1999" matInput [matDatepicker]="dob" formControlName="dob">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
+        <mat-datepicker #dob></mat-datepicker>
+      </mat-form-field>
+
+      <mat-label class="age">Age: </mat-label>
+      </div>
+
+      <div class="pers">
+      <mat-form-field>
+        <mat-label>College</mat-label>
+        <input id="college" matInput formControlName="college">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Major</mat-label>
+        <input id="major" matInput formControlName="major">
+      </mat-form-field>
+      </div>
+
       </form>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="save()">Save Changes</button>
+    <mat-card-actions class="button">
+      <a class="button1" mat-raised-button color="primary" href="/profile">Cancel</a>
+      <button class="button1" mat-raised-button color="primary" (click)="save()">Save Changes</button>
     </mat-card-actions>
   </mat-card>
   

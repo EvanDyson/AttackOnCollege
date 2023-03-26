@@ -37,9 +37,7 @@ export class RegisterComponent {
     
           confirmPassword: new FormControl('', Validators.required)
   
-      }
-          //, { validators: confirmPasswordValidator }
-      );
+      });
   
     this.secondFormGroup = this._formBuilder.group({
       
@@ -55,12 +53,11 @@ export class RegisterComponent {
   }
 
   submit(){
-  
-      var formData: any=new FormData();
+      var formData: any = new FormData();
       this.addData(formData);
       this.http.post('http://localhost:1337/users/register', formData)
       .subscribe(data =>{
-        this.postId=JSON.stringify(data);
+        this.postId = JSON.stringify(data);
         console.log(this.postId);
       });
 

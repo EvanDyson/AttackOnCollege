@@ -1,0 +1,17 @@
+li {
+    margin-bottom: 8px;
+  }
+  ul {
+    background-color: #F7F9FC;
+    margin-top: 25px;
+    padding: 30px 55px;
+    border-radius: 8px;
+  }
+  .nav-item {
+    margin: 10px 16px;
+  }
+  .navbar-brand img {
+    height: 46px;
+    margin-right: 8px;
+    width: 46px;
+  }
