@@ -48,48 +48,56 @@
         </div>
       </div>
     </nav>
-  </body>
+</body>
 
 
 <mat-card class="card">
     <mat-card-header>
-      <mat-card-title>Create a New Challenge</mat-card-title>
+      <mat-card-title class="title">Create a New Challenge</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="assignmentForm">
-        <mat-form-field>
+
+        <mat-form-field class="form">
             <input id="assignmentName" matInput placeholder="Assignment Name" formControlName="assignmentName" required>
+            <mat-error *ngIf="assignmentForm.get('assignmentName')?.hasError('required')">This field is required</mat-error>
         </mat-form-field>
         
         <br>
         
-        <mat-form-field>
+        <mat-form-field class="form">
             <input id="courseName" matInput placeholder="Course Name" formControlName="courseName" required>
+            <mat-error *ngIf="assignmentForm.get('courseName')?.hasError('required')">This field is required</mat-error>
+
         </mat-form-field>
         
         <br>
         
-        <mat-form-field>
+        <mat-form-field class="form">
           <mat-label>Assignment Type</mat-label>
           <mat-select [formControl]="assignmentType" id="assignmentType">
             <mat-option value=""></mat-option>
             <mat-option value="homework">Homework</mat-option>
             <mat-option value="quiz">Quiz</mat-option>
             <mat-option value="project">Project</mat-option>
+            <mat-option value="exam">Exam</mat-option>
           </mat-select>
         </mat-form-field>
-        
+
         <br>
 
-        <mat-form-field>
-          <input id="dueDate" formControlName="dueDate" matInput [matDatepicker]="dueDate" placeholder="Due Date">
-          <mat-datepicker-toggle matSuffix [for]="dueDate"></mat-datepicker-toggle>
-          <mat-datepicker #dueDate></mat-datepicker>
+        <mat-form-field class="form">
+            <input matInput [ngxMatDatetimePicker]="picker" placeholder="Assignment due date" formControlName="dueDate">
+            <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+            <mat-error *ngIf="assignmentForm.get('dueDate')?.hasError('required')">This field is required</mat-error>
         </mat-form-field>
+
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary">Create Challenge</button>
+      <button class="B1" mat-raised-button color="primary" (click)="assignmentForm.reset()">Clear</button>
+      <button class="B2" mat-raised-button color="primary" (click)="createChallenge()">Create Challenge</button>
     </mat-card-actions>
   </mat-card>
   

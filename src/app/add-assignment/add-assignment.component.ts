@@ -27,8 +27,6 @@ export class AddAssignmentComponent {
   }
 
   createChallenge() {
-    // Here you could add any logic for creating a new challenge, such as calling an API
-    // to save the challenge data to a database.
     var formData: any = new FormData();
     this.addData(formData);
     this.http.post('http://localhost:1337/users/register', formData)
@@ -36,12 +34,15 @@ export class AddAssignmentComponent {
       this.postId = JSON.stringify(data);
       console.log(this.postId);
     })
-    window.location.pathname = './add-assignment';
+    //window.location.pathname = './add-assignment';
     // For this example, we'll just log the data to the console.
-    // console.log('Assignment Name:', this.assignmentForm.);
-    // console.log('Course Name:', this.courseName);
-    // console.log('Assignment Type:', this.assignmentType);
-    // console.log('Due Date:', this.dueDate);
+   
+      console.log('Assignment Name:', this.assignmentForm.get('assignmentName')?.value);
+      console.log('Course Name: ', this.assignmentForm.get('courseName')?.value);
+      console.log('Assignment Type: ', this.assignmentForm.get('assignmentType')?.value);
+      console.log('Due Date: ', this.assignmentForm.get('dueDate')?.value);
+
+      window.location.pathname = './add-assignment';
   }
   addData(formData: FormData) {
     formData.append('assignmentName', this.assignmentForm.get('assignmentName')?.value);

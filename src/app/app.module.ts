@@ -27,7 +27,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
 import { AchievementComponent } from './achievement/achievement.component';
-
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 
 @NgModule({
   
@@ -61,7 +61,10 @@ import { AchievementComponent } from './achievement/achievement.component';
       MatIconModule,
       MatCardModule,
       MatFormFieldModule,
-      MatSelectModule
+      MatSelectModule,
+      NgxMatTimepickerModule,
+      NgxMatDatetimePickerModule,
+      NgxMatNativeDateModule
   ],
   schemas:[NO_ERRORS_SCHEMA],
   

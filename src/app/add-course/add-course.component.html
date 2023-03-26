@@ -50,4 +50,40 @@
     </nav>
   </body>
 
-  <p>Add course works!</p>
+
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title class="title"><h3>Add a course</h3></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="courseForm">
+
+        <mat-form-field class="form">
+            <input id="courseCode" matInput placeholder="Course Code" formControlName="courseCode" required>
+            <mat-error *ngIf="courseForm.get('courseCode')?.hasError('required')">This field is required</mat-error>
+        </mat-form-field>
+        
+        <br>
+        
+        <mat-form-field class="form">
+            <input id="courseName" matInput placeholder="Course Name" formControlName="courseName" required>
+            <mat-error *ngIf="courseForm.get('courseName')?.hasError('required')">This field is required</mat-error>
+
+        </mat-form-field>
+
+        <br>
+        
+        <mat-form-field class="form">
+            <input id="profName" matInput placeholder="Professor Name" formControlName="profName" required>
+            <mat-error *ngIf="courseForm.get('profName')?.hasError('required')">This field is required</mat-error>
+
+        </mat-form-field>
+
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="B1" mat-raised-button color="primary" (click)="courseForm.reset()">Clear</button>
+      <button class="B2" mat-raised-button color="primary" (click)="addCourse()">Add the course</button>
+    </mat-card-actions>
+  </mat-card>
+  

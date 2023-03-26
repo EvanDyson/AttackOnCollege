@@ -21,7 +21,7 @@ export class EditUserComponent {
       lastName: new FormControl('Doe'),
 
       // will need to add in a unique username checking function
-      username: new FormControl('Username'),
+      username: new FormControl('JohnnyDoeBoy'),
       
       email: new FormControl('JohnDoe@email.com'),
 
@@ -45,8 +45,8 @@ export class EditUserComponent {
         console.log(this.postId);
       });
 
-      //move window back to the profile
-      // window.location.pathname = './profile'
+      // move window back to the profile
+      window.location.pathname = './profile'
     }
     addData(formData: FormData) {
       formData.append('firstName', this.editUser.get('firstName')?.value);
