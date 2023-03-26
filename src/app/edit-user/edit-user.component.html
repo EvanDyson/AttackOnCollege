@@ -20,8 +20,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item active">
-                <a class="btn btn-outline-primary my-2 my-sm-0" href="/profile">My Profile</a>
-
+              <a class="btn btn-outline-primary my-2 my-sm-0" href="/profile"
+                >My Profile</a
+              >
             </li>
             <li class="nav-item">
               <a class="btn btn-outline-primary my-2 my-sm-0" href="/admin"
@@ -43,5 +44,30 @@
       </div>
     </nav>
   </body>
-<p>admin-page works!</p>
-<button><a href="">Home</a></button>
+
+<p>edit-user works!</p>
+
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Edit Profile</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <input matInput placeholder="Name" value="John Doe">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Email" value="john.doe@example.com">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Phone" value="555-1234">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="save()">Save Changes</button>
+    </mat-card-actions>
+  </mat-card>
+  

@@ -20,7 +20,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormField } from '@angular/material/form-field';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MatCardModule } from '@angular/material/card';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 
 @NgModule({
@@ -30,8 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
     LandingPageComponent,
     LoginComponent,
     RegisterComponent,
-    AdminPageComponent
-  ],
+    AdminPageComponent,
+    UserProfileComponent,
+    EditUserComponent
+    ],
   imports: [
       RouterModule,
       HttpClientModule,
@@ -48,11 +52,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
       MatDatepickerModule,
       MatIconModule,
-      
+      MatCardModule
   ],
   schemas:[NO_ERRORS_SCHEMA],
   
   providers: [],
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
