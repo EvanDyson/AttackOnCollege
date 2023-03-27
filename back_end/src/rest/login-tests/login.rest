@@ -4,7 +4,7 @@ POST http://{{host}}/users/token HTTP/1.1
 content-type: application/json
     
 {
-    "email": "b.gator@ufl.edu",
+    "username": "b.gator",
     "password": "IDon'tKnowHonestly"
 }
 ###

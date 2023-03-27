@@ -37,6 +37,14 @@ func initRouter() *gin.Engine {
 			secured.POST("/addAssignment", controllers.CreateAssignment)
 			secured.POST("/completeAssignment", controllers.CompleteAssignment)
 		}
+		admin := users.Group("/admin").Use(middlewares.Auth())
+		{
+			admin.POST("/achievement", controllers.AddAchievement)
+			admin.PUT("/achievement", controllers.EditAchievement)
+			admin.DELETE("/achievement", controllers.DeleteAchievement)
+			admin.GET("/achievements", controllers.GetAllAchievements)
+			admin.DELETE("/user", controllers.AdminDeleteUser)
+		}
 		users.GET("/", controllers.GetUsers)
 	}
 	//Achievment group
