@@ -38,8 +38,10 @@ export class LoginComponent implements OnInit {
                 console.log(this.cookieService.get('aocCookie'));
             });
         
+        if(this.cookieService.get('aocCookie')!=null){
+          window.location.pathname = '/';
+        }
         
-        //window.location.pathname = '';
     }   
   
     addData(formData: FormData) {
