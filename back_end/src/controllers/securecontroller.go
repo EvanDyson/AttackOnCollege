@@ -14,6 +14,17 @@ func Ping(context *gin.Context) {
 	context.JSON(http.StatusOK, gin.H{"message": "pong"})
 }
 
+type ProfileRequest struct {
+	Username  string `form:"username" gorm:"unique"`
+	Token     string `form:"token"`
+	LastName  string `form:"lastName"`
+	Email     string `form:"email" gorm:"unique"`
+	Major     string `form:"major" binding:"required"`
+	College   string `form:"college" binding:"required"`
+	DOB       string `form:"dob"`
+	FirstName string `form:"firstName"`
+}
+
 // Return user information to be displayed on the user profile
 func GetUser(context *gin.Context) {
 	var user models.User
@@ -27,12 +38,10 @@ func GetUser(context *gin.Context) {
 		context.Abort()
 		return
 	}
-
-	// Clear password stored in user not to reveal hashes of users passwords in the case of a potential attack
-	user.Password = "Hidden"
-	user.Token = ""
-	// Send a response containing all the information about the user
-	context.JSON(http.StatusOK, user)
+	var request ProfileRequest
+	// Send back only information needed by the front end for now.
+	mapUserToRequest(&user, &request)
+	context.JSON(http.StatusOK, request)
 }
 
 // Modifies the information in the user profile
@@ -105,34 +114,12 @@ func DeleteUser(context *gin.Context) {
 	context.JSON(http.StatusOK, "Succesully deleted user!")
 }
 
-// Admin functions
-
-// Administrator deleting/removing user accounts
-func AdminDeleteUser(context *gin.Context) {
-	tokenString := context.GetHeader("Authorization")
-	var admin models.User
-	record := database.UserDB.Where("token = ?", tokenString).First(&admin)
-	if record.Error != nil {
-		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
-		context.Abort()
-		return
-	}
-	var request = struct {
-		Username string `form:"username"`
-	}{}
-	if admin.IsAdmin {
-		if err := context.Bind(&request); err != nil {
-			context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-			context.Abort()
-			return
-		}
-		record := database.UserDB.Where("username = ?", request.Username).Delete(&models.User{})
-		if record.Error != nil {
-			context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
-			context.Abort()
-			return
-		}
-
-		context.JSON(http.StatusOK, "Succesully deleted user!")
-	}
+func mapUserToRequest(user *models.User, request *ProfileRequest) {
+	request.Username = user.Username
+	request.Email = user.Email
+	request.Major = user.Major
+	request.College = user.College
+	request.DOB = user.DOB
+	request.FirstName = user.FirstName
+	request.LastName = user.LastName
 }

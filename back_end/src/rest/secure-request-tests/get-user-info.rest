@@ -1,0 +1,6 @@
+@host = localhost:1337
+// Get Profile Information
+GET http://{{host}}/users/secured/token HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6ImJsYWJsYWJsYSIsIkVtYWlsIjoiYmxhYmxhQHVmbC5lZHUiLCJleHAiOjE2Nzk5NDU5ODZ9.FLnsRMQdbomCngnWzhpWy1S5zEqbGpnBCyvVXXui0fk
+###
