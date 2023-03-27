@@ -1,9 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, Optional } from '@angular/core';
+import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
+import { AppCookieService } from './app-cookie-service.service'; 
+@Injectable()
+export class UniversalAppInterceptor implements HttpInterceptor {
 
-@Injectable({
-  providedIn: 'root'
-})
-export class HttpInterceptorService {
+  constructor( private cookieService: AppCookieService) { }
 
-  constructor() { }
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const token = this.cookieService.get('aocCookie');
+    req = req.clone({
+      url:  req.url,
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return next.handle(req);
+  }
 }

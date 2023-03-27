@@ -3,6 +3,7 @@ import {FormBuilder,FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AppCookieService } from 'app/app-cookie-service.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     postId: string;
 
-    constructor(private http: HttpClient, private _formBuilder: FormBuilder) { }
+    constructor(private http: HttpClient, private _formBuilder: FormBuilder,private cookieService:AppCookieService) { }
     
   ngOnInit() {
     this.loginForm = this._formBuilder.group({
@@ -31,7 +32,10 @@ export class LoginComponent implements OnInit {
         this.http.post('http://localhost:1337/users/token', formData)
             .subscribe(data => {
                 this.postId = JSON.stringify(data);
+                this.cookieService.set('aocCookie',this.postId)
+
                 console.log(this.postId);
+                console.log(this.cookieService.get('aocCookie'));
             });
         
         
