@@ -20,6 +20,10 @@ type User struct {
 	Major     string `form:"major" binding:"required"`
 	College   string `form:"college" binding:"required"`
 	DOB       string `form:"dob"`
+	// Only administrator accounts will have this set to true.
+	// If an account is administrator, they will have the ability to add achievements
+	// into the database
+	IsAdmin bool `form:"isAdmin"`
 
 	// Profile fields
 	Level                int           `form:"level"`

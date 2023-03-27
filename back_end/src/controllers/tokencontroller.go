@@ -52,7 +52,7 @@ func GenerateToken(context *gin.Context) {
 	}
 	user.Token = tokenString
 	database.UserDB.Save(&user)
-	context.JSON(http.StatusOK, gin.H{"token": tokenString})
+	context.JSON(http.StatusOK, tokenString)
 }
 
 func GetUsers(context *gin.Context) {

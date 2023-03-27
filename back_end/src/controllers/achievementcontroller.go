@@ -27,6 +27,8 @@ func GetAchievement(user *models.User, title string) {
 	user.Achievements = append(user.Achievements, (int64)(achievement.ID))
 }
 
+/*** TODO: Add a function that responds to HTTP GET request for a single achievement ***/
+
 func AddAchievement(context *gin.Context) {
 	var achievement models.Achievement
 	var request AchievementRequest
@@ -63,21 +65,21 @@ func GetAllAchievements(context *gin.Context) {
 }
 
 func EditAchievement(context *gin.Context) {
-  var achievement models.Achievement
-  var request AchievementRequest
+	var achievement models.Achievement
+	var request AchievementRequest
 
-  if err := context.Bind(&request); err != nil {
-    context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	if err := context.Bind(&request); err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
-  }
+	}
 
-  achievement.Title = request.Title
-  achievement.Description = request.Description
-  achievement.ExperiencePoints = request.ExperiencePoints
+	achievement.Title = request.Title
+	achievement.Description = request.Description
+	achievement.ExperiencePoints = request.ExperiencePoints
 
-  database.AchievementDB.Save(&achievement)
-  context.JSON(http.StatusAccepted, achievement)
+	database.AchievementDB.Save(&achievement)
+	context.JSON(http.StatusAccepted, achievement)
 }
 
 func DeleteAchievement(context *gin.Context) {
@@ -91,12 +93,11 @@ func DeleteAchievement(context *gin.Context) {
 	}
 
 	record := database.AchievementDB.Where("title = ?", title).Delete(&models.Achievement{})
-  if record.Error != nil {
-    context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
+	if record.Error != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
 		context.Abort()
 		return
-  }
+	}
 
-  context.JSON(http.StatusOK, "Successfully deleted achievement!")
+	context.JSON(http.StatusOK, "Successfully deleted achievement!")
 }
-
