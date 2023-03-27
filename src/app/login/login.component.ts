@@ -33,9 +33,6 @@ export class LoginComponent implements OnInit {
             .subscribe(data => {
                 this.postId = JSON.stringify(data);
                 this.cookieService.set('aocCookie',this.postId)
-
-                console.log(this.postId);
-                console.log(this.cookieService.get('aocCookie'));
             });
         
         if(this.cookieService.get('aocCookie')!=null){
