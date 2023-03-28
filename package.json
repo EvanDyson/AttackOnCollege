@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
     "bootstrap": "^5.2.3",
+    "json2ts": "^0.0.7",
     "jwt-decode": "^3.1.2",
     "npm": "^9.4.2",
     "rxjs": "~7.8.0",
