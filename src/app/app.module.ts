@@ -20,7 +20,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MatCardModule } from '@angular/material/card';
 import { EditUserComponent } from './edit-user/edit-user.component';
@@ -28,6 +28,7 @@ import { AddCourseComponent } from './add-course/add-course.component';
 import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
 import { AchievementComponent } from './achievement/achievement.component';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
+import { UniversalAppInterceptor } from './http-interceptor.service';
 
 @NgModule({
   
@@ -68,7 +69,7 @@ import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateMod
   ],
   schemas:[NO_ERRORS_SCHEMA],
   
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: UniversalAppInterceptor,multi:true}],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

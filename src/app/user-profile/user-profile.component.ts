@@ -18,7 +18,7 @@ export class UserProfileComponent {
   major: String;
   data: any;
   ngOnInit() {
-    
+    this.getInfo();
   }
   getInfo(){
     this.http.get('http://localhost:1337/users/secured/token')
