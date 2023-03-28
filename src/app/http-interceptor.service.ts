@@ -11,7 +11,7 @@ export class UniversalAppInterceptor implements HttpInterceptor {
     req = req.clone({
       url:  req.url,
       setHeaders: {
-        Authorization: `Bearer ${token}`
+        Authorization: `${token}`
       }
     });
     return next.handle(req);
