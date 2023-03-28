@@ -16,7 +16,6 @@ func Ping(context *gin.Context) {
 
 type ProfileRequest struct {
 	Username  string `form:"username" gorm:"unique"`
-	Token     string `form:"token"`
 	LastName  string `form:"lastName"`
 	Email     string `form:"email" gorm:"unique"`
 	Major     string `form:"major" binding:"required"`
@@ -32,6 +31,7 @@ func GetUser(context *gin.Context) {
 	tokenString := context.GetHeader("Authorization")
 
 	// Store information about the user with given token
+	tokenString = tokenString[1 : len(tokenString)-1]
 	record := database.UserDB.Where("token = ?", tokenString).First(&user)
 	if record.Error != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
