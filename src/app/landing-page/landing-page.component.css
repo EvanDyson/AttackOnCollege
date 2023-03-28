@@ -54,6 +54,10 @@
     .nav-item {
       margin: 10px 16px;
     }
+    .profile-item{
+      
+      visibility: hidden;
+    }
     .navbar-brand img {
       height: 46px;
       margin-right: 8px;
