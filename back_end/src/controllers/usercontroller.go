@@ -54,13 +54,25 @@ func RegisterUser(context *gin.Context) {
 	context.JSON(http.StatusCreated, gin.H{"email": user.Email, "username": user.Username})
 }
 
+//Formats given request string; every request does not require first 4 characters and any characters after 15 (specific day and timezone, respectively)
+func formatDOB(dob string) string {
+  var newDOB string
+  chars := []rune(dob)
+  for i := 0; i < 15; i++ {
+    if i > 3 {
+      newDOB += string(chars[i])
+    }
+  }
+  return newDOB
+}
+
 func createUser(user *models.User, request *RegisterRequest) {
 	user.Username = request.Username
 	user.Password = request.Password
 	user.FirstName = request.FirstName
 	user.LastName = request.LastName
 	user.Email = request.Email
-	user.DOB = request.DOB
+	user.DOB = formatDOB(request.DOB)
 	user.Major = request.Major
 	user.College = request.College
 }
