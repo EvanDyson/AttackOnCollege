@@ -15,50 +15,49 @@ The administrator account has several privileges that the regular user account d
 
 ## Front-End Documentation
 
-### New Pages / Changes
-19
 Below will list the new pages that have been created this sprint and what each page's functionality is.
-20
-For the linking on this sprint, we were able to successfully link the following pages to the backend: Login, User Profile, Register.
-21
-For next sprint we will finish the linking on these pages: Add assignment, Add course, Achievement.
-22
 
-23
 #### Header
-24
 The header has been edited to add two new buttons. 
-25
  1. My Profile: This is the profile page button which reroutes the webpage to the user profile page, read the functionality below.
-26
  2. New Assignment: This is the button to add a new assignment to the user when logged in, read the functionality below.
-27
  
-28
 #### User profile page
-29
 The user profile page will display all of the user's information they inputted during registering for our website.
-30
 There is one new tag that displays the age of the user which is derived from their date of birth.
-31
 The page also contains 3 buttons. 
-32
  1. Edit Profile: Once this is clicked the site is rerouted to the edit user page, read the functionality below.
-33
  2. Add a course: Same as the edit profile button this reroutes the site to the add course page, read the functionality below.
-34
  3. Add an assignment: This reroutes the webpage to add assignment page, read the functionality below.
-35
 
-36
 #### Edit user profile
-37
-The edit user page will contain a form that has inputs for all of the user's data which will allow the user to change anything they would like. 
-38
+
+
+#### Add course
+The front-end part of the assignment page has been created and is ready for linking to the backend. 
+We are only waiting for the functionality to be implemented in the backend.
+The course page has 3 required fields to be filled in,
+Course Code, Course Name, and Professor Name.
 The page also contains 2 buttons.
+ 1. Clear: This reroutes the webpage to the same page (add assignment) which resets all fields.
+ 2. Add the course: This button is set to send a post function to the backend to send all of the course data with it.
+For now when the Add the course button is clicked the user's inputted info is displayed in the console.
 
+#### Add assignment
+The front-end part of the assignment page has been created and is ready for linking to the backend. 
+We are only waiting for the functionality to be implemented in the backend.
+The assignment page has 4 required fields to be filled in,
+Assignment name, Course Name, Assignment Type, and Due Date.
+The assignment type is a drop-down field that contains options of: Homework, Quiz, Project, or Exam.
+In the future, I would like to add this same feature for the course name and drop down all of the user's current courses.
+The page also contains 2 buttons.
+ 1. Clear: This reroutes the webpage to the same page (add assignment) which resets all fields.
+ 2. Create Challenge: This button is set to send a post function to the backend to send all of the assignment data with it.
+For now, when the Create Challenge button is clicked the user's inputted info is displayed in the console.
 
-
+#### Achievement
+The achievement page has not been implemented yet. The backend has been set up but is still waiting for the front-end development to catch up to their progress.
+The component has been created and the linking is ready to be implemented into other pages.
 
 
 
