@@ -15,7 +15,10 @@ The administrator account has several privileges that the regular user account d
 
 ## Front-End Documentation
 
+### New Pages / Changes
 Below will list the new pages that have been created this sprint and what each page's functionality is.
+For the linking on this sprint, we were able to successfully link the following pages to the backend: Login, User Profile, Register.
+For next sprint we will finish the linking on these pages: Add assignment, Add course, Achievement.
 
 #### Header
 The header has been edited to add two new buttons. 
@@ -31,7 +34,10 @@ The page also contains 3 buttons.
  3. Add an assignment: This reroutes the webpage to add assignment page, read the functionality below.
 
 #### Edit user profile
-
+The edit user page will contain a form that has inputs for all of the user's data which will allow the user to change anything they would like. 
+The page also contains 2 buttons.
+ 1. Cancel: This reroutes the webpage to the same page (edit user) which resets all fields.
+ 2. Save changes: This sends all of the data that is contained in the fields to the backend to be saved into the user's current data to overwrite all new changes that occurred.
 
 #### Add course
 The front-end part of the assignment page has been created and is ready for linking to the backend. 
