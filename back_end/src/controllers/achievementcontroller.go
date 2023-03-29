@@ -20,7 +20,7 @@ func GetAchievement(user *models.User, title string) {
 	record := database.AchievementDB.Where("title = ?", title).First(&achievement)
 
 	if record.Error != nil {
-		//context.JSON(http.StatusNotImplemented)
+		//context.AbortWithStatus(501)
 		return
 	}
 
@@ -30,8 +30,14 @@ func GetAchievement(user *models.User, title string) {
 /*** TODO: Add a function that responds to HTTP GET request for a single achievement ***/
 
 func AddAchievement(context *gin.Context) {
+  var user models.User
 	var achievement models.Achievement
 	var request AchievementRequest
+
+if !user.IsAdmin {
+  context.AbortWithStatus(http.StatusForbidden)
+  return
+}
 
 	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -59,14 +65,27 @@ func createAchievement(achievement *models.Achievement, request *AchievementRequ
 }
 
 func GetAllAchievements(context *gin.Context) {
+  var user models.User
 	var achievements []models.Achievement
+
+  if !user.IsAdmin {
+    context.AbortWithStatus(403)
+    return
+  }
+
 	database.AchievementDB.Find(&achievements)
 	context.IndentedJSON(http.StatusAccepted, achievements)
 }
 
 func EditAchievement(context *gin.Context) {
+  var user models.User
 	var achievement models.Achievement
 	var request AchievementRequest
+
+  if !user.IsAdmin {
+    context.AbortWithStatus(403)
+    return
+  }
 
 	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -83,6 +102,13 @@ func EditAchievement(context *gin.Context) {
 }
 
 func DeleteAchievement(context *gin.Context) {
+  var user models.User
+
+  if !user.IsAdmin {
+    context.AbortWithStatus(403)
+    return
+  }
+
 	var title = struct {
 		Title string `form:"title"`
 	}{}
