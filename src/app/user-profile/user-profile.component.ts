@@ -28,13 +28,13 @@ export class UserProfileComponent {
     const element4=document.getElementById("college");
     const element5=document.getElementById("major");
     if(element!=null){
-      element.innerHTML="Name: " + data["Firstname"] + " " + data["LastName"];
+      element.innerHTML="Name: " + data["FirstName"] + " " + data["LastName"];
     }
     if(element1!=null){
       element1.innerHTML="Username: " + data["Username"];
     }
     if(element2!=null){
-      element2.innerHTML="DOB " + data["DOB"];
+      element2.innerHTML="DOB: " + data["DOB"];
     }
     if(element3!=null){
       element3.innerHTML="Email: " + data["Email"];
@@ -43,7 +43,7 @@ export class UserProfileComponent {
       element4.innerHTML="College: " + data["College"];
     }
     if(element5!=null){
-      element5.innerHTML="Major" + data["Major"];
+      element5.innerHTML="Major: " + data["Major"];
     }
   }
 }
