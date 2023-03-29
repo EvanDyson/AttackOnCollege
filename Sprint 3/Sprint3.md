@@ -14,6 +14,54 @@ The function for login was implemented and developed a while ago, but I have upd
 The administrator account has several privileges that the regular user account does not. The first privilege is the ability to create, modify, and delete achievements straight from the website. This makes populating and editing the achievements database more convenient and faster. An additional privilege the admin account has is deleting users from the database. This is not something that the administrator should be able to do in all cases regularily, but during development, this feature is very useful. The function for deleting a user by the administrator is already implemented, along with the routing.
 
 ## Front-End Documentation
+
+### New Pages / Changes
+19
+Below will list the new pages that have been created this sprint and what each page's functionality is.
+20
+For the linking on this sprint, we were able to successfully link the following pages to the backend: Login, User Profile, Register.
+21
+For next sprint we will finish the linking on these pages: Add assignment, Add course, Achievement.
+22
+
+23
+#### Header
+24
+The header has been edited to add two new buttons. 
+25
+ 1. My Profile: This is the profile page button which reroutes the webpage to the user profile page, read the functionality below.
+26
+ 2. New Assignment: This is the button to add a new assignment to the user when logged in, read the functionality below.
+27
+ 
+28
+#### User profile page
+29
+The user profile page will display all of the user's information they inputted during registering for our website.
+30
+There is one new tag that displays the age of the user which is derived from their date of birth.
+31
+The page also contains 3 buttons. 
+32
+ 1. Edit Profile: Once this is clicked the site is rerouted to the edit user page, read the functionality below.
+33
+ 2. Add a course: Same as the edit profile button this reroutes the site to the add course page, read the functionality below.
+34
+ 3. Add an assignment: This reroutes the webpage to add assignment page, read the functionality below.
+35
+
+36
+#### Edit user profile
+37
+The edit user page will contain a form that has inputs for all of the user's data which will allow the user to change anything they would like. 
+38
+The page also contains 2 buttons.
+
+
+
+
+
+
 ### Unit Testing
 As stated in previous sprints, using cypress to test is what I feel is ideal for unit testing our pages. I am not a fan of angular jasmine testing, it gives many errors for things that should work with little online documentation. Jasmine testing with angular causes many errors that by running our program we can see simply aren't true. This includes things like service creation failing even though we can most certainly use that service. For this reason, cypress is going to be our go to.
 ### Tests
