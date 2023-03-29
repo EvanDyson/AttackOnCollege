@@ -2,7 +2,7 @@
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="/assets/Images/aocblank.png" alt="aoc logo" />
+        <a id="homelink" href="/"><img src="/assets/Images/aocblank.png" alt="aoc logo" /></a>
         AOC
       </a>
       <button
@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item profile-item">
-            <a input="profile" class="btn btn-outline-primary my-2 my-sm-0" href="/profile">My Profile</a>
+            <a id="profile" class="btn btn-outline-primary my-2 my-sm-0" href="/profile">My Profile</a>
 
           </li>
           <li class="nav-item profile-item">
@@ -70,7 +70,7 @@
 
 			</mat-form-field>
 
-			<button [disabled]="!loginForm.valid" mat-raised-button color="primary" (click)="login()">Login</button>   
+			<button id="loginclick" [disabled]="!loginForm.valid" mat-raised-button color="primary" (click)="login()">Login</button>   
         </form>
 	</div>
 </div>

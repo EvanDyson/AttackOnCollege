@@ -15,6 +15,9 @@ ul {
   margin-right: 8px;
   width: 46px;
 }
+.profile-item{
+  visibility: hidden;
+}
 .button {
     margin-top: 50px;
     margin-left: 10px;
