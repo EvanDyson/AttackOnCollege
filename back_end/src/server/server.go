@@ -44,6 +44,8 @@ func initRouter() *gin.Engine {
 			admin.DELETE("/achievement", controllers.DeleteAchievement)
 			admin.GET("/achievements", controllers.GetAllAchievements)
 			admin.DELETE("/user", controllers.AdminDeleteUser)
+      admin.GET("/user", controllers.AdminGetAllUsers)
+      admin.PUT("/user", controllers.AdminEditUser)
 		}
 		users.GET("/", controllers.GetUsers)
 	}

@@ -55,6 +55,7 @@ func RegisterUser(context *gin.Context) {
 }
 
 //Formats given request string; every request does not require first 4 characters and any characters after 15 (specific day and timezone, respectively)
+//(Function works as intended, just not called in correct position at the moment)
 func formatDOB(dob string) string {
   var newDOB string
   chars := []rune(dob)
