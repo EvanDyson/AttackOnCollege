@@ -17,6 +17,10 @@ The administrator account has several privileges that the regular user account d
 
 As usual, REST API extension in VS Code will be used for unit testing of the routing and functions. The new tests added in this stage will be for testing the login function which will take in a username and password, and will return a JWT. There are two types of tests for this functionality. First is the successful login, and the second one will be a wrong username/password attempt which should return Internal Server Error for wrong username (user not in the database) or Unauthorized Error for wrong password. Additionally, we will have tests for profile information access. As with login, this will have two tests. First one will be a successful attempt at getting profile information (user is logged in) and a failed one (JWT expired and user is now logged out). Additionally, we are going to test trying to access profile information with a token that no longer exists in the database.
 
+### DOB Formatting 
+
+When the request for the DOB of the registered user is received from the front-end, the day of the week and time are also received. These are values that are completely unnecessary for what we want to display, which is simply the birth date of the user that they put in, in MM/DD/YYYY format. Since every request received from the front-end is the same, we can do this through a simple string operation in Go. The first four characters are the day chosen, which is unnecessary, and every character after the last digit of the year, at position 15, is also unnecessary. So, we are able to just take the string from character positions 4-15, and it represents all of the information we need to obtain from the user, and truncates what we don't need to display. This value can now be easily calculated into the user's age, which will be implemented to be stored in their user model in the next sprint. 
+
 ## Front-End Documentation
 
 ### New Pages / Changes
