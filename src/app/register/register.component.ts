@@ -59,9 +59,10 @@ export class RegisterComponent {
       .subscribe(data =>{
         this.postId = JSON.stringify(data);
         console.log(this.postId);
+        window.location.pathname = './login';
       });
       
-      window.location.pathname = './login';
+      
     }
     
   addData(formData: FormData){
