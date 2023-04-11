@@ -50,4 +50,30 @@
     </nav>
   </body>
   
-  <p>achievement works!</p>
+  <body>
+    <mat-card>
+      <h1>Achievement Page</h1>
+      <table mat-table>
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="progress">
+          <th mat-header-cell *matHeaderCellDef> Progress </th>
+          <td mat-cell *matCellDef="let element"> {{element.progress}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="XPgain">
+          <th mat-header-cell *matHeaderCellDef> Experience gain </th>
+          <td mat-cell *matCellDef="let element"> {{element.XPgain}} </td>
+        </ng-container>
+
+      </table>
+    </mat-card>
+  </body>
