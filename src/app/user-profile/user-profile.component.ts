@@ -28,7 +28,7 @@ export class UserProfileComponent {
     const element4=document.getElementById("college");
     const element5=document.getElementById("major");
     if(element!=null){
-      element.innerHTML="Name: " + data["FirstName"] + " " + data["LastName"];
+        element.innerHTML = "Name: " + data["FirstName"] + " " + data["LastName"];
     }
     if(element1!=null){
       element1.innerHTML="Username: " + data["Username"];

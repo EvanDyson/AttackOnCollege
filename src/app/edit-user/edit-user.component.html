@@ -85,13 +85,11 @@
 
       <div class="dob">
       <mat-form-field>  
-        <input id="dob" placeholder="01/01/1999" matInput [matDatepicker]="dob" formControlName="dob">
+        <input id="dob" placeholder="Date of Birth" matInput [matDatepicker]="dob" formControlName="dob">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
         <mat-datepicker #dob></mat-datepicker>
       </mat-form-field>
-
-      <mat-label class="age">Age: </mat-label>
       </div>
 
       <div class="pers">

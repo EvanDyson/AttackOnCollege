@@ -26,7 +26,7 @@ export class AddAssignmentComponent {
     })
   }
 
-  createChallenge() {
+  createAssignment() {
     var formData: any = new FormData();
     this.addData(formData);
     this.http.post('http://localhost:1337/users/register', formData)
@@ -49,5 +49,5 @@ export class AddAssignmentComponent {
     formData.append('courseName', this.assignmentForm.get('courseName')?.value);
     formData.append('assignmentType', this.assignmentForm.get('assignmentType')?.value);
     formData.append('dueDate', this.assignmentForm.get('dueDate')?.value);
-  }
+    }
 }
