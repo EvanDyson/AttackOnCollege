@@ -31,9 +31,11 @@ export class LandingPageComponent {
     }
     if(element1!=null && ( this.cookieService.get("aocCookie") != null)){
         element1.style.visibility = "hidden";
+        element1.style.pointerEvents="none";
     }
     if(element2!=null && ( this.cookieService.get("aocCookie") != null)){
       element2.style.visibility="hidden";
+      element2.style.pointerEvents="none";
     }
     if(element3!=null && ( this.cookieService.get("aocCookie") != null)){
       element3.style.visibility="visible";
