@@ -35,3 +35,6 @@ ul {
     margin-left: 125px;
     width: 165px;
 }
+.hidden {
+  visibility: hidden;
+}
