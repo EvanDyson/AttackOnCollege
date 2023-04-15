@@ -19,10 +19,39 @@ li {
   {
     margin-top: 20px;
   }
+  .color {
+    background-color: tan;
+    height: 965px;
+  }
   h1 {
     text-align: center;
     margin-top: 15px;
   }
   .hidden {
     visibility: hidden;
+  }
+  table {
+    width: 100%;
+    margin-top: 50px;
+     /*margin-right: 300px; */ 
+  }
+  .table_ {
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+  .title-cell {
+    font-size: larger;
+    width: 325px;
+  }
+  .description-cell {
+    font-size: larger;
+    width: 500px;
+  }
+  .progress-cell {
+    font-size: larger;
+    width: 250px;
+  }
+  .XPgain-cell {
+    font-size: larger;
+    width: 325px;
   }

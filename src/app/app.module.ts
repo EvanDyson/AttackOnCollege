@@ -18,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
-import { MatTable } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -67,7 +68,9 @@ import { UniversalAppInterceptor } from './http-interceptor.service';
       MatSelectModule,
       NgxMatTimepickerModule,
       NgxMatDatetimePickerModule,
-      NgxMatNativeDateModule
+      NgxMatNativeDateModule,
+      MatTableModule,
+      MatDividerModule
   ],
   schemas:[NO_ERRORS_SCHEMA],
   
