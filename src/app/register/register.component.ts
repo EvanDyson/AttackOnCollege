@@ -70,7 +70,7 @@ export class RegisterComponent {
       formData.append('lastName', this.firstFormGroup.get('lastName')?.value);
       formData.append('username', this.firstFormGroup.get('username')?.value);
       formData.append('email', this.firstFormGroup.get('email')?.value);
-      formData.append('password', this.firstFormGroup.get('pasword')?.value);
+      formData.append('password', this.firstFormGroup.get('password')?.value);
       formData.append('dob', this.secondFormGroup.get('dob')?.value);
       formData.append('college', this.secondFormGroup.get('college')?.value);
       formData.append('major', this.secondFormGroup.get('major')?.value);

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
   
     addData(formData: FormData) {
         formData.append('username', this.loginForm.get('username')?.value);
-        formData.append('password', this.loginForm.get('pasword')?.value);
+        formData.append('password', this.loginForm.get('password')?.value);
     }
     loginExist(){
       const element=document.getElementById("loginwhite");
