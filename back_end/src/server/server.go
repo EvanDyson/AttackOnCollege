@@ -31,6 +31,7 @@ func initRouter() *gin.Engine {
 			secured.GET("/ping", controllers.Ping)
 			secured.GET("/token", controllers.GetUser)
 			secured.PUT("/token", controllers.EditUser)
+			secured.POST("/logout", controllers.LogOut)
 			secured.PUT("/editAssignment", controllers.EditAssignment)
 			secured.DELETE("/token", controllers.DeleteUser)
 			secured.POST("/createCourse", controllers.CreateCourse)
@@ -43,9 +44,9 @@ func initRouter() *gin.Engine {
 			admin.PUT("/achievement", controllers.EditAchievement)
 			admin.DELETE("/achievement", controllers.DeleteAchievement)
 			admin.GET("/achievements", controllers.GetAllAchievements)
-			admin.DELETE("/user", controllers.AdminDeleteUser)
-      admin.GET("/user", controllers.AdminGetAllUsers)
-      admin.PUT("/user", controllers.AdminEditUser)
+			//admin.DELETE("/user", controllers.AdminDeleteUser)
+			//admin.GET("/user", controllers.AdminGetAllUsers)
+			//admin.PUT("/user", controllers.AdminEditUser)
 		}
 		users.GET("/", controllers.GetUsers)
 	}

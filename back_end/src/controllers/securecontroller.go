@@ -49,6 +49,7 @@ func EditUser(context *gin.Context) {
 	var user models.User
 	tokenString := context.GetHeader("Authorization")
 
+	tokenString = tokenString[1 : len(tokenString)-1]
 	record := database.UserDB.Where("token = ?", tokenString).First(&user)
 	if record.Error != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
@@ -79,6 +80,7 @@ func ChangePassword(context *gin.Context) {
 	var user models.User
 	tokenString := context.GetHeader("Authorization")
 
+	tokenString = tokenString[1 : len(tokenString)-1]
 	record := database.UserDB.Where("token = ?", tokenString).First(&user)
 	if record.Error != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
@@ -104,6 +106,7 @@ func ChangePassword(context *gin.Context) {
 
 func DeleteUser(context *gin.Context) {
 	tokenString := context.GetHeader("Authorization")
+	tokenString = tokenString[1 : len(tokenString)-1]
 	record := database.UserDB.Where("token = ?", tokenString).Delete(&models.User{})
 	if record.Error != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
@@ -112,6 +115,20 @@ func DeleteUser(context *gin.Context) {
 	}
 
 	context.JSON(http.StatusOK, "Succesully deleted user!")
+}
+
+func LogOut(context *gin.Context) {
+	var user models.User
+	tokenString := context.GetHeader("Authorization")
+	tokenString = tokenString[1 : len(tokenString)-1]
+	record := database.UserDB.Where("token = ?", tokenString).First(&user)
+	if record.Error != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
+		context.Abort()
+		return
+	}
+	user.Token = ""
+	database.UserDB.Save(&user)
 }
 
 func mapUserToRequest(user *models.User, request *ProfileRequest) {
