@@ -151,7 +151,7 @@ func GetAchievements(context *gin.Context) {
 		context.Abort()
 		return
 	}
-	var achievements []AchievementRes
+	var temp []AchievementRes
 	for _, id := range user.Achievements {
 		var a models.Achievement
 		r := database.AchievementDB.Where("id = ?", int(id)).First(&a)
@@ -164,8 +164,10 @@ func GetAchievements(context *gin.Context) {
 		res.Title = a.Title
 		res.Description = a.Description
 		res.ExperiencePoints = a.ExperiencePoints
-		achievements = append(achievements, res)
+		temp = append(temp, res)
 	}
+	achievements := []AchievementRes{{ExperiencePoints: (len(temp))}}
+	achievements = append(achievements, temp...)
 	context.JSON(http.StatusOK, achievements)
 }
 
