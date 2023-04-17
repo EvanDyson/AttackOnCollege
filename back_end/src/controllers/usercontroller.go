@@ -7,6 +7,7 @@ import (
 	"AttackOnCollege/back_end/src/database"
 	"AttackOnCollege/back_end/src/models"
 	"time"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -56,7 +57,7 @@ func RegisterUser(context *gin.Context) {
 
 // Formats given request string; every request does not require first 4 characters and any characters after 15 (specific day and timezone, respectively)
 // (Function works as intended, just not called in correct position at the moment)
-func formatDOB(dob string) string {
+func formatDate(dob string) string {
 	var newDOB string
 	chars := []rune(dob)
 	for i := 0; i < 15; i++ {
@@ -105,7 +106,7 @@ func createUser(user *models.User, request *RegisterRequest) {
 	user.FirstName = request.FirstName
 	user.LastName = request.LastName
 	user.Email = request.Email
-	user.DOB = formatDOB(request.DOB)
+	user.DOB = formatDate(request.DOB)
 	user.Major = request.Major
 	user.College = request.College
 	user.Age = extractAge(user.DOB)

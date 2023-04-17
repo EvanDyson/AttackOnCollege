@@ -10,17 +10,19 @@ const XP_PTS = 100
 
 type Assignment struct {
 	gorm.Model
-	Title string `form:"title"`
+	Title       string `form:"assignmentName"`
 	Description string `form:"description"`
+	DueDate     string `form:"dueDate"`
+	Type        string `form:"assignmentType"`
 
-	NumberOfPoints int `form:"numPts"`
-	Weight float32 `form:"gradeWeight"`
+	NumberOfPoints int     `form:"numPts"`
+	Weight         float32 `form:"gradeWeight"`
 
 	PointsEarned float32 `form:"ptsEarned"`
 
 	// expPts = ptsEarned / NumberOfPoints * Weight * (Set number of points for each assignment - TO BE DETERMINED)
-	ExperiencePoints int `form:"expPts"`
-	IsDone bool `form:"isDone"`
+	ExperiencePoints int  `form:"expPts"`
+	IsDone           bool `form:"isDone"`
 }
 
 func (assignment *Assignment) CalculateXP() {

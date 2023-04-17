@@ -11,6 +11,7 @@ import (
 func CreateAssignment(c *gin.Context) {
 	var user models.User
 	tokenString := c.GetHeader("Authorization")
+	tokenString = tokenString[1 : len(tokenString)-1]
 	recordUser := database.UserDB.Where("token = ?", tokenString).First(&user)
 	if recordUser.Error != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": recordUser.Error.Error()})
@@ -26,8 +27,10 @@ func CreateAssignment(c *gin.Context) {
 	}
 
 	var request = struct {
-		Title          string  `form:"title"`
+		Title          string  `form:"assignmentName"`
 		Description    string  `form:"description"`
+		DueDate        string  `form:"dueDate"`
+		Type           string  `form:"assignmentType"`
 		NumberOfPoints int     `form:"numPts"`
 		Weight         float32 `form:"gradeWeight"`
 	}{}
@@ -39,6 +42,8 @@ func CreateAssignment(c *gin.Context) {
 	var assignment models.Assignment
 	assignment.Title = request.Title
 	assignment.Description = request.Description
+	assignment.DueDate = formatDate(request.DueDate)
+	assignment.Type = request.Type
 	assignment.NumberOfPoints = request.NumberOfPoints
 	assignment.Weight = request.Weight
 	assignment.IsDone = false

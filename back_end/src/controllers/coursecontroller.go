@@ -11,7 +11,7 @@ import (
 func CreateCourse(context *gin.Context) {
 	var user models.User
 	tokenString := context.GetHeader("Authorization")
-
+	tokenString = tokenString[1 : len(tokenString)-1]
 	recordUser := database.UserDB.Where("token = ?", tokenString).First(&user)
 	if recordUser.Error != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": recordUser.Error.Error()})
@@ -19,8 +19,8 @@ func CreateCourse(context *gin.Context) {
 		return
 	}
 	var request = struct {
-		Title string `form:"title"`
-		Code  string `form:"code"`
+		Title string `form:"courseName"`
+		Code  string `form:"courseCode"`
 	}{}
 	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -41,7 +41,7 @@ func CreateCourse(context *gin.Context) {
 	user.CurrentCourse = course.CourseCode
 	database.UserDB.Save(&user)
 
-	context.JSON(http.StatusCreated, gin.H{"courseTitle": course.Title, "courseCode": course.CourseCode})
+	context.JSON(http.StatusCreated, gin.H{"courseName": course.Title, "courseCode": course.CourseCode})
 }
 
 //Create edit course function
