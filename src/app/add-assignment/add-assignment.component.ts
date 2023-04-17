@@ -20,16 +20,19 @@ export class AddAssignmentComponent {
   ngOnInit() {
     this.assignmentForm = this._formBuilder.group({
       assignmentName: new FormControl('', Validators.required),
-      courseName: new FormControl('', Validators.required),
       assignmentType: new FormControl('', Validators.required),
       dueDate: new FormControl('', Validators.required),
+      desc: new FormControl('', Validators.required),
+      points: new FormControl('',Validators.required),
+      weight: new FormControl('',Validators.required),
+
     })
   }
 
   createAssignment() {
     var formData: any = new FormData();
     this.addData(formData);
-    this.http.post('http://localhost:1337/users/register', formData)
+    this.http.post('http://localhost:1337/users/secured/assignment', formData)
     .subscribe(data =>{
       this.postId = JSON.stringify(data);
       console.log(this.postId);
@@ -46,8 +49,10 @@ export class AddAssignmentComponent {
   }
   addData(formData: FormData) {
     formData.append('assignmentName', this.assignmentForm.get('assignmentName')?.value);
-    formData.append('courseName', this.assignmentForm.get('courseName')?.value);
     formData.append('assignmentType', this.assignmentForm.get('assignmentType')?.value);
     formData.append('dueDate', this.assignmentForm.get('dueDate')?.value);
+    formData.append('desc',this.assignmentForm.get('desc')?.value)
+    formData.append('points',this.assignmentForm.get('points')?.value)
+    formData.append('weight',this.assignmentForm.get('weight')?.value)
     }
 }

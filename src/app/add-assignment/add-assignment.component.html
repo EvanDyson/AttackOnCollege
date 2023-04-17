@@ -66,14 +66,6 @@
         <br>
         
         <mat-form-field class="form">
-            <input id="courseName" matInput placeholder="Course Name" formControlName="courseName" required>
-            <mat-error *ngIf="assignmentForm.get('courseName')?.hasError('required')">This field is required</mat-error>
-
-        </mat-form-field>
-        
-        <br>
-        
-        <mat-form-field class="form">
           <mat-label>Assignment Type</mat-label>
           <mat-select formControlName="assignmentType" id="assignmentType">
             <mat-option value=""></mat-option>
@@ -92,6 +84,28 @@
             <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
             <mat-error *ngIf="assignmentForm.get('dueDate')?.hasError('required')">This field is required</mat-error>
         </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="form">
+          <input id="desc" matInput placeholder="Assignment Description" formControlName="desc" required>
+          <mat-error *ngIf="assignmentForm.get('desc')?.hasError('required')">This field is required</mat-error>
+      </mat-form-field>
+
+      <br>
+
+        <mat-form-field class="form">
+          <input id="points" matInput placeholder="Total Points" formControlName="points" required>
+          <mat-error *ngIf="assignmentForm.get('points')?.hasError('required')">This field is required</mat-error>
+      </mat-form-field>
+
+      <br>
+
+        <mat-form-field class="form">
+          <input id="weight" matInput placeholder="Assignment Weight" formControlName="weight" required>
+          <mat-error *ngIf="assignmentForm.get('weight')?.hasError('required')">This field is required</mat-error>
+      </mat-form-field>
+        
 
       </form>
     </mat-card-content>
