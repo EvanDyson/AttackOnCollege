@@ -2,6 +2,7 @@ package database
 
 import (
 	"AttackOnCollege/back_end/src/models"
+	"fmt"
 	"log"
 
 	"gorm.io/driver/sqlite"
@@ -56,5 +57,9 @@ func CreateAdmin() {
 	if err := admin.HashPassword(admin.Password); err != nil {
 		return
 	}
-	UserDB.Create(&admin)
+	r := UserDB.Create(&admin)
+	if r.Error != nil {
+		fmt.Printf(r.Error.Error())
+		return
+	}
 }

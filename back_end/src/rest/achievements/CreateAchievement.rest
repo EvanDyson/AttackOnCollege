@@ -6,7 +6,7 @@ Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6IkFPQ0FkbWl
 
 {
     "title": "First Blood!",
-    "description": "Congratulations on completing your first assignment in Attack on College! Keep going!",
+    "description": "Congratulations on completing your first assignment in Attack on College! Keep going!"
     
 }
 ###

@@ -1,0 +1,6 @@
+@host = localhost:1337
+// Get Profile Information
+GET http://{{host}}/users/secured/achievements HTTP/1.1
+content-type: application/json
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6IkFPQ0FkbWluIiwiRW1haWwiOiIiLCJleHAiOjE2ODE3NTg4NzV9.szF5ThBxhZyGrWtYB8sRVGX_dooE67Kvb986rY94awc"
+###
