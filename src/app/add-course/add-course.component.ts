@@ -17,7 +17,7 @@ export class AddCourseComponent {
         this.courseForm = this._formBuilder.group({
             courseCode: new FormControl('', Validators.required),
             courseName: new FormControl('', Validators.required),
-            profName: new FormControl('', Validators.required)
+            
         })
     }
     addCourse() {
@@ -33,13 +33,13 @@ export class AddCourseComponent {
        
           console.log('Course Code: ', this.courseForm.get('courseCode')?.value);
           console.log('Course Name: ', this.courseForm.get('courseName')?.value);
-          console.log('Professor Name: ', this.courseForm.get('profName')?.value);
+          
     
           window.location.pathname = './add-course';
       }
       addData(formData: FormData) {
         formData.append('courseCode', this.courseForm.get('courseCode')?.value);
         formData.append('courseName', this.courseForm.get('courseName')?.value);
-        formData.append('profName', this.courseForm.get('profName')?.value);
+        
       }
 }
