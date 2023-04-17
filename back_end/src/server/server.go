@@ -30,6 +30,7 @@ func initRouter() *gin.Engine {
 		{
 			secured.GET("/ping", controllers.Ping)
 			secured.GET("/token", controllers.GetUser)
+			secured.GET("/achievements", controllers.GetAchievements)
 			secured.PUT("/token", controllers.EditUser)
 			secured.POST("/logout", controllers.LogOut)
 			secured.PUT("/editAssignment", controllers.EditAssignment)

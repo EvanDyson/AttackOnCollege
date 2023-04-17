@@ -1,0 +1,10 @@
+@host = localhost:1337
+// Register User
+POST http://{{host}}/users/token HTTP/1.1
+content-type: application/json
+    
+{
+    "username": "AOCAdmin",
+    "password": "SuperSecretP4ssFor4dmin"
+}
+###
