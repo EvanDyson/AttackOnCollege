@@ -4,13 +4,13 @@ import { HttpClient } from '@angular/common/http';
 export interface AchievementStruct {
     title: string;
     description: string;
-    progress: number;
+    //progress: number;
     XPgain: number;
 }
 
 const AchievementCard: AchievementStruct[] = [
-    { title: 'First Assignment!', description: 'Finish your first assignment.', progress: 0, XPgain: 100 },
-    { title: 'Second Assignment!', description: 'Finish your first book.', progress: 50, XPgain: 50 },
+    { title: 'First Assignment!', description: 'Finish your first assignment.', /*progress: 0,*/ XPgain: 100 },
+    { title: 'Second Assignment!', description: 'Finish your first book.', /*progress: 50,*/ XPgain: 50 },
 
 ];
 
@@ -33,6 +33,6 @@ export class AchievementComponent {
     })
     }
 */
-    displayedColumns: string[] = ['title', 'description', 'progress', 'XPgain'];
+    displayedColumns: string[] = ['title', 'description', /*'progress',*/ 'XPgain'];
     dataSource = AchievementCard;
 }
