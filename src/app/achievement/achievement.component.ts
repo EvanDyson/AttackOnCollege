@@ -23,7 +23,7 @@ export class AchievementComponent {
   
 
   ngOnInit() {
-    this.http.get('http://localhost:1337/users/secured/achievement')
+    this.http.get('http://localhost:1337/users/secured/achievements')
     .subscribe(data =>{
       this.getAchievement(data);
       this.dataSource=AchievementCard;
