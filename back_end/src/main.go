@@ -7,10 +7,10 @@ import (
 
 func main() {
 	// Initialize database
-	database.Connect("./back_end/src/database/")
+	//database.Connect("./back_end/src/database/")
 
 	// DATABASE PATH FOR DEBUGGING
-	//database.Connect("./database/")
+	database.Connect("./database/")
 
 	database.Migrate()
 

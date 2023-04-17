@@ -26,6 +26,7 @@ type User struct {
 	IsAdmin bool `form:"isAdmin"`
 
 	// Profile fields
+	Age                  int           `form:"age"`
 	Level                int           `form:"level"`
 	ExperiencePoints     int           `form:"expPts"`
 	Achievements         pq.Int64Array `form:"achievements" gorm:"type:integer[]"`

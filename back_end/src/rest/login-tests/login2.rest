@@ -4,7 +4,7 @@ POST http://{{host}}/users/token HTTP/1.1
 content-type: application/json
     
 {
-    "email": "f.last@ufl.edu",
-    "password": "TestingPass"
+    "username": "AOCAdmin",
+    "password": "SuperSecretP4ssFor4dmin"
 }
 ###

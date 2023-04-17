@@ -50,13 +50,6 @@ func initRouter() *gin.Engine {
 		}
 		users.GET("/", controllers.GetUsers)
 	}
-	//Achievment group
-	achievements := r.Group("/achievements")
-	{
-		achievements.POST("/createAchievement", controllers.AddAchievement)
-		achievements.GET("/getAllAchievements", controllers.GetAllAchievements)
-		achievements.DELETE("/deleteAchievement", controllers.DeleteAchievement)
-		achievements.PUT("/editAchievement", controllers.EditAchievement)
-	}
+
 	return r
 }

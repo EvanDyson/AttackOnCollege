@@ -22,6 +22,13 @@ type ProfileRequest struct {
 	College   string `form:"college" binding:"required"`
 	DOB       string `form:"dob"`
 	FirstName string `form:"firstName"`
+	Age       int    `form:"age"`
+}
+
+type AchievementRes struct {
+	Title            string `form:"title"`
+	Description      string `form:"description"`
+	ExperiencePoints int    `form:"XPgain"`
 }
 
 // Return user information to be displayed on the user profile
@@ -131,6 +138,37 @@ func LogOut(context *gin.Context) {
 	database.UserDB.Save(&user)
 }
 
+func GetAchievements(context *gin.Context) {
+	var user models.User
+	// Get the authorization header from the request
+	tokenString := context.GetHeader("Authorization")
+
+	// Store information about the user with given token
+	tokenString = tokenString[1 : len(tokenString)-1]
+	record := database.UserDB.Where("token = ?", tokenString).First(&user)
+	if record.Error != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
+		context.Abort()
+		return
+	}
+	var achievements []AchievementRes
+	for _, id := range user.Achievements {
+		var a models.Achievement
+		r := database.AchievementDB.Where("id = ?", int(id)).First(&a)
+		if r.Error != nil {
+			context.JSON(http.StatusInternalServerError, gin.H{"error": r.Error.Error()})
+			context.Abort()
+			return
+		}
+		var res AchievementRes
+		res.Title = a.Title
+		res.Description = a.Description
+		res.ExperiencePoints = a.ExperiencePoints
+		achievements = append(achievements, res)
+	}
+	context.JSON(http.StatusOK, achievements)
+}
+
 func mapUserToRequest(user *models.User, request *ProfileRequest) {
 	request.Username = user.Username
 	request.Email = user.Email
@@ -139,4 +177,5 @@ func mapUserToRequest(user *models.User, request *ProfileRequest) {
 	request.DOB = user.DOB
 	request.FirstName = user.FirstName
 	request.LastName = user.LastName
+	request.Age = user.Age
 }

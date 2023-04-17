@@ -27,6 +27,7 @@ export class UserProfileComponent {
     const element3=document.getElementById("email");
     const element4=document.getElementById("college");
     const element5=document.getElementById("major");
+    const element6=document.getElementById("age");
     if(element!=null){
         element.innerHTML = "Name: " + data["FirstName"] + " " + data["LastName"];
     }
@@ -44,6 +45,9 @@ export class UserProfileComponent {
     }
     if(element5!=null){
       element5.innerHTML="Major: " + data["Major"];
+    }
+    if(element6!=null){
+      element6.innerHTML="Age: " + data["age"];
     }
   }
 }

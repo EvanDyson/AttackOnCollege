@@ -6,7 +6,7 @@ import (
 
 	"AttackOnCollege/back_end/src/database"
 	"AttackOnCollege/back_end/src/models"
-
+	"time"
 	"github.com/gin-gonic/gin"
 )
 
@@ -54,17 +54,49 @@ func RegisterUser(context *gin.Context) {
 	context.JSON(http.StatusCreated, gin.H{"email": user.Email, "username": user.Username})
 }
 
-//Formats given request string; every request does not require first 4 characters and any characters after 15 (specific day and timezone, respectively)
-//(Function works as intended, just not called in correct position at the moment)
+// Formats given request string; every request does not require first 4 characters and any characters after 15 (specific day and timezone, respectively)
+// (Function works as intended, just not called in correct position at the moment)
 func formatDOB(dob string) string {
-  var newDOB string
-  chars := []rune(dob)
-  for i := 0; i < 15; i++ {
-    if i > 3 {
-      newDOB += string(chars[i])
-    }
-  }
-  return newDOB
+	var newDOB string
+	chars := []rune(dob)
+	for i := 0; i < 15; i++ {
+		if i > 3 {
+			newDOB += string(chars[i])
+		}
+	}
+	return newDOB
+}
+
+func extractAge(DOB string) int {
+	now := time.Now()
+	dob, err := time.Parse("Jan 02 2006", DOB)
+	if err != nil {
+		return -1
+	}
+	age := dob.Year() - now.Year()
+	birthDay := dob.YearDay()
+	currentDay := now.YearDay()
+	if isLeap(dob.Year()) && !isLeap(now.Year()) && birthDay >= 60 {
+		return birthDay - 1
+	}
+	if isLeap(now.Year()) && !isLeap(dob.Year()) && currentDay >= 60 {
+		return birthDay + 1
+	}
+	if now.YearDay() < birthDay {
+		age -= 1
+	}
+	return age
+}
+
+func isLeap(year int) bool {
+	if year%400 == 0 {
+		return true
+	} else if year%100 == 0 {
+		return false
+	} else if year%4 == 0 {
+		return true
+	}
+	return false
 }
 
 func createUser(user *models.User, request *RegisterRequest) {
@@ -76,4 +108,5 @@ func createUser(user *models.User, request *RegisterRequest) {
 	user.DOB = formatDOB(request.DOB)
 	user.Major = request.Major
 	user.College = request.College
+	user.Age = extractAge(user.DOB)
 }

@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"strconv"
 
 	"AttackOnCollege/back_end/src/database"
 	"AttackOnCollege/back_end/src/models"
@@ -12,7 +13,7 @@ import (
 type AchievementRequest struct {
 	Title            string `form:"title"`
 	Description      string `form:"description"`
-	ExperiencePoints int    `form:"expPts"`
+	ExperiencePoints string `form:"XPgain"`
 }
 
 func GetAchievement(user *models.User, title string) {
@@ -30,14 +31,23 @@ func GetAchievement(user *models.User, title string) {
 /*** TODO: Add a function that responds to HTTP GET request for a single achievement ***/
 
 func AddAchievement(context *gin.Context) {
-  var user models.User
+	var user models.User
 	var achievement models.Achievement
 	var request AchievementRequest
 
-if !user.IsAdmin {
-  context.AbortWithStatus(http.StatusForbidden)
-  return
-}
+	tokenString := context.GetHeader("Authorization")
+	tokenString = tokenString[1 : len(tokenString)-1]
+	r := database.UserDB.Where("token = ?", tokenString).First(&user)
+	if r.Error != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": r.Error.Error()})
+		context.Abort()
+		return
+	}
+
+	if !user.IsAdmin {
+		context.AbortWithStatus(http.StatusForbidden)
+		return
+	}
 
 	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -61,53 +71,85 @@ if !user.IsAdmin {
 func createAchievement(achievement *models.Achievement, request *AchievementRequest) {
 	achievement.Title = request.Title
 	achievement.Description = request.Description
-	achievement.ExperiencePoints = request.ExperiencePoints
+	var err error
+	achievement.ExperiencePoints, err = strconv.Atoi(request.ExperiencePoints)
+	if err != nil {
+		return
+	}
 }
 
 func GetAllAchievements(context *gin.Context) {
-  var user models.User
+	var user models.User
 	var achievements []models.Achievement
 
-  if !user.IsAdmin {
-    context.AbortWithStatus(403)
-    return
-  }
+	tokenString := context.GetHeader("Authorization")
+	tokenString = tokenString[1 : len(tokenString)-1]
+	r := database.UserDB.Where("token = ?", tokenString).First(&user)
+	if r.Error != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": r.Error.Error()})
+		context.Abort()
+		return
+	}
+	if !user.IsAdmin {
+		context.AbortWithStatus(403)
+		return
+	}
 
 	database.AchievementDB.Find(&achievements)
 	context.IndentedJSON(http.StatusAccepted, achievements)
 }
 
 func EditAchievement(context *gin.Context) {
-  var user models.User
+	var user models.User
 	var achievement models.Achievement
 	var request AchievementRequest
 
-  if !user.IsAdmin {
-    context.AbortWithStatus(403)
-    return
-  }
+	tokenString := context.GetHeader("Authorization")
+	tokenString = tokenString[1 : len(tokenString)-1]
+	r := database.UserDB.Where("token = ?", tokenString).First(&user)
+	if r.Error != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": r.Error.Error()})
+		context.Abort()
+		return
+	}
+	if !user.IsAdmin {
+		context.AbortWithStatus(403)
+		return
+	}
 
 	if err := context.Bind(&request); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
 	}
-
+	var err error
 	achievement.Title = request.Title
 	achievement.Description = request.Description
-	achievement.ExperiencePoints = request.ExperiencePoints
-
+	achievement.ExperiencePoints, err = strconv.Atoi(request.ExperiencePoints)
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": r.Error.Error()})
+		context.Abort()
+		return
+	}
 	database.AchievementDB.Save(&achievement)
 	context.JSON(http.StatusAccepted, achievement)
 }
 
 func DeleteAchievement(context *gin.Context) {
-  var user models.User
+	var user models.User
 
-  if !user.IsAdmin {
-    context.AbortWithStatus(403)
-    return
-  }
+	tokenString := context.GetHeader("Authorization")
+	tokenString = tokenString[1 : len(tokenString)-1]
+	r := database.UserDB.Where("token = ?", tokenString).First(&user)
+	if r.Error != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": r.Error.Error()})
+		context.Abort()
+		return
+	}
+	if !user.IsAdmin {
+		context.AbortWithStatus(403)
+		return
+	}
 
 	var title = struct {
 		Title string `form:"title"`

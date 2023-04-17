@@ -1,12 +1,12 @@
 @host = localhost:1337
 
-POST http://{{host}}/achievements/createAchievment
+POST http://{{host}}/users/admin/achievement
 Content-Type: "application/json"
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6IkFPQ0FkbWluIiwiRW1haWwiOiIiLCJleHAiOjE2ODE2ODA3NDF9.YKCPnwVyBRqkXmKkF89a0cJ3SZ7tGqNIqQwx_uMgraQ"
 
 {
-    "title":"First Blood!",
-    "description":"Congratulations on completing your first assignment in Attack on College! Keep going!",
-    "expPts":100
+    "title": "First Blood!",
+    "description": "Congratulations on completing your first assignment in Attack on College! Keep going!",
+    
 }
-
 ###

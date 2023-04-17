@@ -32,4 +32,29 @@ func Migrate() {
 	AchievementDB.AutoMigrate(&models.Achievement{})
 	AssignmentDB.AutoMigrate(&models.Assignment{})
 	log.Println("Database Migration Completed!")
+	CreateAdmin()
+}
+
+func CreateAdmin() {
+	admin := models.User{
+		Email:                "",
+		Username:             "AOCAdmin",
+		Password:             "SuperSecretP4ssFor4dmin",
+		Token:                "",
+		FirstName:            "",
+		LastName:             "",
+		Major:                "",
+		College:              "",
+		DOB:                  "",
+		IsAdmin:              true,
+		Age:                  0,
+		Level:                0,
+		ExperiencePoints:     0,
+		CurrentCourse:        "",
+		CompletedAssignments: 0,
+	}
+	if err := admin.HashPassword(admin.Password); err != nil {
+		return
+	}
+	UserDB.Create(&admin)
 }
