@@ -106,7 +106,11 @@ func CompleteAssignment(c *gin.Context) {
 	user.CompletedAssignments++
 	if user.CompletedAssignments == 1 {
 		GetAchievement(&user, "First Blood!")
-	}
+	} else if user.CompletedAssignments == 3 {
+    GetAchievement(&user, "Triple Kill")
+  } else if user.CompletedAssignments == 10 {
+    GetAchievement(&user, "Unstoppable")
+  }
 	database.UserDB.Save(&user)
 	c.JSON(http.StatusAccepted, "Assignment completed! Congratulations!")
 	// Add function that checks if this is first completed assignment and send an achievement for it

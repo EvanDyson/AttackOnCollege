@@ -28,8 +28,6 @@ func GetAchievement(user *models.User, title string) {
 	user.Achievements = append(user.Achievements, (int64)(achievement.ID))
 }
 
-/*** TODO: Add a function that responds to HTTP GET request for a single achievement ***/
-
 func AddAchievement(context *gin.Context) {
 	var user models.User
 	var achievement models.Achievement
@@ -97,6 +95,41 @@ func GetAllAchievements(context *gin.Context) {
 
 	database.AchievementDB.Find(&achievements)
 	context.IndentedJSON(http.StatusAccepted, achievements)
+}
+
+//In response to TODO, returns one achievement specified in GET request by admin user
+func ReturnAchievement(context *gin.Context) {
+  var user models.User
+  var achievement models.Achievement
+  var request AchievementRequest
+
+  tokenString := context.GetHeader("Authorization")
+	tokenString = tokenString[1 : len(tokenString)-1]
+	r := database.UserDB.Where("token = ?", tokenString).First(&user)
+	if r.Error != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": r.Error.Error()})
+		context.Abort()
+		return
+	}
+	if !user.IsAdmin {
+		context.AbortWithStatus(403)
+		return
+	}
+
+  if err := context.Bind(&request); err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		context.Abort()
+		return
+	}
+
+  record := database.AchievementDB.Where("title = ?", request).First(&achievement)
+	if record.Error != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": record.Error.Error()})
+		context.Abort()
+		return
+	}
+
+  context.JSON(http.StatusAccepted, achievement)
 }
 
 func EditAchievement(context *gin.Context) {

@@ -10,10 +10,14 @@ func Main() {
 	database.Connect("./database")
 	database.Migrate()
 	AddAchievementToDB("First Blood!", "Congratulations on completing your first assignment in Attack on College! Keep going!", 100)
+  AddAchievementToDB("Triple Kill", "3 assignments completed! Great work.", 200)
+  AddAchievementToDB("Unstoppable", "After completing 10 assignments, you are truly unstoppable!", 500)
 	AddAchievementToDB("Perfect score!", "Getting a 100% on an assignment", 100)
 	AddAchievementToDB("Course Killer!", "Done with the first course!", 100)
 
 	AddAchievementToAcc("First Blood!")
+  AddAchievementToAcc("Triple Kill")
+  AddAchievementToAcc("Unstoppable")
 	AddAchievementToAcc("Perfect score!")
 	AddAchievementToAcc("Course Killer!")
 }
