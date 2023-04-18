@@ -39,6 +39,7 @@ func CreateCourse(context *gin.Context) {
 		return
 	}
 	user.CurrentCourse = course.CourseCode
+	user.CourseID = course.ID
 	database.UserDB.Save(&user)
 
 	context.JSON(http.StatusCreated, gin.H{"courseName": course.Title, "courseCode": course.CourseCode})

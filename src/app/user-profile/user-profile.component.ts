@@ -28,6 +28,7 @@ export class UserProfileComponent {
     const element4=document.getElementById("college");
     const element5=document.getElementById("major");
     const element6=document.getElementById("age");
+    const element7=document.getElementById("currCourse");
     if(element!=null){
         element.innerHTML = "Name: " + data["FirstName"] + " " + data["LastName"];
     }
@@ -47,7 +48,10 @@ export class UserProfileComponent {
       element5.innerHTML="Major: " + data["Major"];
     }
     if(element6!=null){
-      element6.innerHTML="Age: " + data["age"];
+      element6.innerHTML="Age: " + data["Age"];
+    }
+    if(element7!=null){
+      element7.innerHTML="Current course: " + data["CurrentCourse"];
     }
   }
 }

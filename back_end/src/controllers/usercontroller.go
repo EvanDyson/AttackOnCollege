@@ -110,4 +110,5 @@ func createUser(user *models.User, request *RegisterRequest) {
 	user.Major = request.Major
 	user.College = request.College
 	user.Age = extractAge(user.DOB)
+	user.CurrentCourse = "N/A"
 }

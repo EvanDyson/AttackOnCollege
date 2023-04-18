@@ -38,6 +38,8 @@ func initRouter() *gin.Engine {
 			secured.POST("/course", controllers.CreateCourse)
 			secured.POST("/assignment", controllers.CreateAssignment)
 			secured.POST("/complete", controllers.CompleteAssignment)
+			secured.GET("/assignments", controllers.GetAssignments)
+			secured.GET("/assignment", controllers.GetAssignment)
 		}
 		admin := users.Group("/admin").Use(middlewares.Auth())
 		{
@@ -45,7 +47,7 @@ func initRouter() *gin.Engine {
 			admin.PUT("/achievement", controllers.EditAchievement)
 			admin.DELETE("/achievement", controllers.DeleteAchievement)
 			admin.GET("/achievements", controllers.GetAllAchievements)
-      admin.GET("/achievements", controllers.ReturnAchievement)
+			//admin.GET("/achievements", controllers.ReturnAchievement)
 			//admin.DELETE("/user", controllers.AdminDeleteUser)
 			//admin.GET("/user", controllers.AdminGetAllUsers)
 			//admin.PUT("/user", controllers.AdminEditUser)

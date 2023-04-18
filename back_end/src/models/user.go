@@ -30,7 +30,9 @@ type User struct {
 	Level                int           `form:"level"`
 	ExperiencePoints     int           `form:"expPts"`
 	Achievements         pq.Int64Array `form:"achievements" gorm:"type:integer[]"`
+	Assignments          pq.Int64Array `form:"assignments" gorm:"type:integer[]"`
 	CurrentCourse        string        `form:"currCourse"`
+	CourseID             uint
 	CompletedAssignments int
 }
 

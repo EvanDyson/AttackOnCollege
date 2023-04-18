@@ -15,14 +15,15 @@ func Ping(context *gin.Context) {
 }
 
 type ProfileRequest struct {
-	Username  string `form:"username" gorm:"unique"`
-	LastName  string `form:"lastName"`
-	Email     string `form:"email" gorm:"unique"`
-	Major     string `form:"major" binding:"required"`
-	College   string `form:"college" binding:"required"`
-	DOB       string `form:"dob"`
-	FirstName string `form:"firstName"`
-	Age       int    `form:"age"`
+	Username      string `form:"username" gorm:"unique"`
+	LastName      string `form:"lastName"`
+	Email         string `form:"email" gorm:"unique"`
+	Major         string `form:"major" binding:"required"`
+	College       string `form:"college" binding:"required"`
+	DOB           string `form:"dob"`
+	FirstName     string `form:"firstName"`
+	Age           int    `form:"age"`
+	CurrentCourse string `form:"currCourse"`
 }
 
 type AchievementRes struct {
@@ -180,4 +181,5 @@ func mapUserToRequest(user *models.User, request *ProfileRequest) {
 	request.FirstName = user.FirstName
 	request.LastName = user.LastName
 	request.Age = user.Age
+	request.CurrentCourse = user.CurrentCourse
 }

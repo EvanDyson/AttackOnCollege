@@ -1,7 +1,6 @@
 package models
 
 import (
-	"github.com/lib/pq"
 	"gorm.io/gorm"
 )
 
@@ -9,10 +8,9 @@ type Course struct {
 	gorm.Model
 
 	Title      string `form:"courseName"`
-	CourseCode string `form:"courseCode" gorm:"unique"`
+	CourseCode string `form:"courseCode"`
 
-	FinalGrade  string        `form:"finalGrade"`
-	Assignments pq.Int64Array `form:"assignments" gorm:"type:integer[]"`
+	FinalGrade string `form:"finalGrade"`
 
 	// expPts = Sum(assignment expPts) * FinalGrade + Set Pts for finishing a course
 	ExperiencePoints int  `form:"expPts"`

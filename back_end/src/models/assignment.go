@@ -17,6 +17,7 @@ type Assignment struct {
 
 	NumberOfPoints int     `form:"numPts"`
 	Weight         float32 `form:"gradeWeight"`
+	Course         uint    `form:"courseID"`
 
 	PointsEarned float32 `form:"ptsEarned"`
 
