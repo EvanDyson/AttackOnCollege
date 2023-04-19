@@ -1,8 +1,8 @@
 @host = localhost:1337
 // Register User
-POST http://{{host}}/users/secured/addAssignment HTTP/1.1
+POST http://{{host}}/users/secured/assignment HTTP/1.1
 content-type: application/json
-Authorization: 
+Authorization:
 
 {
     "title": "Test",

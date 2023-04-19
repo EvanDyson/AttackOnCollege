@@ -1,6 +1,6 @@
 @host = localhost:1337
 // Register User
-GET http://{{host}}/users/secured/token HTTP/1.1
+POST http://{{host}}/users/secured/token HTTP/1.1
 content-type: application/json
-Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VybmFtZSI6InQudGVzdGluZyIsIkVtYWlsIjoidC50ZXN0aW5nQHVmbC5lZHUiLCJleHAiOjE2ODE2NjcwODV9.NVwRv17l1qocZF1sXS6FEJ8Tcfaz1eCSppB2MyBI8gQ"
+Authorization: 
 ###

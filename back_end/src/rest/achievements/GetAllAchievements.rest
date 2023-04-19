@@ -1,6 +1,7 @@
 @host = localhost:1337
 
-GET http://{{host}}/achievements/getAllAchievements
+GET http://{{host}}/user/admin/achievements HTTP/1.1
 Content-Type: "application/json"
+Authorization:
 
 ###

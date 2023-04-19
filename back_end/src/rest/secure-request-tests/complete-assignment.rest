@@ -1,8 +1,8 @@
 @host = localhost:1337
 // Complete Assignment Test
-POST http://{{host}}/users/secured/completeAssignment HTTP/1.1
+POST http://{{host}}/users/secured/complete HTTP/1.1
 content-type: application/json
-Authorization: 
+Authorization:
 
 {
     "assignment": 1,
