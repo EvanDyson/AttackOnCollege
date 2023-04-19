@@ -50,15 +50,15 @@
   </nav>
 </body>
 
-
-<mat-card class="card">
+<div class="background">
+  <mat-card class="profileCard">
     <mat-card-header>
       <div mat-card-avatar>
         <mat-icon>person</mat-icon>
       </div>
-      <mat-card-title>User Profile</mat-card-title>
+      <mat-card-title class="A">User Profile</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content class="content">
       <p id="name">Name: John Doe </p>
       <p id="username">Username: Username</p>
       <p id="dob">DOB: Jan 01 1999</p>
@@ -69,9 +69,32 @@
       <p id="currCourse">Current course: CEN3031</p>
     </mat-card-content>
     <mat-card-actions class="button">
-      <a id=:edit class="button1" mat-raised-button color="primary" href="/edit">Edit Profile</a>
+      <a id="edit" class="button1" mat-raised-button color="primary" href="/edit">Edit Profile</a>
       <a id="addcourse" class="button1" mat-raised-button color="primary" href="/add-course">Add a course</a>
-      <a id=addassignment class="button1" mat-raised-button color="primary" href="/add-assignment">Add an assignment</a>
+      <a id="addassignment" class="button1" mat-raised-button color="primary" href="/add-assignment">Add an assignment</a>
     </mat-card-actions>
   </mat-card>
   
+  <mat-card class="assignCard">
+    <mat-card-title class="B">Assignments</mat-card-title>
+    <mat-divider></mat-divider>
+
+    <table mat-table [dataSource]="dataSource" class="lessons-table mat-elevation-z8">
+      <ng-containder matColumnDef="title">
+        <th mat-header-cell class="title-cell" *matHeaderCellDef> Title </th>
+        <td mat-cell class="title-cell" *matCellDef="let element"> {{element.title}} </td>
+      </ng-containder>
+      <ng-containder matColumnDef="due_date">
+        <th mat-header-cell class="due_date-cell" *matHeaderCellDef> Due Date </th>
+        <td mat-cell class="due_date-cell" *matCellDef="let element"> {{element.due_date}} </td>
+      </ng-containder>
+      <ng-containder matColumnDef="course_code">
+        <th mat-header-cell class="course_code-cell" *matHeaderCellDef> Course Code </th>
+        <td mat-cell class="course_code-cell" *matCellDef="let element"> {{element.course_code}} </td>
+      </ng-containder>
+
+      <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+    </table>
+  </mat-card>
+</div>

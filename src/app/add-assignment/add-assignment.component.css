@@ -16,9 +16,11 @@ ul {
   width: 46px;
 }
 .card {
-  margin-top: 20px;
+  background: linear-gradient(to bottom right, #1e1e1e, #4d4d4d);
+  padding-top: 20px;
   align-items: center;
   justify-content: center;
+  height: 83vh;
 }
 .title {
     margin-bottom: 10px;
@@ -33,7 +35,7 @@ ul {
 }
 .B2 {
     margin-left: 125px;
-    width: 165px;
+    width: 200px;
 }
 .hidden {
   visibility: hidden;

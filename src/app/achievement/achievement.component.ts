@@ -9,7 +9,6 @@ export interface AchievementStruct {
 
 const AchievementCard: AchievementStruct[] = [];
 
-
 @Component({
   selector: 'app-achievement',
   templateUrl: './achievement.component.html',
@@ -17,11 +16,9 @@ const AchievementCard: AchievementStruct[] = [];
 })
 export class AchievementComponent {
   constructor(private http: HttpClient) {}
-
   displayedColumns: string[] = ['title', 'description', /*'progress',*/ 'XPgain'];
   dataSource: any;
   
-
   ngOnInit() {
     this.http.get('http://localhost:1337/users/secured/achievements')
     .subscribe(data =>{

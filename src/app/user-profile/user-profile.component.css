@@ -10,6 +10,9 @@ ul {
 .nav-item {
   margin: 10px 16px;
 }
+mat-icon {
+  margin-left: 40px;
+}
 .navbar-brand img {
   height: 46px;
   margin-right: 8px;
@@ -18,17 +21,59 @@ ul {
 .profile-item{
   visibility: hidden;
 }
+.content {
+  margin-bottom: 10px;
+}
 .button {
-    margin-top: 50px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+  margin-top: 100px;
+  margin-left: 5vh;
+  margin-right: 5vh;
 }
 .button1 {
   margin-right: 20px;
+  height: 50px;
 }
-.card {
-  margin-top: 40px;
-  align-items: center;
-  justify-content: center;
+.profileCard {
+  margin-right: 115px;  
+  width: 65vh;
+  height: 65vh;
+  display: inline-flex;
+  padding: 10px;
+}
+.assignCard {
+  vertical-align: top;
+  width: 98vh;
+  height: 65vh;
+  display: inline-flex;
+  padding: 30px;
+}
+.background {
+  padding: 10vh;
+  background: linear-gradient(to bottom right, #1e1e1e, #4d4d4d);
+  height: 83vh;
+}
+p {
+  margin-left: 40px;
+  font-size: large;
+}
+.A {
+  margin-left: 40px;
+  font-size: 20px;
+}
+.B {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.title-cell {
+  font-size: larger;
+  width: 33%;
+}
+.due_date-cell {
+  font-size: larger;
+  width: 33%;
+}
+.course_code-cell {
+  font-size: larger;
+  width: 33%;
 }
