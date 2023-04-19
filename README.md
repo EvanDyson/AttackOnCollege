@@ -21,7 +21,7 @@ After downloading both required things and downloading our project AttackonColle
 * ``` ng install ```
 * ``` ng serve ```
 
-You can then navigate to [localhost:4200](localhost:4200)
+You can then navigate to [localhost:4200](http://localhost:4200)
 
 **Please note that this will only launch the front end unconnected to the backend**
 
