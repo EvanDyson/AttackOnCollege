@@ -28,7 +28,7 @@ You can then navigate to [localhost:4200](localhost:4200)
 
 ### Back-end
 
-```npm start``` to run front and backend
+As of now, the front-end and back-end are linked up. Starting the server and Angular allows the two to communicate. GoLang needs to be installed and set up for execution on the machine to properly start the server. If both Angular and Go are installed, running ```npm start``` in the console of the AttackOnCollege directory will start both up. For testing purposes, running ```go run ./back_end/src/*.go``` will start up just the server. Although Codegangsta Gin is NOT used to start the server, it does give testing feedback in the console. The reason for not running with Gin is that Gin is very verbose and it is hard to read through all the ouput.
 
 
 Inspiration from: https://lvluplife.com/
