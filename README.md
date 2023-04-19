@@ -6,16 +6,29 @@
 
 *Working on the back end will be Pierce Casey and Sara Osmanovic.*
 
-Our goal is to create software to improve the experience and motivation of college students. Our website will allow students to create a profile, and input specifics about their college. 
+## Documentation of the requirements for running and using our app.
 
-The website will track achievements that users decide they want to work towards in their education. Each achievement will earn the users a certain amount experience (XP) points which will go toward their levels. The levels and experience points will be used to track positions in leaderboards. 
+### Front-End
+Our front-end is based off of angular. 
+In order to properly run angular applications it is recommended by the developers to have Node.js installed, as well as having the angular CLI downloaded locally.
 
-Our ambition is to feature some form of local leaderboard showing off recent achievements earned by users, inspiring competition among peers. 
+* [Node.js](https://nodejs.org/en)
+* After downloading Node.js ``` npm install -g @angular/cli ```
 
-First User Stories
+After downloading both required things and downloading our project AttackonCollege, enter the project folder and run the following commands in console.
 
-as a user, I want to be able to save my achievement progress, so that I can track my achievements effectively
+* ``` npm install ```
+* ``` ng install ```
+* ``` ng serve ```
 
-as a user, I want to be able to earn achievements for each course, to track my progress throughout the semester
+You can then navigate to [localhost:4200](localhost:4200)
 
-Inspiration: https://lvluplife.com/
+**Please note that this will only launch the front end unconnected to the backend**
+
+
+### Back-end
+
+Nom start to run front and backend
+
+
+Inspiration from: https://lvluplife.com/
