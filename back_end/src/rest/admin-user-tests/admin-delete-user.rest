@@ -1,0 +1,11 @@
+@host = localhost:1337
+
+DELETE http://{{host}}/users/admin/user
+Content-Type: "application/json"
+Authorization:
+
+{
+    "username": "TTester123"
+}
+
+###

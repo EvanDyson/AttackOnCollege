@@ -1,0 +1,14 @@
+@host = localhost:1337
+
+PUT http://{{host}}/users/admin/user
+Content-Type: "application/json"
+Authorization:
+
+{
+    "email": "TTester@gmail.com",
+    "username": "TTester123",
+    "firstName": "Tina",
+    "lastName": "Tester"
+}
+
+###

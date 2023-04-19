@@ -1,0 +1,10 @@
+@host = localhost:1337
+
+GET http://{{host}}/users/admin/achievement
+Content-Type: "application/json"
+Authorization: 
+
+{
+    "title": "First Blood!",
+}
+###
