@@ -28,9 +28,9 @@ export class AchievementComponent {
     }
 
     getAchievement(data: any){
-      let size=data[0]["ExperiencePoints"];
-      for(let i=1;i<=size;i++){
-        AchievementCard.push({title:data[i]["Title"],description:data[i]["Description"],XPgain:data[i]["ExperiencePoints"]});
+      let size = data[0];
+      for(let i = 0; i < size; i++){
+        AchievementCard.push({title: data[1][i]["Title"],description: data[1][i]["Description"],XPgain: data[1][i]["ExperiencePoints"]});
       }
     }
 }

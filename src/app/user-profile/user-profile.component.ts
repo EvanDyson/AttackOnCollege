@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export interface assignmentStruct {
+  id: number;
   title: string;
   due_date: string;
-  course_code: number;
+  course_code: string;
 }
 
-const AchievementCard: assignmentStruct[] = [];
+const AssignmentCard: assignmentStruct[] = [];
 
 @Component({
   selector: 'app-user-profile',
@@ -26,8 +27,15 @@ export class UserProfileComponent {
   getInfo(){
     this.http.get('http://localhost:1337/users/secured/token')
     .subscribe((data: any) =>{
-      this.setStrings(data);
+      this.setStrings(data[0]);
+      this.getAssignmentInfo(data[1], data[2])
+      this.dataSource = AssignmentCard
     });
+  }
+  getAssignmentInfo(size: any, data: any) {
+    for (let i = 0; i < size; i++) {
+      AssignmentCard.push({id: data[i]["ID"], title: data[i]["Title"], due_date: data[i]["DueDate"], course_code: data[i]["Course"]})
+    }
   }
   setStrings(data: any){
     const element=document.getElementById("name");
