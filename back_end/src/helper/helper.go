@@ -7,21 +7,23 @@ import (
 )
 
 func Main() {
-	CreateTestAcc()
+	e := CreateTestAcc()
 	AddAchievementToDB("First Blood!", "Congratulations on completing your first assignment in Attack on College! Keep going!", 100)
 	AddAchievementToDB("Triple Kill", "3 assignments completed! Great work.", 200)
 	AddAchievementToDB("Unstoppable", "After completing 10 assignments, you are truly unstoppable!", 500)
 	AddAchievementToDB("Perfect score!", "Getting a 100% on an assignment", 100)
 	AddAchievementToDB("Course Killer!", "Done with the first course!", 100)
 
-	AddAchievementToAcc("First Blood!")
-	AddAchievementToAcc("Triple Kill")
-	AddAchievementToAcc("Unstoppable")
-	AddAchievementToAcc("Perfect score!")
-	AddAchievementToAcc("Course Killer!")
+	if e != -1 {
+		AddAchievementToAcc("First Blood!")
+		AddAchievementToAcc("Triple Kill")
+		AddAchievementToAcc("Unstoppable")
+		AddAchievementToAcc("Perfect score!")
+		AddAchievementToAcc("Course Killer!")
+	}
 }
 
-func CreateTestAcc() {
+func CreateTestAcc() int {
 	test := models.User{
 		Email:                "AOCtest@aoc.com",
 		Username:             "AOCTest",
@@ -40,13 +42,14 @@ func CreateTestAcc() {
 		CompletedAssignments: 0,
 	}
 	if err := test.HashPassword(test.Password); err != nil {
-		return
+		return -1
 	}
 	r := database.UserDB.Create(&test)
 	if r.Error != nil {
 		fmt.Printf(r.Error.Error())
-		return
+		return -1
 	}
+	return 0
 }
 
 func AddAchievementToDB(title string, description string, xp int) {

@@ -1,5 +1,5 @@
 #!/bin/sh
 
-ng serve & go run ./back_end/src/main.go &
+ng serve & ./main.exe &
 
 wait
