@@ -2,6 +2,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 
 	"AttackOnCollege/back_end/src/database"
@@ -32,6 +33,13 @@ type AchievementRes struct {
 	ExperiencePoints int    `form:"XPgain"`
 }
 
+type AssignmentRes struct {
+  ID      uint   `form:"assignmentID"`
+  Title   string `form:"assignmentName"`
+  DueDate string `form:"dueDate"`
+  Course  string `form:"courseCode"`
+}
+
 // Return user information to be displayed on the user profile
 func GetUser(context *gin.Context) {
 	var user models.User
@@ -49,7 +57,40 @@ func GetUser(context *gin.Context) {
 	var request ProfileRequest
 	// Send back only information needed by the front end for now.
 	mapUserToRequest(&user, &request)
-	context.JSON(http.StatusOK, request)
+  var response []interface{}
+  response = append(response, request)
+  assignments, size := GetAssignmentHelper(&user)
+  response = append(response, size)
+  response = append(response, assignments)
+
+	context.JSON(http.StatusOK, response)
+}
+
+func GetAssignmentHelper(user *models.User) ([]AssignmentRes, int) {
+  var assignments []AssignmentRes
+  for i := range user.Assignments {
+    var assignment models.Assignment
+    record := database.AssignmentDB.Where("id = ?", user.Assignments[i]).First(&assignment)
+    if record.Error != nil {
+      fmt.Printf(record.Error.Error())
+      break
+    }
+
+    var course models.Course
+    check := database.CourseDB.Where("id = ?", user.CourseID).First(&course)
+    if check.Error != nil {
+      fmt.Printf(check.Error.Error())
+      break
+    }
+
+    assignments = append(assignments, AssignmentRes{ID: assignment.ID,
+      Title: assignment.Title,
+      DueDate: assignment.DueDate,
+      Course: course.CourseCode})
+
+  }
+
+  return assignments, len(assignments)
 }
 
 // Modifies the information in the user profile
@@ -167,8 +208,9 @@ func GetAchievements(context *gin.Context) {
 		res.ExperiencePoints = a.ExperiencePoints
 		temp = append(temp, res)
 	}
-	achievements := []AchievementRes{{ExperiencePoints: (len(temp))}}
-	achievements = append(achievements, temp...)
+	var achievements []interface{}
+  achievements = append(achievements, len(temp))
+	achievements = append(achievements, temp)
 	context.JSON(http.StatusOK, achievements)
 }
 
