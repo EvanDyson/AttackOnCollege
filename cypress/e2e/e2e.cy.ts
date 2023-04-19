@@ -1,10 +1,10 @@
 describe('template spec', () => {
     it('Should accept login',()=>{
         cy.visit('/login')
-        cy.get("#username").type("AOCAdmin");
+        cy.get("#username").type("AOCTest");
         
     
-        cy.get("#password").type("SuperSecretP4ssFor4dmin");
+        cy.get("#password").type("P4ssw0rdF0rTest");
         cy.get("#loginclick").click();
         cy.location('pathname').should('eq', '/')
     
@@ -17,23 +17,22 @@ describe('template spec', () => {
     })
     it('Will get visible landing page elements',()=>{
         cy.visit('/login')
-        cy.get("#username").type("AOCAdmin");
+        cy.get("#username").type("AOCTest");
         
     
-        cy.get("#password").type("SuperSecretP4ssFor4dmin");
+        cy.get("#password").type("P4ssw0rdF0rTest");
         cy.get("#loginclick").click();
         cy.location('pathname').should('eq', '/')
         
-        cy.get('#profile').should('be.visibile');
+        cy.get('#profile').should('be.visible');
         cy.get('#addassignment').should('be.be.visible')
-        cy.get('#admin').should('be.visible')
     })
     it('Will get invisible homepage elements',()=>{
         cy.visit('/login')
-        cy.get("#username").type("AOCAdmin");
+        cy.get("#username").type("AOCTest");
         
     
-        cy.get("#password").type("SuperSecretP4ssFor4dmin");
+        cy.get("#password").type("P4ssw0rdF0rTest");
         cy.get("#loginclick").click();
         cy.location('pathname').should('eq', '/')
         cy.get('#loginwhite').should('be.hidden');
@@ -41,10 +40,10 @@ describe('template spec', () => {
     })
     it('Navigate to Profile Page',()=>{
         cy.visit('/login')
-        cy.get("#username").type("AOCAdmin");
+        cy.get("#username").type("AOCTest");
         
     
-        cy.get("#password").type("SuperSecretP4ssFor4dmin");
+        cy.get("#password").type("P4ssw0rdF0rTest");
         cy.get("#loginclick").click();
         cy.location('pathname').should('eq', '/')
         cy.get('#profile').click();
@@ -52,10 +51,10 @@ describe('template spec', () => {
     })
     it('Should Log Out',()=>{
         cy.visit('/login')
-        cy.get("#username").type("AOCAdmin");
+        cy.get("#username").type("AOCTest");
         
     
-        cy.get("#password").type("SuperSecretP4ssFor4dmin");
+        cy.get("#password").type("P4ssw0rdF0rTest");
         cy.get("#loginclick").click();
         cy.location('pathname').should('eq', '/')
         cy.get('#logout').click();
@@ -64,10 +63,10 @@ describe('template spec', () => {
     })
     it('Navigate to Achievement Page',()=>{
         cy.visit('/login')
-        cy.get("#username").type("AOCAdmin");
+        cy.get("#username").type("AOCTest");
         
     
-        cy.get("#password").type("SuperSecretP4ssFor4dmin");
+        cy.get("#password").type("P4ssw0rdF0rTest");
         cy.get("#loginclick").click();
         cy.location('pathname').should('eq', '/')
         cy.get('#achievementButton').click();
@@ -75,10 +74,10 @@ describe('template spec', () => {
     })
     it('Navigate to Edit User Page',()=>{
         cy.visit('/login')
-        cy.get("#username").type("AOCAdmin");
+        cy.get("#username").type("AOCTest");
         
     
-        cy.get("#password").type("SuperSecretP4ssFor4dmin");
+        cy.get("#password").type("P4ssw0rdF0rTest");
         cy.get("#loginclick").click();
         cy.location('pathname').should('eq', '/')
         cy.get('#profile').click();
@@ -88,10 +87,10 @@ describe('template spec', () => {
     })
     it('Navigate to Add Assignment Page',()=>{
         cy.visit('/login')
-        cy.get("#username").type("AOCAdmin");
+        cy.get("#username").type("AOCTest");
         
     
-        cy.get("#password").type("SuperSecretP4ssFor4dmin");
+        cy.get("#password").type("P4ssw0rdF0rTest");
         cy.get("#loginclick").click();
         cy.location('pathname').should('eq', '/')
         cy.get('#profile').click();

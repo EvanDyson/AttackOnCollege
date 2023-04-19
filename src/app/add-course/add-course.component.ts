@@ -26,16 +26,13 @@ export class AddCourseComponent {
         this.http.post('http://localhost:1337/users/secured/course', formData)
         .subscribe(data =>{
           this.postId = JSON.stringify(data);
-          console.log(this.postId);
+            console.log(this.postId);
+            window.location.pathname = './add-course';
         })
         //window.location.pathname = './add-assignment';
         // For this example, we'll just log the data to the console.
-       
           console.log('Course Code: ', this.courseForm.get('courseCode')?.value);
           console.log('Course Name: ', this.courseForm.get('courseName')?.value);
-          
-    
-          window.location.pathname = './add-course';
       }
       addData(formData: FormData) {
         formData.append('courseCode', this.courseForm.get('courseCode')?.value);

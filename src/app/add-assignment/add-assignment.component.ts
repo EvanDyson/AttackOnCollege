@@ -32,11 +32,12 @@ export class AddAssignmentComponent {
   createAssignment() {
     var formData: any = new FormData();
     this.addData(formData);
-    this.http.post('http://localhost:1337/users/secured/assignment', formData)
-    .subscribe(data =>{
-      this.postId = JSON.stringify(data);
-      console.log(this.postId);
-    })
+      this.http.post('http://localhost:1337/users/secured/assignment', formData)
+          .subscribe(data => {
+              this.postId = JSON.stringify(data);
+              console.log(this.postId);
+              window.location.pathname = './add-assignment';
+          });
     //window.location.pathname = './add-assignment';
     // For this example, we'll just log the data to the console.
    
@@ -45,7 +46,7 @@ export class AddAssignmentComponent {
       console.log('Assignment Type: ', this.assignmentForm.get('assignmentType')?.value);
       console.log('Due Date: ', this.assignmentForm.get('dueDate')?.value);
 
-      window.location.pathname = './add-assignment';
+      //window.location.pathname = './add-assignment';
   }
   addData(formData: FormData) {
     formData.append('assignmentName', this.assignmentForm.get('assignmentName')?.value);
