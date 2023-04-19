@@ -1,0 +1,11 @@
+@host = localhost:1337
+
+POST http://{{host}}/users/secured/coursedone HTTP/1.1
+content-type: application/json
+Authorization:
+
+{
+    "course": 1,
+    "finalGrade": "A"
+}
+###

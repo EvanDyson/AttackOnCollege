@@ -82,7 +82,7 @@ func CompleteAssignment(c *gin.Context) {
 		return
 	}
 	if assignment.IsDone {
-		c.JSON(http.StatusBadRequest, "Course already completed!")
+		c.JSON(http.StatusBadRequest, "Assignment already completed!")
 		c.Abort()
 		return
 	}
