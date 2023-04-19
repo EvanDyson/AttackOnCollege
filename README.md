@@ -13,7 +13,7 @@ Our front-end is based off of angular.
 In order to properly run angular applications it is recommended by the developers to have Node.js installed, as well as having the angular CLI downloaded locally.
 
 * [Node.js](https://nodejs.org/en)
-* After downloading Node.js ``` npm install -g @angular/cli ```
+* After downloading Node.js, run the command ``` npm install -g @angular/cli ``` in yor console.
 
 After downloading both required things and downloading our project AttackonCollege, enter the project folder and run the following commands in console.
 
