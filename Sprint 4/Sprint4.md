@@ -18,6 +18,13 @@ this is a back end supported function, hence why all of these are end to end.
 
 ## Back-end Documentation
 
+### Issues
+
+The one issue we haven't been able to resolve is centralizing the databases to a remote server. We wanted to have a database hosted online to decrease the memory that is occupied by the four databases that our web-app requires. However, we were unable to find a good alternative to SQLite that works with the structures that we had already implemented. Ensuring that complex objects such as courses, assignments, and achievements can be stored in some way with the user information made moving away from SQLite too time-consuming for us. For our purposes, the databases being stored as they are currently works fine.
+
+#### Ideas for resolving the issue
+
+Have each assignment in the database also have a field for the ID of the user who made the assignment. This would allow simple data-types to be stored in each column, which is supported by MySQL, SQLite, PostgreSQL, and other versions of SQL, along with GORM.
 
 ### Register user
 
