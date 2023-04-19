@@ -28,7 +28,7 @@ You can then navigate to [localhost:4200](localhost:4200)
 
 ### Back-end
 
-Nom start to run front and backend
+```npm start``` to run front and backend
 
 
 Inspiration from: https://lvluplife.com/
