@@ -3,10 +3,12 @@ li {
   }
   ul {
     background-color: #F7F9FC;
-    margin-top: 25px;
-    padding: 30px 55px;
-    border-radius: 8px;
-  }
+    padding: 17px 20px;
+}
+a {
+    border-radius: 45px;
+}
+
   .nav-item {
     margin: 10px 16px;
   }
@@ -21,15 +23,19 @@ li {
   }
   p {
     padding-top: 150px;
+    font-size: 60px;
+    font-family: 'Broadway'
   }
   .homeButton {
     padding-top: -200px;
     grid-row: 2;
   }
 button {
-    width: 150px;
+    width: 200px;
     height: 50px;
     background-color: #859CFB;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
 }
 .bod {
     background: Linear-gradient(to bottom, #FBE485, #859CFB);

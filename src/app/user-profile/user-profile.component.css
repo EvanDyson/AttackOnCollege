@@ -2,10 +2,11 @@ li {
   margin-bottom: 8px;
 }
 ul {
-  background-color: #F7F9FC;
-  margin-top: 25px;
-  padding: 30px 55px;
-  border-radius: 8px;
+    background-color: #F7F9FC;
+    padding: 17px 20px;
+}
+button {
+    border-radius: 45px;
 }
 .nav-item {
   margin: 10px 16px;
@@ -22,16 +23,21 @@ mat-icon {
   visibility: hidden;
 }
 .content {
-  margin-bottom: 10px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
 }
 .button {
-  margin-top: 100px;
+  margin-top: 60px;
   margin-left: 5vh;
   margin-right: 5vh;
 }
 .button1 {
   margin-right: 20px;
   height: 50px;
+  width: 195px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
 }
 .profileCard {
   margin-right: 115px;  
@@ -39,6 +45,7 @@ mat-icon {
   height: 65vh;
   display: inline-flex;
   padding: 10px;
+  background-color: #eae1d0;
 }
 .assignCard {
   vertical-align: top;
@@ -46,11 +53,13 @@ mat-icon {
   height: 65vh;
   display: inline-flex;
   padding: 30px;
+  background-color: #eae1d0;
+  font-family: 'Times New Roman', Times, serif;
 }
 .background {
   padding: 10vh;
   background: Linear-gradient(to bottom, #FBE485, #859CFB);
-  height: 83vh;
+  height: 88vh;
 }
 p {
   margin-left: 40px;
@@ -59,11 +68,17 @@ p {
 .A {
   margin-left: 40px;
   font-size: 20px;
+  font-family: "Broadway";
+  text-shadow: 0 0 15px #f6f21a;
+  font-size: 24px;
 }
 .B {
   text-align: center;
   font-size: 24px;
   margin-bottom: 15px;
+  font-family: "Broadway";
+  text-shadow: 0 0 15px #f6f21a;
+  font-size: 32px;
 }
 .title-cell {
   font-size: larger;
