@@ -1,5 +1,23 @@
 # Sprint 4 Documentation
+
 ## Front End
+
+### New features since *Sprint 3*
+
+1. The most noticable thing that is visible on all pages are CSS / stylistic changes to almost all pages. These changes include:
+    * Font changes and font sizing
+    * Button fonts and button styling
+    * Background color and style
+    * Spacing for cards, divs, and components on screen
+2. The achievement page has now been full implemented. The page also shows all the current achievements that are saved in the profile data in back-end. (This page does have one bug that the achievements are only shown on a test account. This was due to time limitations to show that the feature does work.)
+3. The user profile page has been updated to have a card that displays all of the user's current assignments.
+4. An admin page has been in the data since the beginning however due to time limitations it was never fully implemented; However, the backend does have full implementation of an admin account.
+5. The linking to the back-end for the following pages has been fully implemented (besides linking of the edit user page).
+    * Profile page
+    * Add Course page
+    * Add Assignment page
+    * Achievement page
+
 ### Unit and e2e Testing
 As Stated in previous sprints, testing in cypress has been what has worked best for accurate testing in our project. As all front-end functionality in this sprint requires access to the back-end, these tests work both as unit and end to end tests.
 
@@ -14,7 +32,6 @@ As Stated in previous sprints, testing in cypress has been what has worked best 
 
 Note: All of these require the user to be logged in, and as such every one of these tests also logs a profile in,
 this is a back end supported function, hence why all of these are end to end.
-
 
 ## Back-end Documentation
 
