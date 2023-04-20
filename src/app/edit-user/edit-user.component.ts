@@ -49,7 +49,8 @@ export class EditUserComponent {
       this.http.put('http://localhost:1337/users/secured/token', formData)
       .subscribe(data =>{
         this.postId = JSON.stringify(data);
-        console.log(this.postId);
+          console.log(this.postId);
+          window.location.pathname = './profile'
       });
         /*
         if (this.editUser.get('firstName')?.value == '')

@@ -14,6 +14,9 @@ ul {
     background-color: #F7F9FC;
     padding: 17px 20px;
 }
+button {
+    border-radius: 45px;
+}
 body {
   color: #4a4a4a;
 }
