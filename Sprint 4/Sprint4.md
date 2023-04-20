@@ -4,12 +4,12 @@
 
 ### New features since *Sprint 3*
 
-1. The most noticable thing that is visible on all pages are CSS / stylistic changes to almost all pages. These changes include:
+1. The most noticeable thing that is visible on all pages is CSS / stylistic changes to almost all pages. These changes include:
     * Font changes and font sizing
     * Button fonts and button styling
     * Background color and style
-    * Spacing for cards, divs, and components on screen
-2. The achievement page has now been full implemented. The page also shows all the current achievements that are saved in the profile data in back-end. (This page does have one bug that the achievements are only shown on a test account. This was due to time limitations to show that the feature does work.)
+    * Spacing for cards, divs, and components on the screen
+2. The achievement page has now been fully implemented. The page also shows all the current achievements that are saved in the profile data in the back-end. (This page does have one bug, that the achievements are only shown on a test account. This was due to time limitations to show that the feature does work.)
 3. The user profile page has been updated to have a card that displays all of the user's current assignments.
 4. An admin page has been in the data since the beginning however due to time limitations it was never fully implemented; However, the backend does have full implementation of an admin account.
 5. The linking to the back-end for the following pages has been fully implemented (besides linking of the edit user page).
@@ -19,19 +19,19 @@
     * Achievement page
 
 ### Unit and e2e Testing
-As Stated in previous sprints, testing in cypress has been what has worked best for accurate testing in our project. As all front-end functionality in this sprint requires access to the back-end, these tests work both as unit and end to end tests.
+As stated in previous sprints, testing in Cypress has been what has worked best for accurate testing in our project. As all front-end functionality in this sprint requires access to the back-end, these tests work both as a unit and end-to-end tests.
 
-1. Test 1: Allows user to login and add a course, this is something they might actually do interactively
-2. Test 2: Inverse of some of the sprint 3 tests, different buttons will be visible on landing page
-3. Test 3: Inverse of some of the sprint 3 tests, different buttons will be hidden on landing page
-4. Test 4: Navigates to profile page
+1. Test 1: Allows a user to login and add a course, this is something they might actually do interactively
+2. Test 2: Inverse of some of the sprint 3 tests, different buttons will be visible on the landing page
+3. Test 3: Inverse of some of the sprint 3 tests, different buttons will be hidden on the landing page
+4. Test 4: Navigates to the profile page
 5. Test 5: Logs user out
-6. Test 6: Navigates to Achievement Page
-7. Test 7: Navigates to Edit User
+6. Test 6: Navigates to the Achievement Page
+7. Test 7: Navigates to the Edit User
 8. Test 8: Navigates to add assignment
 
 Note: All of these require the user to be logged in, and as such every one of these tests also logs a profile in,
-this is a back end supported function, hence why all of these are end to end.
+this is a back-end supported function, hence why all of these are end-to-end.
 
 ## Back-end Documentation
 
