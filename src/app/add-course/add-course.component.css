@@ -3,10 +3,11 @@ li {
   }
   ul {
     background-color: #F7F9FC;
-    margin-top: 25px;
-    padding: 30px 55px;
-    border-radius: 8px;
-  }
+    padding: 15px 20px;
+}
+a {
+    border-radius: 45px;
+}
   .nav-item {
     margin: 10px 16px;
   }
@@ -16,12 +17,16 @@ li {
     width: 46px;
   }
   .card {
-    margin-top: 20px;
     align-items: center;
     justify-content: center;
+    width: fit-content;
+    height: 375px;
+    top: 200px;
+    left: 35%;
   }
   .title {
-      margin-bottom: 20px;
+      margin-bottom: 50px;
+      font-family: "Broadway";
   }
   .form {
       width: 500px;
@@ -30,11 +35,19 @@ li {
   .B1 {
       margin-left: 0px;
       width: 165px;
+      font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
   }
   .B2 {
       margin-left: 125px;
       width: 165px;
+      font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
   }
   .hidden{
     visibility: hidden;
+  }
+  .body_ {
+    background: Linear-gradient(to bottom, #FBE485, #859CFB);
+    height: 89vh;
   }

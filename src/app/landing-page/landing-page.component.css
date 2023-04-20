@@ -12,11 +12,13 @@
       margin-bottom: 8px;
     }
     ul {
-      background-color: #F7F9FC;
-      margin-top: 25px;
-      padding: 30px 55px;
-      border-radius: 8px;
+        background-color: #F7F9FC;
+        padding: 17px 20px;
     }
+    button {
+        border-radius: 45px;
+    }
+    
     body {
       color: #4a4a4a;
     }

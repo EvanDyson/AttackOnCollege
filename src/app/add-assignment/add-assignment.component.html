@@ -50,10 +50,11 @@
     </nav>
 </body>
 
-
-<mat-card class="card">
+<div class="back">
+    
+    <mat-card class="card">
     <mat-card-header>
-      <mat-card-title style="color:white;" class="title">Create a New Assignment</mat-card-title>
+      <mat-card-title class="title">Create a New Assignment</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="assignmentForm">
@@ -114,4 +115,4 @@
       <button class="B2" mat-raised-button color="primary" (click)="createAssignment()">Create Assignment</button>
     </mat-card-actions>
   </mat-card>
-  
+</div>
