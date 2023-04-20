@@ -49,7 +49,7 @@ mat-icon {
 }
 .background {
   padding: 10vh;
-  background: linear-gradient(to bottom right, #1e1e1e, #4d4d4d);
+  background: Linear-gradient(to bottom, #FBE485, #859CFB);
   height: 83vh;
 }
 p {

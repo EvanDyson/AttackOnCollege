@@ -3,12 +3,13 @@ li {
   }
   ul {
     background-color: #F7F9FC;
-    margin-top: 25px;
-    padding: 30px 55px;
-    border-radius: 8px;
+    padding: 17px 20px;
   }
   .nav-item {
     margin: 10px 16px;
+  }
+  a {
+    border-radius: 45px;
   }
   .navbar-brand img {
     height: 46px;
@@ -20,7 +21,7 @@ li {
     margin-top: 20px;
   }
   .color {
-    background: linear-gradient(to bottom right, #1e1e1e, #4d4d4d);
+    background: Linear-gradient(to bottom, #FBE485, #859CFB);
     height: 965px;
   }
   h1 {
@@ -31,27 +32,39 @@ li {
     visibility: hidden;
   }
   table {
-    width: 100%;
     margin-top: 50px;
-     /*margin-right: 300px; */ 
   }
   .table_ {
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-left: 275px;
+    margin-right: 275px;
+  }
+  .lessons-table {
+    background-color: #eae1d0;
   }
   .title-cell {
     font-size: larger;
     width: 325px;
+    height: 60px;
+    text-align: center;
+    padding: 15px;
   }
   .description-cell {
     font-size: larger;
-    width: 500px;
+    width: 800px;
+    height: 60px;
+    text-align: center;
+    padding: 15px;
   }
-  /*.progress-cell {
-    font-size: larger;
-    width: 250px;
-  }*/
   .XPgain-cell {
     font-size: larger;
-    width: 325px;
+    width: 180px;
+    height: 60px;
+    text-align: center;
+    padding: 15px;
+  }
+  .achHeader {
+    color: white;
+    font-family: "Broadway";
+    font-size: 64px;
+    text-shadow: 0 0 15px #f6f21a
   }
