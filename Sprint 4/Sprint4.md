@@ -47,7 +47,7 @@ In addition, the proposed solution of using a ‘remote’ server such as SQLite
 Have each assignment in the database also have a field for the ID of the user who made the assignment. This would allow simple data-types to be stored in each column, which is supported by MySQL, SQLite, PostgreSQL, and other versions of SQL, along with GORM.
 
 #### Second issue
-Currently the implementation for edit user is not fully complete in the backend. The function and code is there but the implementation to front-end has not been completed. Therefore all the parts are currently in our system but we did not have the time to fully connect front-end to back-end.
+Currently, the implementation for edit user is not fully complete in the backend. The function and code is there but the implementation to front-end has not been completed. Therefore all the parts are currently in our system but we did not have the time to fully connect front-end to back-end.
 
 #### Resolution for the issue
 With more time we could have easily implemented this feature. It was not completed due to a matter of time and not skill or knowledge.
@@ -58,15 +58,15 @@ Along with the respective front-end functionality, the router and handler functi
 
 When the user is created, the password string is hashed and the hash is placed into the database. This hash will directly be used to compare the password during login. 
 
-Once the user is added to the database with no errors, a JSON object containing the email and username of the newly created user is passed back to the front-end as a confirmation method. This needs to be updated at this stage to make it more proctical for the front-end to conduct tests.
+Once the user is added to the database with no errors, a JSON object containing the email and username of the newly created user is passed back to the front-end as a confirmation method. This needs to be updated at this stage to make it more practical for the front-end to conduct tests.
 
 #### Notes on Date of Birth
 
-The date of birth has finally been fully updated and is stored in the format "MMM DD YYYY". This format can be used in Golang to convert the string into the time.Time variable which has a lot of important functionalities that are used to calculate the user age. The same function for date of birth formatting is used for formatting the due dates of assignments. This can also be used to assign priority to assignments based on the urgency of the due date and have them potentially displayed for the user to see assignments with the closest due dates. 
+The date of birth has finally been fully updated and is stored in the format "MMM DD YYYY". This format can be used in Golang to convert the string into the time. Time variable which has a lot of important functionalities that are used to calculate the user's age. The same function for date of birth formatting is used for formatting the due dates of assignments. This can also be used to assign priority to assignments based on the urgency of the due date and have them potentially displayed for the user to see assignments with the closest due dates. 
 
 #### Ideas for due dates
 
-Change due date formatting to store time due. Add a function to obtain urgency (difference between time.Now() and due date including time of the day difference) and then store it in the Assignment model. Then run through the assignments and get the top five. Optimization of this part is neccessary.
+Change due date formatting to store time due. Add a function to obtain urgency (difference between time. Now() and due date including time of the day difference) and then store it in the Assignment model. Then run through the assignments and get the top five. Optimization of this part is necessary.
 
 ### Login user
 
@@ -100,50 +100,50 @@ The other account is the testing account (AOCTest) which has several achievement
 
 The models package contains a struct called User which represents the profile that the website user will have. The struct has the following fields:
 
-1. Username: website handle that will be displayed on the profile, and will be used for looking up other users and displaying the global status on the ranked list of users. Gorm will require all emails in the database to be unique
-2. Email: a method of identification that will be used for logging in. Gorm will require all emails in the database to be unique
-3. Password: another part of identification
+1. Username: Website handle that will be displayed on the profile, and will be used for looking up other users and displaying the global status on the ranked list of users. Gorm will require all emails in the database to be unique
+2. Email: A method of identification that will be used for logging in. Gorm will require all emails in the database to be unique
+3. Password: Another part of identification
 4. First name and last name: Personalization of the user
-5. Date of Birth: user's date of birth. Could potentially be used to sent Birthday notifications
-6. Age: more personalized information for the user
-7. College and Major: these two will be used to potentially organize the leaderboards based on the user's environment. This way they will be able to compete against peers in their major and/or college.
-8. Current course: the code of the course that the user is currently taking. This is used to look up the course the student is taking in the database and access the assignments they have to take
-9. Course ID: the ID number of the course the user is taking. This is going to be used to implement user being able to track more than one course at a time
-10. Achievements: this is a list of IDs of the achievements the user has made. The list will be incremented as the user completes assignments and courses, and will provide additional experience points that will go toward levels.
-11. Assignments: this is a list of IDs of assignments the user had to do. The list is used to navigate the Assignments database and obtain details about assignments they have due. Since there are no unique restraints other than the ID, several users and the same user can have different assignments share the same information, but IDs will be different and each user will only be able to access their own assignments. Since the ID is stored into the array the moment the Assignment is added, each user has access to the IDs of only the assignments they added. Same applies to courses they add, so only they can access their final grade for the course.
-12. Level: this is the current level that the user has in our app. It is incremented based on a scale we are yet to determine, and it will be primarily used for additonal achievements and bonus experience points. It is supposed to present small step-by-step goals for users that would keep their interest and give them instant gratification that is neccessary when playing any game, and completing a class
-13. Experience points: the total number of experience points will be used to build a leaderboard of users used for competition
+5. Date of Birth: User's date of birth. Could potentially be used to send Birthday notifications
+6. Age: More personalized information for the user
+7. College and Major: These two will be used to potentially organize the leaderboards based on the user's environment. This way they will be able to compete against peers in their major and/or college.
+8. Current course: The code of the course that the user is currently taking. This is used to look up the course the student is taking in the database and access the assignments they have to take
+9. Course ID: The ID number of the course the user is taking. This is going to be used to implement the user being able to track more than one course at a time
+10. Achievements: This is a list of IDs of the achievements the user has made. The list will be incremented as the user completes assignments and courses, and will provide additional experience points that will go toward levels.
+11. Assignments: This is a list of IDs of assignments the user had to do. The list is used to navigate the Assignments database and obtain details about assignments they have due. Since there are no unique restraints other than the ID, several users and the same user can have different assignments share the same information, but IDs will be different and each user will only be able to access their own assignments. Since the ID is stored into the array the moment the Assignment is added, each user has access to the IDs of only the assignments they added. The same applies to courses they add, so only they can access their final grade for the course.
+12. Level: This is the current level that the user has in our app. It is incremented based on a scale we are yet to determine, and it will be primarily used for additional achievements and bonus experience points. It is supposed to present small step-by-step goals for users that would keep their interest and give them instant gratification that is necessary when playing any game, and completing a class
+13. Experience points: The total number of experience points will be used to build a leaderboard of users used for competition
 
 #### Course Struct and Database
 
 The course struct has the following fields:
 
-1. Title: course title that is just there for an easier access by the user
-2. Course code: the code that user's university uses for a course
-4. Final grade: the final grade earned in the course. It is used to calculate the experience points that will be earned after completing the course. 
-5. Experience points: the number of experience points that will be added to user once they complete the course 
-6. Gorm.Model has the field ID which is used to link users to the courses they are taking
+1. Title: Course title that is just there for easier access by the user
+2. Course code: The code that the user's university uses for a course
+3. Final grade: The final grade earned in the course. It is used to calculate the experience points that will be earned after completing the course. 
+4. Experience points: The number of experience points that will be added to the user once they complete the course 
+5. Gorm. Model has the field ID which is used to link users to the courses they are taking
 
 #### Assignment Struct and Database
 
 The assignment struct has the following fields:
 
-1. Title: the title of the assignment that is to be completed
-2. Description: the description of the assignment. This can be the requirements for the assignment, details the professor gave, type of assignment, etc.
-3. Due date: the due date of the assignment that can be used to display the most urgent assignments for the user
+1. Title: The title of the assignment that is to be completed
+2. Description: The description of the assignment. This can be the requirements for the assignment, details the professor gave, type of assignment, etc.
+3. Due date: The due date of the assignment that can be used to display the most urgent assignments for the user
 4. Assignment type: homework, quiz, exam, paper, etc.
-5. Number of Points: the total number of points that can be earned for the assignment
+5. Number of Points: The total number of points that can be earned for the assignment
 6. Weight: the grade weight. It is the percent of the final grade that this assignment will contribute to.
 7. Experience points: Total experience points earned upon completion of the assignment
-8. Points earned: the number of points that the user achieved upon completion
+8. Points earned: The number of points that the user achieved upon completion
 
 #### Achievement Struct and Database
 
 So far, only the basic fields of the achievement struct are made such as title, description and experience points.
 
-1. Title: name of the achievement
-2. Description: a message for the user that can contain information about how to obtain the achievement
-3. Experience points: the number of experience points a user will gain when they obtain the achevement
+1. Title: Name of the achievement
+2. Description: A message for the user that can contain information about how to obtain the achievement
+3. Experience points: The number of experience points a user will gain when they obtain the achevement
 
 ### Server setup
 
@@ -175,7 +175,7 @@ These are functions necessary for course and assignment creation and editing. Th
 
 #### Achievement controllers
 
-Functions for creating, editing, adding, obtaining and retreiving achievement information. They will be used in tandem with admin controllers to allow the administrator to manipulate achievements in the database.
+Functions for creating, editing, adding, obtaining and retrieving achievement information. They will be used in tandem with admin controllers to allow the administrator to manipulate achievements in the database.
 
 #### Administrator controllers
 
